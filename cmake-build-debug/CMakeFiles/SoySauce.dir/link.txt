@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/SoySauce.dir/main.cpp.o  -o SoySauce 

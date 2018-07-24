@@ -1,0 +1,5 @@
+/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src/CMakeFiles/edit_cache.dir
+/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src/CMakeFiles/rebuild_cache.dir
+/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src/CMakeFiles/SoySauce.dir
