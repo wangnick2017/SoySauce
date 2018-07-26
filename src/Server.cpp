@@ -13,6 +13,7 @@ namespace Soy
     };
 
     Server::Server()
+        : pImpl(std::make_unique<Impl>())
     {
     }
 

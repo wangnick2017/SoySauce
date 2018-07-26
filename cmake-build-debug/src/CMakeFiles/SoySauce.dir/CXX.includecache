@@ -11,6 +11,10 @@ string
 -
 memory
 -
+vector
+-
+utility
+-
 
 ../include/Raft/God.h
 Role.h
