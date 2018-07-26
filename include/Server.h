@@ -13,8 +13,8 @@ namespace Soy
     public:
         Server();
         ~Server();
-        Start();
-        Shutdown();
+        void Start();
+        void Shutdown();
     private:
         struct Impl;
         std::unique_ptr<Impl> pImpl;

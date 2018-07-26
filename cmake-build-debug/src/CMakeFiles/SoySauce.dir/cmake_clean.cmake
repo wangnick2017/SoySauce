@@ -1,7 +1,15 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/SoySauce.dir/main.cpp.o"
-  "SoySauce.pdb"
-  "SoySauce"
+  "CMakeFiles/SoySauce.dir/Raft/God.cpp.o"
+  "CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o"
+  "CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o"
+  "CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o"
+  "CMakeFiles/SoySauce.dir/Server.cpp.o"
+  "CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.grpc.pb.cc.o"
+  "CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.o"
+  "CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o"
+  "CMakeFiles/SoySauce.dir/Rpc/Soy.pb.cc.o"
+  "libSoySauce.pdb"
+  "libSoySauce.a"
 )
 
 # Per-language clean rules from dependency scanning.

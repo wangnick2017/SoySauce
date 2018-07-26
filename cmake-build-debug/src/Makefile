@@ -125,32 +125,248 @@ SoySauce/fast:
 	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/build
 .PHONY : SoySauce/fast
 
-main.o: main.cpp.o
+Raft/God.o: Raft/God.cpp.o
 
-.PHONY : main.o
+.PHONY : Raft/God.o
 
 # target to build an object file
-main.cpp.o:
-	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/main.cpp.o
-.PHONY : main.cpp.o
+Raft/God.cpp.o:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o
+.PHONY : Raft/God.cpp.o
 
-main.i: main.cpp.i
+Raft/God.i: Raft/God.cpp.i
 
-.PHONY : main.i
+.PHONY : Raft/God.i
 
 # target to preprocess a source file
-main.cpp.i:
-	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/main.cpp.i
-.PHONY : main.cpp.i
+Raft/God.cpp.i:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/God.cpp.i
+.PHONY : Raft/God.cpp.i
 
-main.s: main.cpp.s
+Raft/God.s: Raft/God.cpp.s
 
-.PHONY : main.s
+.PHONY : Raft/God.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/main.cpp.s
-.PHONY : main.cpp.s
+Raft/God.cpp.s:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/God.cpp.s
+.PHONY : Raft/God.cpp.s
+
+Raft/Role/RoleCandidate.o: Raft/Role/RoleCandidate.cpp.o
+
+.PHONY : Raft/Role/RoleCandidate.o
+
+# target to build an object file
+Raft/Role/RoleCandidate.cpp.o:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o
+.PHONY : Raft/Role/RoleCandidate.cpp.o
+
+Raft/Role/RoleCandidate.i: Raft/Role/RoleCandidate.cpp.i
+
+.PHONY : Raft/Role/RoleCandidate.i
+
+# target to preprocess a source file
+Raft/Role/RoleCandidate.cpp.i:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.i
+.PHONY : Raft/Role/RoleCandidate.cpp.i
+
+Raft/Role/RoleCandidate.s: Raft/Role/RoleCandidate.cpp.s
+
+.PHONY : Raft/Role/RoleCandidate.s
+
+# target to generate assembly for a file
+Raft/Role/RoleCandidate.cpp.s:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.s
+.PHONY : Raft/Role/RoleCandidate.cpp.s
+
+Raft/Role/RoleFollower.o: Raft/Role/RoleFollower.cpp.o
+
+.PHONY : Raft/Role/RoleFollower.o
+
+# target to build an object file
+Raft/Role/RoleFollower.cpp.o:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o
+.PHONY : Raft/Role/RoleFollower.cpp.o
+
+Raft/Role/RoleFollower.i: Raft/Role/RoleFollower.cpp.i
+
+.PHONY : Raft/Role/RoleFollower.i
+
+# target to preprocess a source file
+Raft/Role/RoleFollower.cpp.i:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.i
+.PHONY : Raft/Role/RoleFollower.cpp.i
+
+Raft/Role/RoleFollower.s: Raft/Role/RoleFollower.cpp.s
+
+.PHONY : Raft/Role/RoleFollower.s
+
+# target to generate assembly for a file
+Raft/Role/RoleFollower.cpp.s:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.s
+.PHONY : Raft/Role/RoleFollower.cpp.s
+
+Raft/Role/RoleLeader.o: Raft/Role/RoleLeader.cpp.o
+
+.PHONY : Raft/Role/RoleLeader.o
+
+# target to build an object file
+Raft/Role/RoleLeader.cpp.o:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o
+.PHONY : Raft/Role/RoleLeader.cpp.o
+
+Raft/Role/RoleLeader.i: Raft/Role/RoleLeader.cpp.i
+
+.PHONY : Raft/Role/RoleLeader.i
+
+# target to preprocess a source file
+Raft/Role/RoleLeader.cpp.i:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.i
+.PHONY : Raft/Role/RoleLeader.cpp.i
+
+Raft/Role/RoleLeader.s: Raft/Role/RoleLeader.cpp.s
+
+.PHONY : Raft/Role/RoleLeader.s
+
+# target to generate assembly for a file
+Raft/Role/RoleLeader.cpp.s:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.s
+.PHONY : Raft/Role/RoleLeader.cpp.s
+
+Raft/Rpc/Raft.grpc.pb.o: Raft/Rpc/Raft.grpc.pb.cc.o
+
+.PHONY : Raft/Rpc/Raft.grpc.pb.o
+
+# target to build an object file
+Raft/Rpc/Raft.grpc.pb.cc.o:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.grpc.pb.cc.o
+.PHONY : Raft/Rpc/Raft.grpc.pb.cc.o
+
+Raft/Rpc/Raft.grpc.pb.i: Raft/Rpc/Raft.grpc.pb.cc.i
+
+.PHONY : Raft/Rpc/Raft.grpc.pb.i
+
+# target to preprocess a source file
+Raft/Rpc/Raft.grpc.pb.cc.i:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.grpc.pb.cc.i
+.PHONY : Raft/Rpc/Raft.grpc.pb.cc.i
+
+Raft/Rpc/Raft.grpc.pb.s: Raft/Rpc/Raft.grpc.pb.cc.s
+
+.PHONY : Raft/Rpc/Raft.grpc.pb.s
+
+# target to generate assembly for a file
+Raft/Rpc/Raft.grpc.pb.cc.s:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.grpc.pb.cc.s
+.PHONY : Raft/Rpc/Raft.grpc.pb.cc.s
+
+Raft/Rpc/Raft.pb.o: Raft/Rpc/Raft.pb.cc.o
+
+.PHONY : Raft/Rpc/Raft.pb.o
+
+# target to build an object file
+Raft/Rpc/Raft.pb.cc.o:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.o
+.PHONY : Raft/Rpc/Raft.pb.cc.o
+
+Raft/Rpc/Raft.pb.i: Raft/Rpc/Raft.pb.cc.i
+
+.PHONY : Raft/Rpc/Raft.pb.i
+
+# target to preprocess a source file
+Raft/Rpc/Raft.pb.cc.i:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.i
+.PHONY : Raft/Rpc/Raft.pb.cc.i
+
+Raft/Rpc/Raft.pb.s: Raft/Rpc/Raft.pb.cc.s
+
+.PHONY : Raft/Rpc/Raft.pb.s
+
+# target to generate assembly for a file
+Raft/Rpc/Raft.pb.cc.s:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.s
+.PHONY : Raft/Rpc/Raft.pb.cc.s
+
+Rpc/Soy.grpc.pb.o: Rpc/Soy.grpc.pb.cc.o
+
+.PHONY : Rpc/Soy.grpc.pb.o
+
+# target to build an object file
+Rpc/Soy.grpc.pb.cc.o:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o
+.PHONY : Rpc/Soy.grpc.pb.cc.o
+
+Rpc/Soy.grpc.pb.i: Rpc/Soy.grpc.pb.cc.i
+
+.PHONY : Rpc/Soy.grpc.pb.i
+
+# target to preprocess a source file
+Rpc/Soy.grpc.pb.cc.i:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.i
+.PHONY : Rpc/Soy.grpc.pb.cc.i
+
+Rpc/Soy.grpc.pb.s: Rpc/Soy.grpc.pb.cc.s
+
+.PHONY : Rpc/Soy.grpc.pb.s
+
+# target to generate assembly for a file
+Rpc/Soy.grpc.pb.cc.s:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.s
+.PHONY : Rpc/Soy.grpc.pb.cc.s
+
+Rpc/Soy.pb.o: Rpc/Soy.pb.cc.o
+
+.PHONY : Rpc/Soy.pb.o
+
+# target to build an object file
+Rpc/Soy.pb.cc.o:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Rpc/Soy.pb.cc.o
+.PHONY : Rpc/Soy.pb.cc.o
+
+Rpc/Soy.pb.i: Rpc/Soy.pb.cc.i
+
+.PHONY : Rpc/Soy.pb.i
+
+# target to preprocess a source file
+Rpc/Soy.pb.cc.i:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Rpc/Soy.pb.cc.i
+.PHONY : Rpc/Soy.pb.cc.i
+
+Rpc/Soy.pb.s: Rpc/Soy.pb.cc.s
+
+.PHONY : Rpc/Soy.pb.s
+
+# target to generate assembly for a file
+Rpc/Soy.pb.cc.s:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Rpc/Soy.pb.cc.s
+.PHONY : Rpc/Soy.pb.cc.s
+
+Server.o: Server.cpp.o
+
+.PHONY : Server.o
+
+# target to build an object file
+Server.cpp.o:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Server.cpp.o
+.PHONY : Server.cpp.o
+
+Server.i: Server.cpp.i
+
+.PHONY : Server.i
+
+# target to preprocess a source file
+Server.cpp.i:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Server.cpp.i
+.PHONY : Server.cpp.i
+
+Server.s: Server.cpp.s
+
+.PHONY : Server.s
+
+# target to generate assembly for a file
+Server.cpp.s:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Server.cpp.s
+.PHONY : Server.cpp.s
 
 # Help Target
 help:
@@ -161,9 +377,33 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SoySauce"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... Raft/God.o"
+	@echo "... Raft/God.i"
+	@echo "... Raft/God.s"
+	@echo "... Raft/Role/RoleCandidate.o"
+	@echo "... Raft/Role/RoleCandidate.i"
+	@echo "... Raft/Role/RoleCandidate.s"
+	@echo "... Raft/Role/RoleFollower.o"
+	@echo "... Raft/Role/RoleFollower.i"
+	@echo "... Raft/Role/RoleFollower.s"
+	@echo "... Raft/Role/RoleLeader.o"
+	@echo "... Raft/Role/RoleLeader.i"
+	@echo "... Raft/Role/RoleLeader.s"
+	@echo "... Raft/Rpc/Raft.grpc.pb.o"
+	@echo "... Raft/Rpc/Raft.grpc.pb.i"
+	@echo "... Raft/Rpc/Raft.grpc.pb.s"
+	@echo "... Raft/Rpc/Raft.pb.o"
+	@echo "... Raft/Rpc/Raft.pb.i"
+	@echo "... Raft/Rpc/Raft.pb.s"
+	@echo "... Rpc/Soy.grpc.pb.o"
+	@echo "... Rpc/Soy.grpc.pb.i"
+	@echo "... Rpc/Soy.grpc.pb.s"
+	@echo "... Rpc/Soy.pb.o"
+	@echo "... Rpc/Soy.pb.i"
+	@echo "... Rpc/Soy.pb.s"
+	@echo "... Server.o"
+	@echo "... Server.i"
+	@echo "... Server.s"
 .PHONY : help
 
 

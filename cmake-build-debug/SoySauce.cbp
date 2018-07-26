@@ -5,7 +5,7 @@
 		<Option title="SoySauce"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\src\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\protos\;CMake Files\src\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug"/>
@@ -38,19 +38,22 @@
 				</MakeCommands>
 			</Target>
 			<Target title="SoySauce">
-				<Option output="/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src/SoySauce" prefix_auto="0" extension_auto="0"/>
+				<Option output="/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src/libSoySauce.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src"/>
 				<Option object_output="./"/>
-				<Option type="1"/>
+				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/wangnick/Desktop/projects/SoySauce/include"/>
+					<Add directory="/home/wangnick/Desktop/projects/SoySauce/include/Rpc"/>
 					<Add directory="/home/wangnick/Desktop/projects/SoySauce/include/Raft"/>
-					<Add directory="/home/wangnick/Desktop/projects/SoySauce/include/Raft/ServerState"/>
+					<Add directory="/home/wangnick/Desktop/projects/SoySauce/include/Raft/Rpc"/>
+					<Add directory="/home/wangnick/Desktop/projects/SoySauce/include/Raft/Role"/>
+					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
-					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
@@ -63,19 +66,22 @@
 				</MakeCommands>
 			</Target>
 			<Target title="SoySauce/fast">
-				<Option output="/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src/SoySauce" prefix_auto="0" extension_auto="0"/>
+				<Option output="/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src/libSoySauce.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src"/>
 				<Option object_output="./"/>
-				<Option type="1"/>
+				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/wangnick/Desktop/projects/SoySauce/include"/>
+					<Add directory="/home/wangnick/Desktop/projects/SoySauce/include/Rpc"/>
 					<Add directory="/home/wangnick/Desktop/projects/SoySauce/include/Raft"/>
-					<Add directory="/home/wangnick/Desktop/projects/SoySauce/include/Raft/ServerState"/>
+					<Add directory="/home/wangnick/Desktop/projects/SoySauce/include/Raft/Rpc"/>
+					<Add directory="/home/wangnick/Desktop/projects/SoySauce/include/Raft/Role"/>
+					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
-					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
@@ -88,11 +94,38 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/main.cpp">
+		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/Raft/God.cpp">
+			<Option target="SoySauce"/>
+		</Unit>
+		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleCandidate.cpp">
+			<Option target="SoySauce"/>
+		</Unit>
+		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleFollower.cpp">
+			<Option target="SoySauce"/>
+		</Unit>
+		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleLeader.cpp">
+			<Option target="SoySauce"/>
+		</Unit>
+		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/Raft/Rpc/Raft.grpc.pb.cc">
+			<Option target="SoySauce"/>
+		</Unit>
+		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/Raft/Rpc/Raft.pb.cc">
+			<Option target="SoySauce"/>
+		</Unit>
+		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/Rpc/Soy.grpc.pb.cc">
+			<Option target="SoySauce"/>
+		</Unit>
+		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/Rpc/Soy.pb.cc">
+			<Option target="SoySauce"/>
+		</Unit>
+		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/Server.cpp">
 			<Option target="SoySauce"/>
 		</Unit>
 		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/protos/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\protos\"/>
 		</Unit>
 		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\src\"/>

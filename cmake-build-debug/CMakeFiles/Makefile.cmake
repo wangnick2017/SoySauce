@@ -11,6 +11,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.10.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.10.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.10.3/CMakeSystem.cmake"
+  "../protos/CMakeLists.txt"
   "../src/CMakeLists.txt"
   "/home/wangnick/Downloads/clion-2018.1.6/bin/cmake/share/cmake-3.10/Modules/CMakeCInformation.cmake"
   "/home/wangnick/Downloads/clion-2018.1.6/bin/cmake/share/cmake-3.10/Modules/CMakeCXXInformation.cmake"
@@ -31,6 +32,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/wangnick/Downloads/clion-2018.1.6/bin/cmake/share/cmake-3.10/Modules/FindBoost.cmake"
   "/home/wangnick/Downloads/clion-2018.1.6/bin/cmake/share/cmake-3.10/Modules/FindPackageHandleStandardArgs.cmake"
   "/home/wangnick/Downloads/clion-2018.1.6/bin/cmake/share/cmake-3.10/Modules/FindPackageMessage.cmake"
+  "/home/wangnick/Downloads/clion-2018.1.6/bin/cmake/share/cmake-3.10/Modules/FindProtobuf.cmake"
   "/home/wangnick/Downloads/clion-2018.1.6/bin/cmake/share/cmake-3.10/Modules/FindThreads.cmake"
   "/home/wangnick/Downloads/clion-2018.1.6/bin/cmake/share/cmake-3.10/Modules/Platform/Linux-GNU-C.cmake"
   "/home/wangnick/Downloads/clion-2018.1.6/bin/cmake/share/cmake-3.10/Modules/Platform/Linux-GNU-CXX.cmake"
@@ -38,6 +40,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/wangnick/Downloads/clion-2018.1.6/bin/cmake/share/cmake-3.10/Modules/Platform/Linux.cmake"
   "/home/wangnick/Downloads/clion-2018.1.6/bin/cmake/share/cmake-3.10/Modules/Platform/UnixPaths.cmake"
   "/home/wangnick/Downloads/clion-2018.1.6/bin/cmake/share/cmake-3.10/Modules/ProcessorCount.cmake"
+  "/home/wangnick/Downloads/clion-2018.1.6/bin/cmake/share/cmake-3.10/Modules/SelectLibraryConfigurations.cmake"
   )
 
 # The corresponding makefile is:
@@ -49,6 +52,7 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "protos/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
