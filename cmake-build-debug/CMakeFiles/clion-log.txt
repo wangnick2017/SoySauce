@@ -3,9 +3,13 @@
 -- Found the following Boost libraries:
 --   chrono
 --   thread
+--   log
 --   system
 --   date_time
 --   atomic
+--   log_setup
+--   filesystem
+--   regex
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug

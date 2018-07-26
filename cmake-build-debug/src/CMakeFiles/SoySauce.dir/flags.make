@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++1z
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/home/wangnick/Desktop/projects/SoySauce/include/Raft -I/home/wangnick/Desktop/projects/SoySauce/include/Raft/ServerState 
 

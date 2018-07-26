@@ -6,13 +6,19 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(Boost REQUIRED COMPONENTS
         chrono
         thread
+        log
         )
+
 if(NOT Boost_FOUND)
     message("Not found Boost")
 endif()
 
 include_directories(${Boost_INCLUDE_DIRS})
 
+include_directories(
+        include/Raft
+        include/Raft/ServerState
+)
 
 
-ADD_SUBDIRECTORY(src)
+add_subdirectory(src)

@@ -11,4 +11,12 @@ iostream
 -
 algorithm
 -
+cstring
+-
+cstdio
+-
+string
+-
+cstdlib
+-
 

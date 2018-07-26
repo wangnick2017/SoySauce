@@ -92,9 +92,13 @@ src/SoySauce: src/CMakeFiles/SoySauce.dir/main.cpp.o
 src/SoySauce: src/CMakeFiles/SoySauce.dir/build.make
 src/SoySauce: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
 src/SoySauce: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+src/SoySauce: /usr/lib/x86_64-linux-gnu/libboost_log.so
 src/SoySauce: /usr/lib/x86_64-linux-gnu/libboost_system.so
 src/SoySauce: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
 src/SoySauce: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+src/SoySauce: /usr/lib/x86_64-linux-gnu/libboost_log_setup.so
+src/SoySauce: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+src/SoySauce: /usr/lib/x86_64-linux-gnu/libboost_regex.so
 src/SoySauce: src/CMakeFiles/SoySauce.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable SoySauce"
 	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SoySauce.dir/link.txt --verbose=$(VERBOSE)
