@@ -3,30 +3,39 @@
 //
 
 #include "Server.h"
+#include "ServerInfo.h"
 #include "God.h"
+
+using namespace std;
 
 namespace Soy
 {
     struct Server::Impl
     {
         Raft::God god;
+        ServerInfo info;
+
+        Impl(const string &fileName)
+        {
+            info.Load(fileName);
+        }
     };
 
-    Server::Server()
-        : pImpl(std::make_unique<Impl>())
+    Server::Server(const string &fileName)
+        : pImpl(make_unique<Impl>(fileName))
     {
     }
 
-    Server::~Server()
-    {
-    }
+    Server::~Server() = default;
 
     void Server::Start()
     {
+        pImpl->god.Start();
     }
 
     void Server::Shutdown()
     {
+        pImpl->god.Shutdown();
     }
 }
 

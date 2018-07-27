@@ -368,6 +368,33 @@ Server.cpp.s:
 	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Server.cpp.s
 .PHONY : Server.cpp.s
 
+ServerInfo.o: ServerInfo.cpp.o
+
+.PHONY : ServerInfo.o
+
+# target to build an object file
+ServerInfo.cpp.o:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o
+.PHONY : ServerInfo.cpp.o
+
+ServerInfo.i: ServerInfo.cpp.i
+
+.PHONY : ServerInfo.i
+
+# target to preprocess a source file
+ServerInfo.cpp.i:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.i
+.PHONY : ServerInfo.cpp.i
+
+ServerInfo.s: ServerInfo.cpp.s
+
+.PHONY : ServerInfo.s
+
+# target to generate assembly for a file
+ServerInfo.cpp.s:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.s
+.PHONY : ServerInfo.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -404,6 +431,9 @@ help:
 	@echo "... Server.o"
 	@echo "... Server.i"
 	@echo "... Server.s"
+	@echo "... ServerInfo.o"
+	@echo "... ServerInfo.i"
+	@echo "... ServerInfo.s"
 .PHONY : help
 
 

@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/wangnick/Desktop/projects/SoySauce/src/Rpc/Soy.grpc.pb.cc" "/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o"
   "/home/wangnick/Desktop/projects/SoySauce/src/Rpc/Soy.pb.cc" "/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src/CMakeFiles/SoySauce.dir/Rpc/Soy.pb.cc.o"
   "/home/wangnick/Desktop/projects/SoySauce/src/Server.cpp" "/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src/CMakeFiles/SoySauce.dir/Server.cpp.o"
+  "/home/wangnick/Desktop/projects/SoySauce/src/ServerInfo.cpp" "/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -15,6 +15,16 @@ vector
 -
 utility
 -
+algorithm
+-
+Exceptions.hpp
+../include/Exceptions.hpp
+
+../include/Exceptions.hpp
+string
+-
+exception
+-
 
 ../include/Raft/God.h
 Role.h
@@ -140,9 +150,15 @@ google/protobuf/extension_set.h
 Base.h
 ../include/Base.h
 
+../include/ServerInfo.h
+Base.h
+../include/Base.h
+
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/God.cpp
 God.h
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/God.h
+Role.h
+/home/wangnick/Desktop/projects/SoySauce/src/Raft/Role.h
 
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleCandidate.cpp
 RoleCandidate.h
@@ -255,8 +271,18 @@ third_party/protobuf/version.h
 /home/wangnick/Desktop/projects/SoySauce/src/Server.cpp
 Server.h
 /home/wangnick/Desktop/projects/SoySauce/src/Server.h
+ServerInfo.h
+/home/wangnick/Desktop/projects/SoySauce/src/ServerInfo.h
 God.h
 /home/wangnick/Desktop/projects/SoySauce/src/God.h
+
+/home/wangnick/Desktop/projects/SoySauce/src/ServerInfo.cpp
+ServerInfo.h
+/home/wangnick/Desktop/projects/SoySauce/src/ServerInfo.h
+boost/property_tree/json_parser.hpp
+-
+boost/property_tree/ptree.hpp
+-
 
 /usr/local/include/google/protobuf/arena.h
 limits

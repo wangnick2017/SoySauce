@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o"
   "CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o"
   "CMakeFiles/SoySauce.dir/Server.cpp.o"
+  "CMakeFiles/SoySauce.dir/ServerInfo.cpp.o"
   "CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.grpc.pb.cc.o"
   "CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.o"
   "CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o"

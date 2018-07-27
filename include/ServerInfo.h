@@ -8,8 +8,16 @@
 
 namespace Soy
 {
+    using Port = std::uint16_t;
+
     class ServerID
     {
+    public:
+        ServerID(const std::string &s = "");
+        std::string ToString() const;
+    private:
+        std::string address;
+        Port port;
     };
 
     class ServerInfo

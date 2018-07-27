@@ -17,6 +17,7 @@ namespace Soy
             God();
             ~God();
             void Start();
+            void Shutdown();
         private:
             struct Impl;
             std::unique_ptr<Impl> pImpl;

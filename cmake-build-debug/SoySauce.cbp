@@ -121,6 +121,9 @@
 		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/Server.cpp">
 			<Option target="SoySauce"/>
 		</Unit>
+		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/ServerInfo.cpp">
+			<Option target="SoySauce"/>
+		</Unit>
 		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

@@ -177,9 +177,33 @@ src/CMakeFiles/SoySauce.dir/Server.cpp.o.provides: src/CMakeFiles/SoySauce.dir/S
 src/CMakeFiles/SoySauce.dir/Server.cpp.o.provides.build: src/CMakeFiles/SoySauce.dir/Server.cpp.o
 
 
+src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o: src/CMakeFiles/SoySauce.dir/flags.make
+src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o: ../src/ServerInfo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o"
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SoySauce.dir/ServerInfo.cpp.o -c /home/wangnick/Desktop/projects/SoySauce/src/ServerInfo.cpp
+
+src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SoySauce.dir/ServerInfo.cpp.i"
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wangnick/Desktop/projects/SoySauce/src/ServerInfo.cpp > CMakeFiles/SoySauce.dir/ServerInfo.cpp.i
+
+src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SoySauce.dir/ServerInfo.cpp.s"
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wangnick/Desktop/projects/SoySauce/src/ServerInfo.cpp -o CMakeFiles/SoySauce.dir/ServerInfo.cpp.s
+
+src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o.requires:
+
+.PHONY : src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o.requires
+
+src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o.provides: src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o.requires
+	$(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o.provides.build
+.PHONY : src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o.provides
+
+src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o.provides.build: src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o
+
+
 src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.grpc.pb.cc.o: src/CMakeFiles/SoySauce.dir/flags.make
 src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.grpc.pb.cc.o: ../src/Raft/Rpc/Raft.grpc.pb.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.grpc.pb.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.grpc.pb.cc.o"
 	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.grpc.pb.cc.o -c /home/wangnick/Desktop/projects/SoySauce/src/Raft/Rpc/Raft.grpc.pb.cc
 
 src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.grpc.pb.cc.i: cmake_force
@@ -203,7 +227,7 @@ src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.grpc.pb.cc.o.provides.build: src/CMake
 
 src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.o: src/CMakeFiles/SoySauce.dir/flags.make
 src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.o: ../src/Raft/Rpc/Raft.pb.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.o"
 	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.o -c /home/wangnick/Desktop/projects/SoySauce/src/Raft/Rpc/Raft.pb.cc
 
 src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.i: cmake_force
@@ -227,7 +251,7 @@ src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.o.provides.build: src/CMakeFiles
 
 src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o: src/CMakeFiles/SoySauce.dir/flags.make
 src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o: ../src/Rpc/Soy.grpc.pb.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o"
 	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o -c /home/wangnick/Desktop/projects/SoySauce/src/Rpc/Soy.grpc.pb.cc
 
 src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.i: cmake_force
@@ -251,7 +275,7 @@ src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o.provides.build: src/CMakeFiles/
 
 src/CMakeFiles/SoySauce.dir/Rpc/Soy.pb.cc.o: src/CMakeFiles/SoySauce.dir/flags.make
 src/CMakeFiles/SoySauce.dir/Rpc/Soy.pb.cc.o: ../src/Rpc/Soy.pb.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/SoySauce.dir/Rpc/Soy.pb.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/SoySauce.dir/Rpc/Soy.pb.cc.o"
 	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SoySauce.dir/Rpc/Soy.pb.cc.o -c /home/wangnick/Desktop/projects/SoySauce/src/Rpc/Soy.pb.cc
 
 src/CMakeFiles/SoySauce.dir/Rpc/Soy.pb.cc.i: cmake_force
@@ -280,6 +304,7 @@ SoySauce_OBJECTS = \
 "CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o" \
 "CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o" \
 "CMakeFiles/SoySauce.dir/Server.cpp.o" \
+"CMakeFiles/SoySauce.dir/ServerInfo.cpp.o" \
 "CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.grpc.pb.cc.o" \
 "CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.o" \
 "CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o" \
@@ -293,13 +318,14 @@ src/libSoySauce.a: src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o
 src/libSoySauce.a: src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o
 src/libSoySauce.a: src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o
 src/libSoySauce.a: src/CMakeFiles/SoySauce.dir/Server.cpp.o
+src/libSoySauce.a: src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o
 src/libSoySauce.a: src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.grpc.pb.cc.o
 src/libSoySauce.a: src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.o
 src/libSoySauce.a: src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o
 src/libSoySauce.a: src/CMakeFiles/SoySauce.dir/Rpc/Soy.pb.cc.o
 src/libSoySauce.a: src/CMakeFiles/SoySauce.dir/build.make
 src/libSoySauce.a: src/CMakeFiles/SoySauce.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library libSoySauce.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library libSoySauce.a"
 	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src && $(CMAKE_COMMAND) -P CMakeFiles/SoySauce.dir/cmake_clean_target.cmake
 	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SoySauce.dir/link.txt --verbose=$(VERBOSE)
 
@@ -313,6 +339,7 @@ src/CMakeFiles/SoySauce.dir/requires: src/CMakeFiles/SoySauce.dir/Raft/Role/Role
 src/CMakeFiles/SoySauce.dir/requires: src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o.requires
 src/CMakeFiles/SoySauce.dir/requires: src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o.requires
 src/CMakeFiles/SoySauce.dir/requires: src/CMakeFiles/SoySauce.dir/Server.cpp.o.requires
+src/CMakeFiles/SoySauce.dir/requires: src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o.requires
 src/CMakeFiles/SoySauce.dir/requires: src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.grpc.pb.cc.o.requires
 src/CMakeFiles/SoySauce.dir/requires: src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.o.requires
 src/CMakeFiles/SoySauce.dir/requires: src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o.requires

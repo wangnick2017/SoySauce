@@ -10,6 +10,13 @@ namespace Soy
 {
     namespace Raft
     {
+        const int RoleNumber = 3;
+
+        enum class RoleTh
+        {
+            Follower, Candidate, Leader, Dead
+        };
+
         class RoleBase
         {
         public:

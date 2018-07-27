@@ -3,6 +3,7 @@
 
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o
  ../include/Base.h
+ ../include/Exceptions.hpp
  ../include/Raft/God.h
  ../include/Raft/Role/Role.h
  ../include/Raft/Role/RoleBase.h
@@ -12,16 +13,19 @@ src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o
  /home/wangnick/Desktop/projects/SoySauce/src/Raft/God.cpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o
  ../include/Base.h
+ ../include/Exceptions.hpp
  ../include/Raft/Role/RoleBase.h
  ../include/Raft/Role/RoleCandidate.h
  /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleCandidate.cpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o
  ../include/Base.h
+ ../include/Exceptions.hpp
  ../include/Raft/Role/RoleBase.h
  ../include/Raft/Role/RoleFollower.h
  /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleFollower.cpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o
  ../include/Base.h
+ ../include/Exceptions.hpp
  ../include/Raft/Role/RoleBase.h
  ../include/Raft/Role/RoleLeader.h
  /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleLeader.cpp
@@ -369,6 +373,7 @@ src/CMakeFiles/SoySauce.dir/Rpc/Soy.pb.cc.o
  /usr/local/include/google/protobuf/wire_format_lite_inl.h
 src/CMakeFiles/SoySauce.dir/Server.cpp.o
  ../include/Base.h
+ ../include/Exceptions.hpp
  ../include/Raft/God.h
  ../include/Raft/Role/Role.h
  ../include/Raft/Role/RoleBase.h
@@ -376,4 +381,10 @@ src/CMakeFiles/SoySauce.dir/Server.cpp.o
  ../include/Raft/Role/RoleFollower.h
  ../include/Raft/Role/RoleLeader.h
  ../include/Server.h
+ ../include/ServerInfo.h
  /home/wangnick/Desktop/projects/SoySauce/src/Server.cpp
+src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o
+ ../include/Base.h
+ ../include/Exceptions.hpp
+ ../include/ServerInfo.h
+ /home/wangnick/Desktop/projects/SoySauce/src/ServerInfo.cpp

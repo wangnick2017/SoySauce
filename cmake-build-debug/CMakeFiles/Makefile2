@@ -102,7 +102,7 @@ src/preinstall:
 src/CMakeFiles/SoySauce.dir/all:
 	$(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/depend
 	$(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target SoySauce"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target SoySauce"
 .PHONY : src/CMakeFiles/SoySauce.dir/all
 
 # Include target in all.
@@ -112,7 +112,7 @@ all: src/CMakeFiles/SoySauce.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/SoySauce.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles 11
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/SoySauce.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/CMakeFiles 0
 .PHONY : src/CMakeFiles/SoySauce.dir/rule

@@ -11,7 +11,7 @@ namespace Soy
     class Server
     {
     public:
-        Server();
+        Server(const std::string &fileName);
         ~Server();
         void Start();
         void Shutdown();
