@@ -26,6 +26,190 @@ class ServerContext;
 namespace Soy {
 namespace Rpc {
 
+class External final {
+ public:
+  static constexpr char const* service_full_name() {
+    return "Soy.Rpc.External";
+  }
+  class StubInterface {
+   public:
+    virtual ~StubInterface() {}
+    virtual ::grpc::Status Put(::grpc::ClientContext* context, const ::Soy::Rpc::PutRequest& request, ::Soy::Rpc::PutReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Soy::Rpc::PutReply>> AsyncPut(::grpc::ClientContext* context, const ::Soy::Rpc::PutRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Soy::Rpc::PutReply>>(AsyncPutRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Soy::Rpc::PutReply>> PrepareAsyncPut(::grpc::ClientContext* context, const ::Soy::Rpc::PutRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Soy::Rpc::PutReply>>(PrepareAsyncPutRaw(context, request, cq));
+    }
+    virtual ::grpc::Status Get(::grpc::ClientContext* context, const ::Soy::Rpc::GetRequest& request, ::Soy::Rpc::GetReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Soy::Rpc::GetReply>> AsyncGet(::grpc::ClientContext* context, const ::Soy::Rpc::GetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Soy::Rpc::GetReply>>(AsyncGetRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Soy::Rpc::GetReply>> PrepareAsyncGet(::grpc::ClientContext* context, const ::Soy::Rpc::GetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Soy::Rpc::GetReply>>(PrepareAsyncGetRaw(context, request, cq));
+    }
+  private:
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Soy::Rpc::PutReply>* AsyncPutRaw(::grpc::ClientContext* context, const ::Soy::Rpc::PutRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Soy::Rpc::PutReply>* PrepareAsyncPutRaw(::grpc::ClientContext* context, const ::Soy::Rpc::PutRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Soy::Rpc::GetReply>* AsyncGetRaw(::grpc::ClientContext* context, const ::Soy::Rpc::GetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Soy::Rpc::GetReply>* PrepareAsyncGetRaw(::grpc::ClientContext* context, const ::Soy::Rpc::GetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+  };
+  class Stub final : public StubInterface {
+   public:
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
+    ::grpc::Status Put(::grpc::ClientContext* context, const ::Soy::Rpc::PutRequest& request, ::Soy::Rpc::PutReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Soy::Rpc::PutReply>> AsyncPut(::grpc::ClientContext* context, const ::Soy::Rpc::PutRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Soy::Rpc::PutReply>>(AsyncPutRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Soy::Rpc::PutReply>> PrepareAsyncPut(::grpc::ClientContext* context, const ::Soy::Rpc::PutRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Soy::Rpc::PutReply>>(PrepareAsyncPutRaw(context, request, cq));
+    }
+    ::grpc::Status Get(::grpc::ClientContext* context, const ::Soy::Rpc::GetRequest& request, ::Soy::Rpc::GetReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Soy::Rpc::GetReply>> AsyncGet(::grpc::ClientContext* context, const ::Soy::Rpc::GetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Soy::Rpc::GetReply>>(AsyncGetRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Soy::Rpc::GetReply>> PrepareAsyncGet(::grpc::ClientContext* context, const ::Soy::Rpc::GetRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Soy::Rpc::GetReply>>(PrepareAsyncGetRaw(context, request, cq));
+    }
+
+   private:
+    std::shared_ptr< ::grpc::ChannelInterface> channel_;
+    ::grpc::ClientAsyncResponseReader< ::Soy::Rpc::PutReply>* AsyncPutRaw(::grpc::ClientContext* context, const ::Soy::Rpc::PutRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::Soy::Rpc::PutReply>* PrepareAsyncPutRaw(::grpc::ClientContext* context, const ::Soy::Rpc::PutRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::Soy::Rpc::GetReply>* AsyncGetRaw(::grpc::ClientContext* context, const ::Soy::Rpc::GetRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::Soy::Rpc::GetReply>* PrepareAsyncGetRaw(::grpc::ClientContext* context, const ::Soy::Rpc::GetRequest& request, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_Put_;
+    const ::grpc::internal::RpcMethod rpcmethod_Get_;
+  };
+  static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
+
+  class Service : public ::grpc::Service {
+   public:
+    Service();
+    virtual ~Service();
+    virtual ::grpc::Status Put(::grpc::ServerContext* context, const ::Soy::Rpc::PutRequest* request, ::Soy::Rpc::PutReply* response);
+    virtual ::grpc::Status Get(::grpc::ServerContext* context, const ::Soy::Rpc::GetRequest* request, ::Soy::Rpc::GetReply* response);
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_Put : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_Put() {
+      ::grpc::Service::MarkMethodAsync(0);
+    }
+    ~WithAsyncMethod_Put() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Put(::grpc::ServerContext* context, const ::Soy::Rpc::PutRequest* request, ::Soy::Rpc::PutReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestPut(::grpc::ServerContext* context, ::Soy::Rpc::PutRequest* request, ::grpc::ServerAsyncResponseWriter< ::Soy::Rpc::PutReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_Get : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_Get() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_Get() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Get(::grpc::ServerContext* context, const ::Soy::Rpc::GetRequest* request, ::Soy::Rpc::GetReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGet(::grpc::ServerContext* context, ::Soy::Rpc::GetRequest* request, ::grpc::ServerAsyncResponseWriter< ::Soy::Rpc::GetReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_Put<WithAsyncMethod_Get<Service > > AsyncService;
+  template <class BaseClass>
+  class WithGenericMethod_Put : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_Put() {
+      ::grpc::Service::MarkMethodGeneric(0);
+    }
+    ~WithGenericMethod_Put() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Put(::grpc::ServerContext* context, const ::Soy::Rpc::PutRequest* request, ::Soy::Rpc::PutReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_Get : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_Get() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_Get() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Get(::grpc::ServerContext* context, const ::Soy::Rpc::GetRequest* request, ::Soy::Rpc::GetReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_Put : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_Put() {
+      ::grpc::Service::MarkMethodStreamed(0,
+        new ::grpc::internal::StreamedUnaryHandler< ::Soy::Rpc::PutRequest, ::Soy::Rpc::PutReply>(std::bind(&WithStreamedUnaryMethod_Put<BaseClass>::StreamedPut, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_Put() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status Put(::grpc::ServerContext* context, const ::Soy::Rpc::PutRequest* request, ::Soy::Rpc::PutReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedPut(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::Soy::Rpc::PutRequest,::Soy::Rpc::PutReply>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_Get : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_Get() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler< ::Soy::Rpc::GetRequest, ::Soy::Rpc::GetReply>(std::bind(&WithStreamedUnaryMethod_Get<BaseClass>::StreamedGet, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_Get() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status Get(::grpc::ServerContext* context, const ::Soy::Rpc::GetRequest* request, ::Soy::Rpc::GetReply* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedGet(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::Soy::Rpc::GetRequest,::Soy::Rpc::GetReply>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_Put<WithStreamedUnaryMethod_Get<Service > > StreamedUnaryService;
+  typedef Service SplitStreamedService;
+  typedef WithStreamedUnaryMethod_Put<WithStreamedUnaryMethod_Get<Service > > StreamedService;
+};
+
 }  // namespace Rpc
 }  // namespace Soy
 

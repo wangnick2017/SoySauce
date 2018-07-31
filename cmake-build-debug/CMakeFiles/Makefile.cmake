@@ -11,6 +11,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.10.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.10.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.10.3/CMakeSystem.cmake"
+  "../cmake/FindGRPC.cmake"
   "../protos/CMakeLists.txt"
   "../src/CMakeLists.txt"
   "/home/wangnick/Downloads/clion-2018.1.6/bin/cmake/share/cmake-3.10/Modules/CMakeCInformation.cmake"

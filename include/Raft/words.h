@@ -13,15 +13,17 @@ namespace Soy
         using Term = std::uint64_t;
         using Index = std::uint32_t;
 
-        struct AppendEntriesRPC
+        class AppendEntriesRPC
         {
+        public:
             Term term, prevLogTerm;
             ServerID leaderID;
             Index prevLogIndex, leaderCommit;
         };
 
-        struct RequestVoteRPC
+        class RequestVoteRPC
         {
+        public:
             Term term, lastLogTerm;
             Index lastLogIndex;
             ServerID candidateID;

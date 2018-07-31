@@ -5,7 +5,7 @@
 		<Option title="SoySauce"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\protos\;CMake Files\src\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\protos\;CMake Files\src\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug"/>
@@ -50,6 +50,7 @@
 					<Add directory="/home/wangnick/Desktop/projects/SoySauce/include/Raft/Rpc"/>
 					<Add directory="/home/wangnick/Desktop/projects/SoySauce/include/Raft/Role"/>
 					<Add directory="/usr/local/include"/>
+					<Add directory="/home/wangnick/Desktop/projects/SoySauce/src"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -78,6 +79,7 @@
 					<Add directory="/home/wangnick/Desktop/projects/SoySauce/include/Raft/Rpc"/>
 					<Add directory="/home/wangnick/Desktop/projects/SoySauce/include/Raft/Role"/>
 					<Add directory="/usr/local/include"/>
+					<Add directory="/home/wangnick/Desktop/projects/SoySauce/src"/>
 					<Add directory="/usr/include/c++/5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
 					<Add directory="/usr/include/c++/5/backward"/>
@@ -94,6 +96,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/Client.cpp">
+			<Option target="SoySauce"/>
+		</Unit>
 		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/Raft/God.cpp">
 			<Option target="SoySauce"/>
 		</Unit>
@@ -112,6 +117,9 @@
 		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/Raft/Rpc/Raft.pb.cc">
 			<Option target="SoySauce"/>
 		</Unit>
+		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/Raft/Timer.cpp">
+			<Option target="SoySauce"/>
+		</Unit>
 		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/Rpc/Soy.grpc.pb.cc">
 			<Option target="SoySauce"/>
 		</Unit>
@@ -126,6 +134,9 @@
 		</Unit>
 		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/cmake/FindGRPC.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
 		</Unit>
 		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/protos/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\protos\"/>

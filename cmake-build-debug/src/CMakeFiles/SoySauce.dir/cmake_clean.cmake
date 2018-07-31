@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/SoySauce.dir/Client.cpp.o"
   "CMakeFiles/SoySauce.dir/Raft/God.cpp.o"
   "CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o"
   "CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o"
   "CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o"
+  "CMakeFiles/SoySauce.dir/Raft/Timer.cpp.o"
   "CMakeFiles/SoySauce.dir/Server.cpp.o"
   "CMakeFiles/SoySauce.dir/ServerInfo.cpp.o"
   "CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.grpc.pb.cc.o"

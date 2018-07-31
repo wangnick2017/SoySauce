@@ -10,6 +10,7 @@
 --   log_setup
 --   filesystem
 --   regex
+-- Found GRPC: /usr/local/lib/libgrpc++.so;/usr/local/lib/libgrpc.so;/usr/local/lib/libgpr.so; plugin - /usr/local/bin/grpc_cpp_plugin
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug

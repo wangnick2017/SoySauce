@@ -16,6 +16,77 @@
 namespace Soy {
 namespace Rpc {
 
+static const char* External_method_names[] = {
+  "/Soy.Rpc.External/Put",
+  "/Soy.Rpc.External/Get",
+};
+
+std::unique_ptr< External::Stub> External::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+  (void)options;
+  std::unique_ptr< External::Stub> stub(new External::Stub(channel));
+  return stub;
+}
+
+External::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
+  : channel_(channel), rpcmethod_Put_(External_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Get_(External_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  {}
+
+::grpc::Status External::Stub::Put(::grpc::ClientContext* context, const ::Soy::Rpc::PutRequest& request, ::Soy::Rpc::PutReply* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Put_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::Soy::Rpc::PutReply>* External::Stub::AsyncPutRaw(::grpc::ClientContext* context, const ::Soy::Rpc::PutRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::Soy::Rpc::PutReply>::Create(channel_.get(), cq, rpcmethod_Put_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::Soy::Rpc::PutReply>* External::Stub::PrepareAsyncPutRaw(::grpc::ClientContext* context, const ::Soy::Rpc::PutRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::Soy::Rpc::PutReply>::Create(channel_.get(), cq, rpcmethod_Put_, context, request, false);
+}
+
+::grpc::Status External::Stub::Get(::grpc::ClientContext* context, const ::Soy::Rpc::GetRequest& request, ::Soy::Rpc::GetReply* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Get_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::Soy::Rpc::GetReply>* External::Stub::AsyncGetRaw(::grpc::ClientContext* context, const ::Soy::Rpc::GetRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::Soy::Rpc::GetReply>::Create(channel_.get(), cq, rpcmethod_Get_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::Soy::Rpc::GetReply>* External::Stub::PrepareAsyncGetRaw(::grpc::ClientContext* context, const ::Soy::Rpc::GetRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::Soy::Rpc::GetReply>::Create(channel_.get(), cq, rpcmethod_Get_, context, request, false);
+}
+
+External::Service::Service() {
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      External_method_names[0],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< External::Service, ::Soy::Rpc::PutRequest, ::Soy::Rpc::PutReply>(
+          std::mem_fn(&External::Service::Put), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      External_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< External::Service, ::Soy::Rpc::GetRequest, ::Soy::Rpc::GetReply>(
+          std::mem_fn(&External::Service::Get), this)));
+}
+
+External::Service::~Service() {
+}
+
+::grpc::Status External::Service::Put(::grpc::ServerContext* context, const ::Soy::Rpc::PutRequest* request, ::Soy::Rpc::PutReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status External::Service::Get(::grpc::ServerContext* context, const ::Soy::Rpc::GetRequest* request, ::Soy::Rpc::GetReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+
 }  // namespace Soy
 }  // namespace Rpc
 

@@ -125,6 +125,33 @@ SoySauce/fast:
 	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/build
 .PHONY : SoySauce/fast
 
+Client.o: Client.cpp.o
+
+.PHONY : Client.o
+
+# target to build an object file
+Client.cpp.o:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Client.cpp.o
+.PHONY : Client.cpp.o
+
+Client.i: Client.cpp.i
+
+.PHONY : Client.i
+
+# target to preprocess a source file
+Client.cpp.i:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Client.cpp.i
+.PHONY : Client.cpp.i
+
+Client.s: Client.cpp.s
+
+.PHONY : Client.s
+
+# target to generate assembly for a file
+Client.cpp.s:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Client.cpp.s
+.PHONY : Client.cpp.s
+
 Raft/God.o: Raft/God.cpp.o
 
 .PHONY : Raft/God.o
@@ -287,6 +314,33 @@ Raft/Rpc/Raft.pb.cc.s:
 	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.s
 .PHONY : Raft/Rpc/Raft.pb.cc.s
 
+Raft/Timer.o: Raft/Timer.cpp.o
+
+.PHONY : Raft/Timer.o
+
+# target to build an object file
+Raft/Timer.cpp.o:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Timer.cpp.o
+.PHONY : Raft/Timer.cpp.o
+
+Raft/Timer.i: Raft/Timer.cpp.i
+
+.PHONY : Raft/Timer.i
+
+# target to preprocess a source file
+Raft/Timer.cpp.i:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Timer.cpp.i
+.PHONY : Raft/Timer.cpp.i
+
+Raft/Timer.s: Raft/Timer.cpp.s
+
+.PHONY : Raft/Timer.s
+
+# target to generate assembly for a file
+Raft/Timer.cpp.s:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Timer.cpp.s
+.PHONY : Raft/Timer.cpp.s
+
 Rpc/Soy.grpc.pb.o: Rpc/Soy.grpc.pb.cc.o
 
 .PHONY : Rpc/Soy.grpc.pb.o
@@ -404,6 +458,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SoySauce"
+	@echo "... Client.o"
+	@echo "... Client.i"
+	@echo "... Client.s"
 	@echo "... Raft/God.o"
 	@echo "... Raft/God.i"
 	@echo "... Raft/God.s"
@@ -422,6 +479,9 @@ help:
 	@echo "... Raft/Rpc/Raft.pb.o"
 	@echo "... Raft/Rpc/Raft.pb.i"
 	@echo "... Raft/Rpc/Raft.pb.s"
+	@echo "... Raft/Timer.o"
+	@echo "... Raft/Timer.i"
+	@echo "... Raft/Timer.s"
 	@echo "... Rpc/Soy.grpc.pb.o"
 	@echo "... Rpc/Soy.grpc.pb.i"
 	@echo "... Rpc/Soy.grpc.pb.s"
