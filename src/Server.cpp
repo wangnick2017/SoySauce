@@ -12,12 +12,12 @@ namespace Soy
 {
     struct Server::Impl
     {
-        Raft::God god;
         ServerInfo info;
+        Raft::God god;
 
         Impl(const string &fileName)
+            : info(fileName), god(info)
         {
-            info.Load(fileName);
         }
     };
 

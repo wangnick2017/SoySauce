@@ -24,10 +24,11 @@ namespace Soy
     };
 
     
-    Client::Client(const string &filename) : pImpl(make_unique<Impl>())
+    Client::Client(const string &fileName)
+        : pImpl(make_unique<Impl>())
     {
         ptree tree;
-        read_json(filename, tree);
+        read_json(fileName, tree);
 
         vector<string> srvList;
         for (auto &&srv : tree.get_child("serverList"))
@@ -97,5 +98,4 @@ namespace Soy
 
         throw RequestTimeout();
     }
-
-} // namespace ppca
+}

@@ -7,6 +7,8 @@
 #include <cstdint>
 #include <string>
 #include <memory>
+#include <map>
+#include <unordered_map>
 #include <vector>
 #include <utility>
 #include <algorithm>

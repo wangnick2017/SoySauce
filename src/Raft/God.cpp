@@ -4,6 +4,8 @@
 
 #include "God.h"
 #include "Role.h"
+#include <grpc++/create_channel.h>
+#include "Raft.grpc.pb.h"
 
 using namespace std;
 
@@ -13,8 +15,10 @@ namespace Soy
     {
         struct God::Impl
         {
+            ServerInfo &info;
             array<unique_ptr<RoleBase>, RoleNumber> roles;
             RoleTh th = RoleTh::Dead;
+            vector<unique_ptr<Rpc::RaftRpc::Stub>> stubs;
 
             void Init()
             {
@@ -24,8 +28,13 @@ namespace Soy
                 Transform(RoleTh::Follower);
             }
 
-            Impl()
+            Impl(ServerInfo &i) : info(i)
             {
+                for (const auto &srv : info.srvList)
+                {
+                    stubs.emplace_back(Rpc::RaftRpc::NewStub(grpc::CreateChannel(
+                        srv.ToString(), grpc::InsecureChannelCredentials())));
+                }
             }
 
             void Transform(RoleTh target)
@@ -42,8 +51,8 @@ namespace Soy
             }
         };
 
-        God::God()
-            : pImpl(make_unique<Impl>())
+        God::God(ServerInfo &i)
+            : pImpl(make_unique<Impl>(i))
         {
         }
 

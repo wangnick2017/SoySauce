@@ -5,8 +5,10 @@
 #include "ServerInfo.h"
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/property_tree/ptree.hpp>
+#include <boost/typeof/typeof.hpp>
 
 using namespace std;
+using namespace boost::property_tree;
 
 namespace Soy
 {
@@ -18,7 +20,7 @@ namespace Soy
         if (c == string::npos)
             throw Exception("Error ID");
         address = move(s.substr(0, c));
-        port = stoul(s.substr(c + 1));
+        port = (Port)stoul(s.substr(c + 1));
     }
 
     string ServerID::ToString() const
@@ -26,30 +28,30 @@ namespace Soy
         return address + ":" + to_string(port);
     }
 
-    void ServerInfo::Load(const string &fileName)
+    ServerInfo::ServerInfo(const string &fileName)
     {
-        boost::property_tree::ptree tree;
-        boost::property_tree::read_json(fileName, tree);
+        ptree tree;
+        read_json(fileName, tree);
         local = ServerID(tree.get<string>("localAddress"));
         timeout = tree.get<uint64_t>("timeout");
         for (auto &&server : tree.get_child("serverList"))
-            idList.emplace_back(server.second.get_value<string>());
+            srvList.emplace_back(server.second.get_value<string>());
     }
 
     void ServerInfo::Save(const string &fileName)
     {
-        boost::property_tree::ptree tree;
+        ptree tree;
         tree.put("localAddress", local.ToString());
         tree.put("timeout", timeout);
-        boost::property_tree::ptree jsonList;
-        for (auto &&id : idList)
+        ptree jsonList;
+        for (auto &&srv : srvList)
         {
-            boost::property_tree::ptree server;
-            server.put("", id.ToString());
+            ptree server;
+            server.put("", srv.ToString());
             jsonList.push_back(make_pair("", server));
-            tree.put("serverList.serverId", id.ToString());
+            tree.put("serverList.serverId", srv.ToString());
         }
         tree.add_child("serverList", jsonList);
-        boost::property_tree::write_json(fileName, tree);
+        write_json(fileName, tree);
     }
 }

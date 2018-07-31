@@ -6,6 +6,7 @@
 
 #include "Role.h"
 #include "Base.h"
+#include "ServerInfo.h"
 
 namespace Soy
 {
@@ -14,7 +15,7 @@ namespace Soy
         class God
         {
         public:
-            God();
+            God(ServerInfo &i);
             ~God();
             void Start();
             void Shutdown();

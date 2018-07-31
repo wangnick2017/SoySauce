@@ -3,6 +3,9 @@
 //
 
 #include "RoleLeader.h"
+#include "words.h"
+
+using namespace std;
 
 namespace Soy
 {
@@ -10,15 +13,15 @@ namespace Soy
     {
         struct RoleLeader::Impl
         {
+            unordered_map<int, Index> nextIndex, matchIndex;
         };
 
         RoleLeader::RoleLeader()
+            : pImpl(make_unique<Impl>())
         {
         }
 
-        RoleLeader::~RoleLeader()
-        {
-        }
+        RoleLeader::~RoleLeader() = default;
 
         void RoleLeader::Init()
         {

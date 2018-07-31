@@ -11,19 +11,23 @@ namespace Soy
     namespace Raft
     {
         using Term = std::uint64_t;
-        using Index = std::uint32_t;
+        using Index = std::uint64_t;
 
-        class AppendEntriesRPC
+        struct Entry
         {
-        public:
+            string op, arg;
+            Term term;
+        };
+
+        struct AppendEntriesRPC
+        {
             Term term, prevLogTerm;
             ServerID leaderID;
             Index prevLogIndex, leaderCommit;
         };
 
-        class RequestVoteRPC
+        struct RequestVoteRPC
         {
-        public:
             Term term, lastLogTerm;
             Index lastLogIndex;
             ServerID candidateID;

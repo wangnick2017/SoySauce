@@ -37,6 +37,8 @@ Role.h
 ../include/Raft/Role.h
 Base.h
 ../include/Raft/Base.h
+ServerInfo.h
+../include/Raft/ServerInfo.h
 
 ../include/Raft/Role/Role.h
 RoleBase.h
@@ -103,9 +105,13 @@ google/protobuf/generated_message_util.h
 -
 google/protobuf/metadata.h
 -
+google/protobuf/message.h
+-
 google/protobuf/repeated_field.h
 -
 google/protobuf/extension_set.h
+-
+google/protobuf/unknown_field_set.h
 -
 
 ../include/Raft/Timer.h
@@ -189,6 +195,10 @@ God.h
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/God.h
 Role.h
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role.h
+grpc++/create_channel.h
+-
+Raft.grpc.pb.h
+/home/wangnick/Desktop/projects/SoySauce/src/Raft/Raft.grpc.pb.h
 
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleCandidate.cpp
 RoleCandidate.h
@@ -316,6 +326,8 @@ ServerInfo.h
 boost/property_tree/json_parser.hpp
 -
 boost/property_tree/ptree.hpp
+-
+boost/typeof/typeof.hpp
 -
 
 /usr/local/include/google/protobuf/arena.h

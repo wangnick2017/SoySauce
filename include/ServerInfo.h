@@ -20,14 +20,12 @@ namespace Soy
         Port port;
     };
 
-    class ServerInfo
+    struct ServerInfo
     {
-    public:
-        void Load(const std::string &fileName);
+        ServerInfo(const std::string &fileName);
         void Save(const std::string &fileName);
-    private:
         ServerID local;
-        std::vector<ServerID> idList;
+        std::vector<ServerID> srvList;
         std::uint64_t timeout;
     };
 }
