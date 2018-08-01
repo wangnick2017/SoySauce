@@ -145,6 +145,11 @@ src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Raft/Role/RoleFollower.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Raft/Role/RoleLeader.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Raft/Rpc/Raft.grpc.pb.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Raft/Rpc/Raft.pb.h
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Raft/Rpc/RaftRpcServer.hpp
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Raft/words.hpp
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Rpc/ExternalServer.hpp
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Rpc/Soy.grpc.pb.h
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Rpc/Soy.pb.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/ServerInfo.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../src/Raft/God.cpp
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/google/protobuf/arena.h
@@ -206,6 +211,7 @@ src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpc++/create_cha
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpc/byte_buffer.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpc/compression.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpc/grpc.h
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpc/grpc_security_constants.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpc/impl/codegen/atm.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpc/impl/codegen/atm_gcc_atomic.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpc/impl/codegen/atm_gcc_sync.h
@@ -229,12 +235,16 @@ src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpc/impl/codegen
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpc/slice.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpc/slice_buffer.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpc/status.h
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpc/support/cpu.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpc/support/port_platform.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpc/support/sync.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpc/support/time.h
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpc/support/workaround_list.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/channel.h
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/completion_queue.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/create_channel.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/impl/call.h
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/impl/channel_argument_option.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/impl/codegen/async_stream.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/impl/codegen/async_unary_call.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/impl/codegen/byte_buffer.h
@@ -268,8 +278,16 @@ src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/impl/codeg
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/impl/codegen/stub_options.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/impl/codegen/sync_stream.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/impl/codegen/time.h
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/impl/rpc_service_method.h
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/impl/server_builder_option.h
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/impl/server_builder_plugin.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/security/auth_context.h
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/security/auth_metadata_processor.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/security/credentials.h
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/security/server_credentials.h
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/server.h
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/server_builder.h
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/server_context.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/support/channel_arguments.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/support/config.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/support/status.h
@@ -279,18 +297,24 @@ src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/Base.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/Exceptions.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/Raft/Role/RoleBase.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/Raft/Role/RoleCandidate.h
+src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/Raft/words.hpp
+src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/ServerInfo.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../src/Raft/Role/RoleCandidate.cpp
 
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/Base.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/Exceptions.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/Raft/Role/RoleBase.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/Raft/Role/RoleFollower.h
+src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/Raft/words.hpp
+src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/ServerInfo.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../src/Raft/Role/RoleFollower.cpp
 
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/Base.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/Exceptions.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/Raft/Role/RoleBase.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/Raft/Role/RoleLeader.h
+src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/Raft/words.hpp
+src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/ServerInfo.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../src/Raft/Role/RoleLeader.cpp
 
 src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.grpc.pb.cc.o: ../include/Raft/Rpc/Raft.grpc.pb.h
@@ -648,6 +672,7 @@ src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/Raft/Role/RoleBase.h
 src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/Raft/Role/RoleCandidate.h
 src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/Raft/Role/RoleFollower.h
 src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/Raft/Role/RoleLeader.h
+src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/Raft/words.hpp
 src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/Server.h
 src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/ServerInfo.h
 src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../src/Server.cpp

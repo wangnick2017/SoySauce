@@ -50,7 +50,7 @@ namespace Soy
             chrono::system_clock::now() - tp).count();
     }
 
-    void Client::Put(string key, string value, uint64_t timeout)
+    void Client::Put(const string &key, const string &value, uint64_t timeout)
     {
         auto startTimePoint = chrono::system_clock::now();
 
@@ -75,7 +75,7 @@ namespace Soy
         throw RequestTimeout();
     }
 
-    string Client::Get(string key, uint64_t timeout)
+    string Client::Get(const string &key, uint64_t timeout)
     {
         auto startTimePoint = chrono::system_clock::now();
 

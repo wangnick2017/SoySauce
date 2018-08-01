@@ -3,7 +3,6 @@
 //
 
 #include "RoleLeader.h"
-#include "words.h"
 
 using namespace std;
 
@@ -28,6 +27,22 @@ namespace Soy
         }
 
         void RoleLeader::Leave()
+        {
+        }
+
+        RPCReply RoleLeader::RPCAppendEntries(const AppendEntriesRPC &message)
+        {
+        }
+
+        RPCReply RoleLeader::RPCRequestVote(const RequestVoteRPC &message)
+        {
+        }
+
+        void RoleLeader::Put(const string &key, const string &value)
+        {
+        }
+
+        string RoleLeader::Get(const string &key)
         {
         }
     }

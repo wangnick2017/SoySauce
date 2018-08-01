@@ -5,7 +5,7 @@
 #pragma once
 
 #include "Base.h"
-#include "words.h"
+#include "words.hpp"
 
 namespace Soy
 {
@@ -24,8 +24,10 @@ namespace Soy
             virtual ~RoleBase() = default;
             virtual void Init() = 0;
             virtual void Leave() = 0;
-            virtual Reply RPCAppendEntries(AppendEntriesRPC message) = 0;
-            virtual Reply RPCRequestVote(RequestVoteRPC message) = 0;
+            virtual RPCReply RPCAppendEntries(const AppendEntriesRPC &message) = 0;
+            virtual RPCReply RPCRequestVote(const RequestVoteRPC &message) = 0;
+            virtual void Put(const std::string &key, const std::string &value) = 0;
+            virtual std::string Get(const std::string &key) = 0;
 
         protected:
             Term currentTerm;

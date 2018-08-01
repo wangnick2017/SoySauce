@@ -23,9 +23,9 @@ namespace Soy
         Client &operator =(Client &&) = delete;
         ~Client();
 
-        void Put(std::string key, std::string value, std::uint64_t timeout = 5000);
+        void Put(const std::string &key, const std::string &value, std::uint64_t timeout = 5000);
 
-        std::string Get(std::string key, std::uint64_t timeout = 5000);
+        std::string Get(const std::string &key, std::uint64_t timeout = 5000);
 
     private:
         struct Impl;

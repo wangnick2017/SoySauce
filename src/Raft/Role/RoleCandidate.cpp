@@ -4,6 +4,8 @@
 
 #include "RoleCandidate.h"
 
+using namespace std;
+
 namespace Soy
 {
     namespace Raft
@@ -25,6 +27,22 @@ namespace Soy
         }
 
         void RoleCandidate::Leave()
+        {
+        }
+
+        RPCReply RoleCandidate::RPCAppendEntries(const AppendEntriesRPC &message)
+        {
+        }
+
+        RPCReply RoleCandidate::RPCRequestVote(const RequestVoteRPC &message)
+        {
+        }
+
+        void RoleCandidate::Put(const string &key, const string &value)
+        {
+        }
+
+        string RoleCandidate::Get(const string &key)
         {
         }
     }

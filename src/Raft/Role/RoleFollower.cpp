@@ -4,6 +4,8 @@
 
 #include "RoleFollower.h"
 
+using namespace std;
+
 namespace Soy
 {
     namespace Raft
@@ -25,6 +27,22 @@ namespace Soy
         }
 
         void RoleFollower::Leave()
+        {
+        }
+
+        RPCReply RoleFollower::RPCAppendEntries(const AppendEntriesRPC &message)
+        {
+        }
+
+        RPCReply RoleFollower::RPCRequestVote(const RequestVoteRPC &message)
+        {
+        }
+
+        void RoleFollower::Put(const string &key, const string &value)
+        {
+        }
+
+        string RoleFollower::Get(const string &key)
         {
         }
     }
