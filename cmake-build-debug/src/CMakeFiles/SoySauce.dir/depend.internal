@@ -146,6 +146,7 @@ src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o
  ../include/Raft/Role/RoleLeader.h
  ../include/Raft/Rpc/Raft.grpc.pb.h
  ../include/Raft/Rpc/Raft.pb.h
+ ../include/Raft/Rpc/RaftRpcClient.hpp
  ../include/Raft/Rpc/RaftRpcServer.hpp
  ../include/Raft/words.hpp
  ../include/Rpc/ExternalServer.hpp

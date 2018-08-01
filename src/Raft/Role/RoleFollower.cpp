@@ -18,9 +18,7 @@ namespace Soy
         {
         }
 
-        RoleFollower::~RoleFollower()
-        {
-        }
+        RoleFollower::~RoleFollower() = default;
 
         void RoleFollower::Init()
         {
@@ -38,12 +36,14 @@ namespace Soy
         {
         }
 
-        void RoleFollower::Put(const string &key, const string &value)
+        bool RoleFollower::Put(const string &key, const string &value)
         {
+            return false;
         }
 
-        string RoleFollower::Get(const string &key)
+        pair<bool, string> RoleFollower::Get(const string &key)
         {
+            return make_pair(false, "");
         }
     }
 }

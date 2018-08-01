@@ -38,12 +38,14 @@ namespace Soy
         {
         }
 
-        void RoleCandidate::Put(const string &key, const string &value)
+        bool RoleCandidate::Put(const string &key, const string &value)
         {
+            return false;
         }
 
-        string RoleCandidate::Get(const string &key)
+        pair<bool, string> RoleCandidate::Get(const string &key)
         {
+            return make_pair(false, "");
         }
     }
 }

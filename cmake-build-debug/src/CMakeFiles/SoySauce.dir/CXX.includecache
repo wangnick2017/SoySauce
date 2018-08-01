@@ -27,6 +27,8 @@ functional
 -
 thread
 -
+utility
+-
 Exceptions.hpp
 ../include/Exceptions.hpp
 
@@ -123,6 +125,16 @@ google/protobuf/extension_set.h
 -
 google/protobuf/unknown_field_set.h
 -
+
+../include/Raft/Rpc/RaftRpcClient.hpp
+Base.h
+../include/Raft/Rpc/Base.h
+words.hpp
+../include/Raft/Rpc/words.hpp
+grpc++/create_channel.h
+-
+Raft.grpc.pb.h
+../include/Raft/Rpc/Raft.grpc.pb.h
 
 ../include/Raft/Rpc/RaftRpcServer.hpp
 Base.h
@@ -255,6 +267,8 @@ ExternalServer.hpp
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/ExternalServer.hpp
 RaftRpcServer.hpp
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/RaftRpcServer.hpp
+RaftRpcClient.hpp
+/home/wangnick/Desktop/projects/SoySauce/src/Raft/RaftRpcClient.hpp
 
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleCandidate.cpp
 RoleCandidate.h

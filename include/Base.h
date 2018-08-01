@@ -13,5 +13,5 @@
 #include <utility>
 #include <algorithm>
 #include <functional>
-#include <thread>
+#include <utility>
 #include "Exceptions.hpp"

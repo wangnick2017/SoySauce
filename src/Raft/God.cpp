@@ -8,6 +8,7 @@
 #include "Raft.grpc.pb.h"
 #include "ExternalServer.hpp"
 #include "RaftRpcServer.hpp"
+#include "RaftRpcClient.hpp"
 
 using namespace std;
 
@@ -22,20 +23,21 @@ namespace Soy
             array<unique_ptr<RoleBase>, RoleNumber> roles;
             RoleTh th = RoleTh::Dead;
 
-            //As a client
-            vector<unique_ptr<Rpc::RaftRpc::Stub>> stubs;
-
 
             //As a server to Client
             Soy::Rpc::ExternalServer externalServer;
-            void Put(const string &key, const string &value)
+            bool Put(const string &key, const string &value)
             {
-                roles[(size_t)th]->Put(key, value);
+                return roles[(size_t)th]->Put(key, value);
             }
-            std::string Get(const string &key)
+            pair<bool, string> Get(const string &key)
             {
                 return roles[(size_t)th]->Get(key);
             }
+
+
+            //As a client
+            Rpc::RaftRpcClient raftRpcClient;
 
 
             //As a server to Server
@@ -65,8 +67,8 @@ namespace Soy
             {
                 for (const auto &srv : info.srvList)
                 {
-                    stubs.emplace_back(Rpc::RaftRpc::NewStub(grpc::CreateChannel(
-                        srv.ToString(), grpc::InsecureChannelCredentials())));
+                    raftRpcClient.Stubs.emplace_back(Rpc::RaftRpc::NewStub(
+                        grpc::CreateChannel(srv.ToString(), grpc::InsecureChannelCredentials())));
                 }
             }
 

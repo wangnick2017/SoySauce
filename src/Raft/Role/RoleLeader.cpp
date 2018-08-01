@@ -38,11 +38,11 @@ namespace Soy
         {
         }
 
-        void RoleLeader::Put(const string &key, const string &value)
+        bool RoleLeader::Put(const string &key, const string &value)
         {
         }
 
-        string RoleLeader::Get(const string &key)
+        pair<bool, string> RoleLeader::Get(const string &key)
         {
         }
     }

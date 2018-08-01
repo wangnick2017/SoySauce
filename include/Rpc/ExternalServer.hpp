@@ -41,19 +41,21 @@ namespace Soy
 
             Status Put(ServerContext *context, const PutRequest *request, PutReply *response) override
             {
-                put(request->key(), request->value());
+                response->set_status(put(request->key(), request->value()));
                 return Status::OK;
             }
 
             Status Get(ServerContext *context, const GetRequest *request, GetReply *response) override
             {
-                response->set_value(get(request->key()));
+                std::pair<bool, std::string> ret = get(request->key());
+                response->set_status(ret.first);
+                response->set_value(ret.second);
                 return Status::OK;
             }
 
         private:
-            std::function<void(const std::string &, const std::string &)> put;
-            std::function<std::string(const std::string &)> get;
+            std::function<bool(const std::string &, const std::string &)> put;
+            std::function<std::pair<bool, std::string>(const std::string &)> get;
         };
 
         class ExternalServer

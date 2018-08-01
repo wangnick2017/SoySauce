@@ -13,8 +13,12 @@ namespace Soy
         class Timer
         {
         public:
-            Timer();
+            Timer(std::uint64_t p = 0);
             ~Timer();
+            void Start();
+            void Stop();
+            void Restart();
+            void Reset(std::uint64_t p);
         private:
             struct Impl;
             std::unique_ptr<Impl> pImpl;
