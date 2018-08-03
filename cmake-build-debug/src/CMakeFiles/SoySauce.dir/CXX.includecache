@@ -288,6 +288,10 @@ RaftRpcServer.hpp
 RaftRpcClient.hpp
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/RaftRpcClient.hpp
 
+/home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleBase.cpp
+RoleBase.h
+/home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleBase.h
+
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleCandidate.cpp
 RoleCandidate.h
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleCandidate.h
@@ -358,6 +362,14 @@ Timer.h
 boost/chrono.hpp
 -
 boost/thread/thread.hpp
+-
+
+/home/wangnick/Desktop/projects/SoySauce/src/Raft/Transformer.cpp
+Transformer.h
+/home/wangnick/Desktop/projects/SoySauce/src/Raft/Transformer.h
+boost/thread.hpp
+-
+boost/thread/lock_factories.hpp
 -
 
 /home/wangnick/Desktop/projects/SoySauce/src/Rpc/Soy.grpc.pb.cc

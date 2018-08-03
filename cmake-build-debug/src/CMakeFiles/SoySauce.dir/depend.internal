@@ -297,6 +297,15 @@ src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o
  /usr/local/include/grpcpp/support/config.h
  /usr/local/include/grpcpp/support/status.h
  /usr/local/include/grpcpp/support/string_ref.h
+src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.o
+ ../include/Base.h
+ ../include/Exceptions.hpp
+ ../include/Raft/Role/RoleBase.h
+ ../include/Raft/Transformer.h
+ ../include/Raft/words.hpp
+ ../include/ServerInfo.h
+ ../include/random.hpp
+ /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleBase.cpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o
  ../include/Base.h
  ../include/Exceptions.hpp
@@ -506,6 +515,14 @@ src/CMakeFiles/SoySauce.dir/Raft/Timer.cpp.o
  ../include/Raft/Timer.h
  ../include/random.hpp
  /home/wangnick/Desktop/projects/SoySauce/src/Raft/Timer.cpp
+src/CMakeFiles/SoySauce.dir/Raft/Transformer.cpp.o
+ ../include/Base.h
+ ../include/Exceptions.hpp
+ ../include/Raft/Transformer.h
+ ../include/Raft/words.hpp
+ ../include/ServerInfo.h
+ ../include/random.hpp
+ /home/wangnick/Desktop/projects/SoySauce/src/Raft/Transformer.cpp
 src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o
  ../include/Rpc/Soy.grpc.pb.h
  ../include/Rpc/Soy.pb.h

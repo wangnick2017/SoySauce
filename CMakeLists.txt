@@ -13,9 +13,7 @@ include_directories(
         include/Raft/Role
 )
 
-
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake;${CMAKE_MODULE_PATH}")
-
 
 include_directories(${Boost_INCLUDE_DIRS})
 find_package(Boost REQUIRED COMPONENTS
@@ -27,14 +25,11 @@ if(NOT Boost_FOUND)
     message("Not found Boost")
 endif()
 
-
 find_package(Protobuf REQUIRED)
 include_directories(${PROTOBUF_INCLUDE_DIR})
 
-
 find_package(GRPC REQUIRED)
 include_directories(${GRPC_INCLUDE_DIR})
-
 
 add_subdirectory(protos)
 add_subdirectory(src)

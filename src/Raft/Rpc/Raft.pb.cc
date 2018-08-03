@@ -147,7 +147,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Soy::Raft::Rpc::Entry, term_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Soy::Raft::Rpc::Entry, operator__),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Soy::Raft::Rpc::Entry, key_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Soy::Raft::Rpc::Entry, args_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Soy::Raft::Rpc::AppendEntriesMessage, _internal_metadata_),
@@ -207,22 +207,22 @@ void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\nRaft.proto\022\014Soy.Raft.Rpc\"\"\n\005Reply\022\014\n\004t"
-      "erm\030\001 \001(\004\022\013\n\003ans\030\002 \001(\010\"5\n\005Entry\022\014\n\004term\030"
-      "\001 \001(\004\022\020\n\010operator\030\002 \001(\t\022\014\n\004args\030\003 \001(\t\"\235\001"
-      "\n\024AppendEntriesMessage\022\014\n\004term\030\001 \001(\004\022\020\n\010"
-      "leaderID\030\002 \001(\t\022\024\n\014prevLogIndex\030\003 \001(\004\022\023\n\013"
-      "prevLogTerm\030\004 \001(\004\022$\n\007entries\030\005 \003(\0132\023.Soy"
-      ".Raft.Rpc.Entry\022\024\n\014leaderCommit\030\006 \001(\004\"b\n"
-      "\022RequestVoteMessage\022\014\n\004term\030\001 \001(\004\022\023\n\013can"
-      "didateID\030\002 \001(\t\022\024\n\014lastLogIndex\030\003 \001(\004\022\023\n\013"
-      "lastLogTerm\030\004 \001(\0042\235\001\n\007RaftRpc\022J\n\rAppendE"
-      "ntries\022\".Soy.Raft.Rpc.AppendEntriesMessa"
-      "ge\032\023.Soy.Raft.Rpc.Reply\"\000\022F\n\013RequestVote"
-      "\022 .Soy.Raft.Rpc.RequestVoteMessage\032\023.Soy"
-      ".Raft.Rpc.Reply\"\000b\006proto3"
+      "erm\030\001 \001(\004\022\013\n\003ans\030\002 \001(\010\"0\n\005Entry\022\014\n\004term\030"
+      "\001 \001(\004\022\013\n\003key\030\002 \001(\t\022\014\n\004args\030\003 \001(\t\"\235\001\n\024App"
+      "endEntriesMessage\022\014\n\004term\030\001 \001(\004\022\020\n\010leade"
+      "rID\030\002 \001(\t\022\024\n\014prevLogIndex\030\003 \001(\004\022\023\n\013prevL"
+      "ogTerm\030\004 \001(\004\022$\n\007entries\030\005 \003(\0132\023.Soy.Raft"
+      ".Rpc.Entry\022\024\n\014leaderCommit\030\006 \001(\004\"b\n\022Requ"
+      "estVoteMessage\022\014\n\004term\030\001 \001(\004\022\023\n\013candidat"
+      "eID\030\002 \001(\t\022\024\n\014lastLogIndex\030\003 \001(\004\022\023\n\013lastL"
+      "ogTerm\030\004 \001(\0042\235\001\n\007RaftRpc\022J\n\rAppendEntrie"
+      "s\022\".Soy.Raft.Rpc.AppendEntriesMessage\032\023."
+      "Soy.Raft.Rpc.Reply\"\000\022F\n\013RequestVote\022 .So"
+      "y.Raft.Rpc.RequestVoteMessage\032\023.Soy.Raft"
+      ".Rpc.Reply\"\000b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 545);
+      descriptor, 540);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Raft.proto", &protobuf_RegisterTypes);
 }
@@ -526,7 +526,7 @@ void Entry::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Entry::kTermFieldNumber;
-const int Entry::kOperatorFieldNumber;
+const int Entry::kKeyFieldNumber;
 const int Entry::kArgsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -543,9 +543,9 @@ Entry::Entry(const Entry& from)
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  operator__.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.operator_().size() > 0) {
-    operator__.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.operator__);
+  key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.key().size() > 0) {
+    key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
   }
   args_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.args().size() > 0) {
@@ -556,7 +556,7 @@ Entry::Entry(const Entry& from)
 }
 
 void Entry::SharedCtor() {
-  operator__.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   args_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   term_ = GOOGLE_ULONGLONG(0);
   _cached_size_ = 0;
@@ -568,7 +568,7 @@ Entry::~Entry() {
 }
 
 void Entry::SharedDtor() {
-  operator__.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   args_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -601,7 +601,7 @@ void Entry::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  operator__.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   args_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   term_ = GOOGLE_ULONGLONG(0);
   _internal_metadata_.Clear();
@@ -631,16 +631,16 @@ bool Entry::MergePartialFromCodedStream(
         break;
       }
 
-      // string operator = 2;
+      // string key = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_operator_()));
+                input, this->mutable_key()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->operator_().data(), static_cast<int>(this->operator_().length()),
+            this->key().data(), static_cast<int>(this->key().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "Soy.Raft.Rpc.Entry.operator"));
+            "Soy.Raft.Rpc.Entry.key"));
         } else {
           goto handle_unusual;
         }
@@ -694,14 +694,14 @@ void Entry::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->term(), output);
   }
 
-  // string operator = 2;
-  if (this->operator_().size() > 0) {
+  // string key = 2;
+  if (this->key().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->operator_().data(), static_cast<int>(this->operator_().length()),
+      this->key().data(), static_cast<int>(this->key().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Soy.Raft.Rpc.Entry.operator");
+      "Soy.Raft.Rpc.Entry.key");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->operator_(), output);
+      2, this->key(), output);
   }
 
   // string args = 3;
@@ -733,15 +733,15 @@ void Entry::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->term(), target);
   }
 
-  // string operator = 2;
-  if (this->operator_().size() > 0) {
+  // string key = 2;
+  if (this->key().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->operator_().data(), static_cast<int>(this->operator_().length()),
+      this->key().data(), static_cast<int>(this->key().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Soy.Raft.Rpc.Entry.operator");
+      "Soy.Raft.Rpc.Entry.key");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->operator_(), target);
+        2, this->key(), target);
   }
 
   // string args = 3;
@@ -772,11 +772,11 @@ size_t Entry::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // string operator = 2;
-  if (this->operator_().size() > 0) {
+  // string key = 2;
+  if (this->key().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->operator_());
+        this->key());
   }
 
   // string args = 3;
@@ -822,9 +822,9 @@ void Entry::MergeFrom(const Entry& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.operator_().size() > 0) {
+  if (from.key().size() > 0) {
 
-    operator__.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.operator__);
+    key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
   }
   if (from.args().size() > 0) {
 
@@ -859,7 +859,7 @@ void Entry::Swap(Entry* other) {
 }
 void Entry::InternalSwap(Entry* other) {
   using std::swap;
-  operator__.Swap(&other->operator__);
+  key_.Swap(&other->key_);
   args_.Swap(&other->args_);
   swap(term_, other->term_);
   _internal_metadata_.Swap(&other->_internal_metadata_);

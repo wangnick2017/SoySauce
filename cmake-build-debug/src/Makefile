@@ -179,6 +179,33 @@ Raft/God.cpp.s:
 	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/God.cpp.s
 .PHONY : Raft/God.cpp.s
 
+Raft/Role/RoleBase.o: Raft/Role/RoleBase.cpp.o
+
+.PHONY : Raft/Role/RoleBase.o
+
+# target to build an object file
+Raft/Role/RoleBase.cpp.o:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.o
+.PHONY : Raft/Role/RoleBase.cpp.o
+
+Raft/Role/RoleBase.i: Raft/Role/RoleBase.cpp.i
+
+.PHONY : Raft/Role/RoleBase.i
+
+# target to preprocess a source file
+Raft/Role/RoleBase.cpp.i:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.i
+.PHONY : Raft/Role/RoleBase.cpp.i
+
+Raft/Role/RoleBase.s: Raft/Role/RoleBase.cpp.s
+
+.PHONY : Raft/Role/RoleBase.s
+
+# target to generate assembly for a file
+Raft/Role/RoleBase.cpp.s:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.s
+.PHONY : Raft/Role/RoleBase.cpp.s
+
 Raft/Role/RoleCandidate.o: Raft/Role/RoleCandidate.cpp.o
 
 .PHONY : Raft/Role/RoleCandidate.o
@@ -341,6 +368,33 @@ Raft/Timer.cpp.s:
 	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Timer.cpp.s
 .PHONY : Raft/Timer.cpp.s
 
+Raft/Transformer.o: Raft/Transformer.cpp.o
+
+.PHONY : Raft/Transformer.o
+
+# target to build an object file
+Raft/Transformer.cpp.o:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Transformer.cpp.o
+.PHONY : Raft/Transformer.cpp.o
+
+Raft/Transformer.i: Raft/Transformer.cpp.i
+
+.PHONY : Raft/Transformer.i
+
+# target to preprocess a source file
+Raft/Transformer.cpp.i:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Transformer.cpp.i
+.PHONY : Raft/Transformer.cpp.i
+
+Raft/Transformer.s: Raft/Transformer.cpp.s
+
+.PHONY : Raft/Transformer.s
+
+# target to generate assembly for a file
+Raft/Transformer.cpp.s:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Transformer.cpp.s
+.PHONY : Raft/Transformer.cpp.s
+
 Rpc/Soy.grpc.pb.o: Rpc/Soy.grpc.pb.cc.o
 
 .PHONY : Rpc/Soy.grpc.pb.o
@@ -464,6 +518,9 @@ help:
 	@echo "... Raft/God.o"
 	@echo "... Raft/God.i"
 	@echo "... Raft/God.s"
+	@echo "... Raft/Role/RoleBase.o"
+	@echo "... Raft/Role/RoleBase.i"
+	@echo "... Raft/Role/RoleBase.s"
 	@echo "... Raft/Role/RoleCandidate.o"
 	@echo "... Raft/Role/RoleCandidate.i"
 	@echo "... Raft/Role/RoleCandidate.s"
@@ -482,6 +539,9 @@ help:
 	@echo "... Raft/Timer.o"
 	@echo "... Raft/Timer.i"
 	@echo "... Raft/Timer.s"
+	@echo "... Raft/Transformer.o"
+	@echo "... Raft/Transformer.i"
+	@echo "... Raft/Transformer.s"
 	@echo "... Rpc/Soy.grpc.pb.o"
 	@echo "... Rpc/Soy.grpc.pb.i"
 	@echo "... Rpc/Soy.grpc.pb.s"

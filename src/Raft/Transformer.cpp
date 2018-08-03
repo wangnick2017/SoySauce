@@ -3,7 +3,6 @@
 //
 
 #include "Transformer.h"
-#include "State.h"
 #include <boost/thread.hpp>
 #include <boost/thread/lock_factories.hpp>
 
@@ -26,27 +25,23 @@ namespace Soy
                 auto lock = make_unique_lock(mut);
                 cond.wait(lock, [this]
                 {
-                    return flag;
+                    return flag.load();
                 });
-                //
             }
 
             void Notify(RoleTh t, Term newTerm)
             {
                 auto lock = make_unique_lock(mut);
                 newTh = t;
-                state.currentTerm = term;
+                state.currentTerm = newTerm;
                 flag = true;
                 cond.notify_one();
             }
         };
 
         Transformer::Transformer()
-            : pImpl(make_unique<Impl>())
+            : pImpl(std::make_unique<Impl>())
         {
-            thread runningThread = thread([]
-            {
-            });
         }
 
         Transformer::~Transformer() = default;

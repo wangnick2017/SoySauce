@@ -269,19 +269,19 @@ class Entry : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
 
   // accessors -------------------------------------------------------
 
-  // string operator = 2;
-  void clear_operator_();
-  static const int kOperatorFieldNumber = 2;
-  const ::std::string& operator_() const;
-  void set_operator_(const ::std::string& value);
+  // string key = 2;
+  void clear_key();
+  static const int kKeyFieldNumber = 2;
+  const ::std::string& key() const;
+  void set_key(const ::std::string& value);
   #if LANG_CXX11
-  void set_operator_(::std::string&& value);
+  void set_key(::std::string&& value);
   #endif
-  void set_operator_(const char* value);
-  void set_operator_(const char* value, size_t size);
-  ::std::string* mutable_operator_();
-  ::std::string* release_operator_();
-  void set_allocated_operator_(::std::string* operator_);
+  void set_key(const char* value);
+  void set_key(const char* value, size_t size);
+  ::std::string* mutable_key();
+  ::std::string* release_key();
+  void set_allocated_key(::std::string* key);
 
   // string args = 3;
   void clear_args();
@@ -307,7 +307,7 @@ class Entry : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr operator__;
+  ::google::protobuf::internal::ArenaStringPtr key_;
   ::google::protobuf::internal::ArenaStringPtr args_;
   ::google::protobuf::uint64 term_;
   mutable int _cached_size_;
@@ -647,57 +647,57 @@ inline void Entry::set_term(::google::protobuf::uint64 value) {
   // @@protoc_insertion_point(field_set:Soy.Raft.Rpc.Entry.term)
 }
 
-// string operator = 2;
-inline void Entry::clear_operator_() {
-  operator__.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// string key = 2;
+inline void Entry::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& Entry::operator_() const {
-  // @@protoc_insertion_point(field_get:Soy.Raft.Rpc.Entry.operator)
-  return operator__.GetNoArena();
+inline const ::std::string& Entry::key() const {
+  // @@protoc_insertion_point(field_get:Soy.Raft.Rpc.Entry.key)
+  return key_.GetNoArena();
 }
-inline void Entry::set_operator_(const ::std::string& value) {
+inline void Entry::set_key(const ::std::string& value) {
   
-  operator__.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Soy.Raft.Rpc.Entry.operator)
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:Soy.Raft.Rpc.Entry.key)
 }
 #if LANG_CXX11
-inline void Entry::set_operator_(::std::string&& value) {
+inline void Entry::set_key(::std::string&& value) {
   
-  operator__.SetNoArena(
+  key_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:Soy.Raft.Rpc.Entry.operator)
+  // @@protoc_insertion_point(field_set_rvalue:Soy.Raft.Rpc.Entry.key)
 }
 #endif
-inline void Entry::set_operator_(const char* value) {
+inline void Entry::set_key(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
-  operator__.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Soy.Raft.Rpc.Entry.operator)
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:Soy.Raft.Rpc.Entry.key)
 }
-inline void Entry::set_operator_(const char* value, size_t size) {
+inline void Entry::set_key(const char* value, size_t size) {
   
-  operator__.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Soy.Raft.Rpc.Entry.operator)
+  // @@protoc_insertion_point(field_set_pointer:Soy.Raft.Rpc.Entry.key)
 }
-inline ::std::string* Entry::mutable_operator_() {
+inline ::std::string* Entry::mutable_key() {
   
-  // @@protoc_insertion_point(field_mutable:Soy.Raft.Rpc.Entry.operator)
-  return operator__.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:Soy.Raft.Rpc.Entry.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* Entry::release_operator_() {
-  // @@protoc_insertion_point(field_release:Soy.Raft.Rpc.Entry.operator)
+inline ::std::string* Entry::release_key() {
+  // @@protoc_insertion_point(field_release:Soy.Raft.Rpc.Entry.key)
   
-  return operator__.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void Entry::set_allocated_operator_(::std::string* operator_) {
-  if (operator_ != NULL) {
+inline void Entry::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
     
   } else {
     
   }
-  operator__.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), operator_);
-  // @@protoc_insertion_point(field_set_allocated:Soy.Raft.Rpc.Entry.operator)
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:Soy.Raft.Rpc.Entry.key)
 }
 
 // string args = 3;
