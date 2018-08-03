@@ -3,6 +3,7 @@
 //
 
 #include "RoleCandidate.h"
+#include "Timer.h"
 
 using namespace std;
 
@@ -12,22 +13,27 @@ namespace Soy
     {
         struct RoleCandidate::Impl
         {
+            Timer timer;
         };
 
-        RoleCandidate::RoleCandidate()
+        RoleCandidate::RoleCandidate(State &s, ServerInfo &i, Transformer &t)
+            : RoleBase(s, i, t), pImpl(make_unique<Impl>())
         {
         }
 
-        RoleCandidate::~RoleCandidate()
-        {
-        }
+        RoleCandidate::~RoleCandidate() = default;
 
         void RoleCandidate::Init()
         {
+            ++state.currentTerm;
+            //state.votedFor = ;
+            pImpl->timer.Reset(Random(info.timeout, info.timeout * 2));
+            pImpl->timer.Start();
         }
 
         void RoleCandidate::Leave()
         {
+            pImpl->timer.Stop();
         }
 
         RPCReply RoleCandidate::RPCAppendEntries(const AppendEntriesRPC &message)

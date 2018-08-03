@@ -4,6 +4,8 @@
 
 #include "God.h"
 #include "Role.h"
+#include "Transformer.h"
+#include <boost/atomic.hpp>
 #include <grpc++/create_channel.h>
 #include "Raft.grpc.pb.h"
 #include "ExternalServer.hpp"
@@ -19,20 +21,22 @@ namespace Soy
         struct God::Impl
         {
             ServerInfo &info;
+            State state;
+            Transformer transformer;
 
             array<unique_ptr<RoleBase>, RoleNumber> roles;
-            RoleTh th = RoleTh::Dead;
+            boost::atomic<int> th{RoleTh::Dead};
 
 
             //As a server to Client
             Soy::Rpc::ExternalServer externalServer;
             bool Put(const string &key, const string &value)
             {
-                return roles[(size_t)th]->Put(key, value);
+                return roles[th]->Put(key, value);
             }
             pair<bool, string> Get(const string &key)
             {
-                return roles[(size_t)th]->Get(key);
+                return roles[th]->Get(key);
             }
 
 
@@ -44,18 +48,18 @@ namespace Soy
             Rpc::RaftRpcServer raftRpcServer;
             RPCReply RPCAppendEntries(const AppendEntriesRPC &message)
             {
-                return roles[(size_t)th]->RPCAppendEntries(message);
+                return roles[th]->RPCAppendEntries(message);
             }
             RPCReply RPCRequestVote(const RequestVoteRPC &message)
             {
-                return roles[(size_t)th]->RPCRequestVote(message);
+                return roles[th]->RPCRequestVote(message);
             }
 
             void Init()
             {
-                roles[(size_t)RoleTh::Follower] = make_unique<RoleFollower>();
-                roles[(size_t)RoleTh::Candidate] = make_unique<RoleCandidate>();
-                roles[(size_t)RoleTh::Leader] = make_unique<RoleLeader>();
+                roles[RoleTh::Follower] = make_unique<RoleFollower>(state, info, transformer);
+                roles[RoleTh::Candidate] = make_unique<RoleCandidate>(state, info, transformer);
+                roles[RoleTh::Leader] = make_unique<RoleLeader>(state, info, transformer);
                 Transform(RoleTh::Follower);
                 externalServer.BindPut(bind(&God::Impl::Put, this, placeholders::_1, placeholders::_2));
                 externalServer.BindGet(bind(&God::Impl::Get, this, placeholders::_1));
@@ -76,12 +80,12 @@ namespace Soy
             {
                 if (th != RoleTh::Dead)
                 {
-                    roles[(size_t)th]->Leave();
+                    roles[th]->Leave();
                 }
                 if (target != RoleTh::Dead)
                 {
                     th = target;
-                    roles[(size_t)th]->Init();
+                    roles[th]->Init();
                 }
             }
         };

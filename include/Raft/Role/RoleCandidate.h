@@ -13,7 +13,7 @@ namespace Soy
         class RoleCandidate : public RoleBase
         {
         public:
-            RoleCandidate();
+            RoleCandidate(State &s, ServerInfo &i, Transformer &t);
             ~RoleCandidate() override;
             void Init() override;
             void Leave() override;

@@ -12,11 +12,10 @@ namespace Soy
     {
         struct RoleLeader::Impl
         {
-            unordered_map<int, Index> nextIndex, matchIndex;
         };
 
-        RoleLeader::RoleLeader()
-            : pImpl(make_unique<Impl>())
+        RoleLeader::RoleLeader(State &s, ServerInfo &i, Transformer &t)
+            : RoleBase(s, i, t), pImpl(make_unique<Impl>())
         {
         }
 

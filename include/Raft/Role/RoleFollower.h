@@ -13,7 +13,7 @@ namespace Soy
         class RoleFollower : public RoleBase
         {
         public:
-            RoleFollower();
+            RoleFollower(State &s, ServerInfo &i, Transformer &t);
             ~RoleFollower() override;
             void Init() override;
             void Leave() override;

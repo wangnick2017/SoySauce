@@ -2,6 +2,8 @@
 // Created by wangnick on 7/26/18.
 //
 
+#include <cstdlib>
+#include <ctime>
 #include "Server.h"
 #include "ServerInfo.h"
 #include "God.h"
@@ -30,6 +32,7 @@ namespace Soy
 
     void Server::Start()
     {
+        srand(time(NULL));
         pImpl->god.Start();
     }
 

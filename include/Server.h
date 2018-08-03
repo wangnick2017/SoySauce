@@ -12,6 +12,10 @@ namespace Soy
     {
     public:
         Server(const std::string &fileName);
+        Server(const Server &) = delete;
+        Server(Server &&) = delete;
+        Server &operator =(const Server &) = delete;
+        Server &operator =(Server &&) = delete;
         ~Server();
         void Start();
         void Shutdown();

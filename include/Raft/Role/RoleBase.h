@@ -6,6 +6,7 @@
 
 #include "Base.h"
 #include "words.hpp"
+#include "Transformer.h"
 
 namespace Soy
 {
@@ -13,14 +14,10 @@ namespace Soy
     {
         const int RoleNumber = 3;
 
-        enum class RoleTh
-        {
-            Follower, Candidate, Leader, Dead
-        };
-
         class RoleBase
         {
         public:
+            RoleBase(State &s, ServerInfo &i, Transformer &t);
             virtual ~RoleBase() = default;
             virtual void Init() = 0;
             virtual void Leave() = 0;
@@ -30,13 +27,9 @@ namespace Soy
             virtual std::pair<bool, std::string> Get(const std::string &key) = 0;
 
         protected:
-            Term currentTerm;
-            ServerID votedFor;
-            std::vector<Entry> log;
-
-            Index commitIndex, lastApplied;
-
-            std::map<std::string, std::string> stateMachine;
+            State &state;
+            ServerInfo &info;
+            Transformer &transformer;
         };
     }
 }

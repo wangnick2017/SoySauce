@@ -24,7 +24,6 @@ namespace Soy
         ~Client();
 
         void Put(const std::string &key, const std::string &value, std::uint64_t timeout = 5000);
-
         std::string Get(const std::string &key, std::uint64_t timeout = 5000);
 
     private:

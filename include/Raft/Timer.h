@@ -19,6 +19,7 @@ namespace Soy
             void Stop();
             void Restart();
             void Reset(std::uint64_t p);
+            void Bind(std::function<void()> f);
         private:
             struct Impl;
             std::unique_ptr<Impl> pImpl;

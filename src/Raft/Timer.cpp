@@ -17,6 +17,7 @@ namespace Soy
         {
             uint64_t period;
             boost::thread runningThread;
+            function<void()> out = nullptr;
         };
 
         Timer::Timer(uint64_t p)
@@ -34,17 +35,18 @@ namespace Soy
 
         void Timer::Start()
         {
-            pImpl->runningThread = boost::thread([]
+            pImpl->runningThread = boost::thread([period = pImpl->period, out = pImpl->out]
             {
                 try
                 {
-                    boost::this_thread::sleep_for(duration_cast<milliseconds>(pImpl->period));
+                    boost::this_thread::sleep_for(milliseconds(period));
                 }
                 catch (boost::thread_interrupted)
                 {
                     //need to be completed
                     return;
                 }
+                out();
             });
         }
 
@@ -58,6 +60,11 @@ namespace Soy
         {
             Stop();
             Start();
+        }
+
+        void Timer::Bind(function<void()> f)
+        {
+            pImpl->out = std::move(f);
         }
     }
 }
