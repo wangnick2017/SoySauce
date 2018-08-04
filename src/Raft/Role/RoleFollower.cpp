@@ -16,19 +16,19 @@ namespace Soy
             Timer timer;
         };
 
-        RoleFollower::RoleFollower(State &s, ServerInfo &i, Transformer &t)
-            : RoleBase(s, i, t), pImpl(make_unique<Impl>())
+        RoleFollower::RoleFollower(State &s, ServerInfo &i, std::function<void(RoleTh, Term)> transformer)
+            : RoleBase(s, i), pImpl(make_unique<Impl>())
         {
+            pImpl->timer.Bind([this, f = std::move(transformer)]
+            {
+                f(RoleTh::Candidate, state.currentTerm + 1);
+            });
         }
 
         RoleFollower::~RoleFollower() = default;
 
         void RoleFollower::Init()
         {
-            pImpl->timer.Bind([this]
-            {
-                transformer.Notify(RoleTh::Candidate, state.currentTerm + 1);
-            });
             pImpl->timer.Reset(Random(info.timeout, info.timeout * 2));
             pImpl->timer.Start();
         }

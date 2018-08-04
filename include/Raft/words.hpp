@@ -11,7 +11,7 @@ namespace Soy
 {
     namespace Raft
     {
-        enum RoleTh
+        enum class RoleTh
         {
             Follower, Candidate, Leader, Dead
         };

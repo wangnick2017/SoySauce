@@ -123,9 +123,6 @@
 		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/Raft/Timer.cpp">
 			<Option target="SoySauce"/>
 		</Unit>
-		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/Raft/Transformer.cpp">
-			<Option target="SoySauce"/>
-		</Unit>
 		<Unit filename="/home/wangnick/Desktop/projects/SoySauce/src/Rpc/Soy.grpc.pb.cc">
 			<Option target="SoySauce"/>
 		</Unit>

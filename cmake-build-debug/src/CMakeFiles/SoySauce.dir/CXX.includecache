@@ -17,15 +17,13 @@ map
 -
 unordered_map
 -
+queue
+-
 vector
 -
 utility
 -
 algorithm
--
-functional
--
-utility
 -
 Exceptions.hpp
 ../include/Exceptions.hpp
@@ -65,8 +63,6 @@ Base.h
 ../include/Raft/Role/Base.h
 words.hpp
 ../include/Raft/Role/words.hpp
-Transformer.h
-../include/Raft/Role/Transformer.h
 
 ../include/Raft/Role/RoleCandidate.h
 RoleBase.h
@@ -156,13 +152,17 @@ grpcpp/security/server_credentials.h
 Raft.grpc.pb.h
 ../include/Raft/Rpc/Raft.grpc.pb.h
 
+../include/Raft/TaskQueue.h
+Base.h
+../include/Raft/Base.h
+words.hpp
+../include/Raft/words.hpp
+boost/thread/future.hpp
+-
+
 ../include/Raft/Timer.h
 Base.h
 ../include/Raft/Base.h
-
-../include/Raft/Transformer.h
-words.hpp
-../include/Raft/words.hpp
 
 ../include/Raft/words.hpp
 Base.h
@@ -175,7 +175,7 @@ Base.h
 ../include/Rpc/Base.h
 functional
 -
-thread
+boost/thread.hpp
 -
 grpc/grpc.h
 -
@@ -255,9 +255,9 @@ cstdlib
 /home/wangnick/Desktop/projects/SoySauce/src/Client.cpp
 Client.h
 /home/wangnick/Desktop/projects/SoySauce/src/Client.h
-atomic
+boost/atomic.hpp
 -
-chrono
+boost/chrono.hpp
 -
 boost/property_tree/json_parser.hpp
 -
@@ -273,9 +273,11 @@ God.h
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/God.h
 Role.h
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role.h
-Transformer.h
-/home/wangnick/Desktop/projects/SoySauce/src/Raft/Transformer.h
-boost/atomic.hpp
+TaskQueue.h
+/home/wangnick/Desktop/projects/SoySauce/src/Raft/TaskQueue.h
+boost/thread.hpp
+-
+boost/thread/lock_factories.hpp
 -
 grpc++/create_channel.h
 -
@@ -362,14 +364,6 @@ Timer.h
 boost/chrono.hpp
 -
 boost/thread/thread.hpp
--
-
-/home/wangnick/Desktop/projects/SoySauce/src/Raft/Transformer.cpp
-Transformer.h
-/home/wangnick/Desktop/projects/SoySauce/src/Raft/Transformer.h
-boost/thread.hpp
--
-boost/thread/lock_factories.hpp
 -
 
 /home/wangnick/Desktop/projects/SoySauce/src/Rpc/Soy.grpc.pb.cc

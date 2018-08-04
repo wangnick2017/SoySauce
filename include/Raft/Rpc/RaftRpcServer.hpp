@@ -92,7 +92,7 @@ namespace Soy
                     builder.AddListeningPort(address, grpc::InsecureServerCredentials());
                     builder.RegisterService(&impl);
                     server = builder.BuildAndStart();
-                    runningThread = std::thread([this]
+                    runningThread = boost::thread([this]
                     {
                         server->Wait();
                     });
@@ -108,7 +108,7 @@ namespace Soy
             private:
                 RaftRpcImpl impl;
                 std::unique_ptr<grpc::Server> server;
-                std::thread runningThread;
+                boost::thread runningThread;
             };
         }
     }

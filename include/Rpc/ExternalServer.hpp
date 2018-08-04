@@ -6,7 +6,7 @@
 
 #include "Base.h"
 #include <functional>
-#include <thread>
+#include <boost/thread.hpp>
 #include <grpc/grpc.h>
 #include <grpcpp/server.h>
 #include <grpcpp/server_builder.h>
@@ -79,7 +79,7 @@ namespace Soy
                 builder.AddListeningPort(address, grpc::InsecureServerCredentials());
                 builder.RegisterService(&impl);
                 server = builder.BuildAndStart();
-                runningThread = std::thread([this]
+                runningThread = boost::thread([this]
                 {
                     server->Wait();
                 });
@@ -95,7 +95,7 @@ namespace Soy
         private:
             ExternalImpl impl;
             std::unique_ptr<grpc::Server> server;
-            std::thread runningThread;
+            boost::thread runningThread;
         };
     }
 }

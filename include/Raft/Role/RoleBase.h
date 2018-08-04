@@ -6,7 +6,6 @@
 
 #include "Base.h"
 #include "words.hpp"
-#include "Transformer.h"
 
 namespace Soy
 {
@@ -17,7 +16,7 @@ namespace Soy
         class RoleBase
         {
         public:
-            RoleBase(State &s, ServerInfo &i, Transformer &t);
+            RoleBase(State &s, ServerInfo &i);
             virtual ~RoleBase() = default;
             virtual void Init() = 0;
             virtual void Leave() = 0;
@@ -29,7 +28,6 @@ namespace Soy
         protected:
             State &state;
             ServerInfo &info;
-            Transformer &transformer;
         };
     }
 }

@@ -148,7 +148,7 @@ src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Raft/Rpc/Raft.grpc.pb.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Raft/Rpc/Raft.pb.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Raft/Rpc/RaftRpcClient.hpp
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Raft/Rpc/RaftRpcServer.hpp
-src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Raft/Transformer.h
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Raft/TaskQueue.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Raft/words.hpp
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Rpc/ExternalServer.hpp
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Rpc/Soy.grpc.pb.h
@@ -300,7 +300,6 @@ src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/grpcpp/support/st
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.o: ../include/Base.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.o: ../include/Exceptions.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.o: ../include/Raft/Role/RoleBase.h
-src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.o: ../include/Raft/Transformer.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.o: ../include/Raft/words.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.o: ../include/ServerInfo.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.o: ../include/random.hpp
@@ -311,7 +310,6 @@ src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/Exceptions
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/Raft/Role/RoleBase.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/Raft/Role/RoleCandidate.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/Raft/Timer.h
-src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/Raft/Transformer.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/Raft/words.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/ServerInfo.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/random.hpp
@@ -322,7 +320,6 @@ src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/Exceptions.
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/Raft/Role/RoleBase.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/Raft/Role/RoleFollower.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/Raft/Timer.h
-src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/Raft/Transformer.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/Raft/words.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/ServerInfo.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/random.hpp
@@ -332,7 +329,6 @@ src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/Base.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/Exceptions.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/Raft/Role/RoleBase.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/Raft/Role/RoleLeader.h
-src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/Raft/Transformer.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/Raft/words.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/ServerInfo.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/random.hpp
@@ -515,14 +511,6 @@ src/CMakeFiles/SoySauce.dir/Raft/Timer.cpp.o: ../include/Raft/Timer.h
 src/CMakeFiles/SoySauce.dir/Raft/Timer.cpp.o: ../include/random.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Timer.cpp.o: ../src/Raft/Timer.cpp
 
-src/CMakeFiles/SoySauce.dir/Raft/Transformer.cpp.o: ../include/Base.h
-src/CMakeFiles/SoySauce.dir/Raft/Transformer.cpp.o: ../include/Exceptions.hpp
-src/CMakeFiles/SoySauce.dir/Raft/Transformer.cpp.o: ../include/Raft/Transformer.h
-src/CMakeFiles/SoySauce.dir/Raft/Transformer.cpp.o: ../include/Raft/words.hpp
-src/CMakeFiles/SoySauce.dir/Raft/Transformer.cpp.o: ../include/ServerInfo.h
-src/CMakeFiles/SoySauce.dir/Raft/Transformer.cpp.o: ../include/random.hpp
-src/CMakeFiles/SoySauce.dir/Raft/Transformer.cpp.o: ../src/Raft/Transformer.cpp
-
 src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o: ../include/Rpc/Soy.grpc.pb.h
 src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o: ../include/Rpc/Soy.pb.h
 src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o: ../src/Rpc/Soy.grpc.pb.cc
@@ -702,7 +690,6 @@ src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/Raft/Role/RoleBase.h
 src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/Raft/Role/RoleCandidate.h
 src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/Raft/Role/RoleFollower.h
 src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/Raft/Role/RoleLeader.h
-src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/Raft/Transformer.h
 src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/Raft/words.hpp
 src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/Server.h
 src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/ServerInfo.h

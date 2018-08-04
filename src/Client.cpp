@@ -4,8 +4,8 @@
 
 #include "Client.h"
 
-#include <atomic>
-#include <chrono>
+#include <boost/atomic.hpp>
+#include <boost/chrono.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <grpc++/create_channel.h>
@@ -13,6 +13,7 @@
 
 using namespace std;
 using namespace boost::property_tree;
+using namespace boost::chrono;
 
 namespace Soy
 {
@@ -20,7 +21,7 @@ namespace Soy
     struct Client::Impl
     {
         vector<unique_ptr<Rpc::External::Stub>> stubs;
-        atomic<size_t> cur{0};
+        boost::atomic<size_t> cur{0};
     };
 
     
@@ -46,19 +47,18 @@ namespace Soy
     template <class Tp>
     decltype(auto) timeFrom(const Tp &tp)
     {
-        return chrono::duration_cast<chrono::milliseconds>(
-            chrono::system_clock::now() - tp).count();
+        return duration_cast<milliseconds>(system_clock::now() - tp).count();
     }
 
     void Client::Put(const string &key, const string &value, uint64_t timeout)
     {
-        auto startTimePoint = chrono::system_clock::now();
+        auto startTimePoint = system_clock::now();
 
         while (timeFrom(startTimePoint) <= timeout)
         {
             auto &stub = pImpl->stubs[pImpl->cur % pImpl->stubs.size()];
             grpc::ClientContext ctx;
-            ctx.set_deadline(startTimePoint + chrono::milliseconds(timeout));
+            ctx.set_deadline(startTimePoint + milliseconds(timeout));
             ctx.set_idempotent(true);
 
             Rpc::PutRequest request;
@@ -77,13 +77,13 @@ namespace Soy
 
     string Client::Get(const string &key, uint64_t timeout)
     {
-        auto startTimePoint = chrono::system_clock::now();
+        auto startTimePoint = system_clock::now();
 
         while (timeFrom(startTimePoint) <= timeout)
         {
             auto &stub = pImpl->stubs[pImpl->cur % pImpl->stubs.size()];
             grpc::ClientContext ctx;
-            ctx.set_deadline(startTimePoint + chrono::milliseconds(timeout));
+            ctx.set_deadline(startTimePoint + milliseconds(timeout));
             ctx.set_idempotent(true);
 
             Rpc::GetRequest request;

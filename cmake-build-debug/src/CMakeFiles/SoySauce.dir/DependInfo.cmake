@@ -13,7 +13,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/wangnick/Desktop/projects/SoySauce/src/Raft/Rpc/Raft.grpc.pb.cc" "/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.grpc.pb.cc.o"
   "/home/wangnick/Desktop/projects/SoySauce/src/Raft/Rpc/Raft.pb.cc" "/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.o"
   "/home/wangnick/Desktop/projects/SoySauce/src/Raft/Timer.cpp" "/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src/CMakeFiles/SoySauce.dir/Raft/Timer.cpp.o"
-  "/home/wangnick/Desktop/projects/SoySauce/src/Raft/Transformer.cpp" "/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src/CMakeFiles/SoySauce.dir/Raft/Transformer.cpp.o"
   "/home/wangnick/Desktop/projects/SoySauce/src/Rpc/Soy.grpc.pb.cc" "/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o"
   "/home/wangnick/Desktop/projects/SoySauce/src/Rpc/Soy.pb.cc" "/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src/CMakeFiles/SoySauce.dir/Rpc/Soy.pb.cc.o"
   "/home/wangnick/Desktop/projects/SoySauce/src/Server.cpp" "/home/wangnick/Desktop/projects/SoySauce/cmake-build-debug/src/CMakeFiles/SoySauce.dir/Server.cpp.o"

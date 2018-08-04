@@ -4,8 +4,9 @@
 
 #include "God.h"
 #include "Role.h"
-#include "Transformer.h"
-#include <boost/atomic.hpp>
+#include "TaskQueue.h"
+#include <boost/thread.hpp>
+#include <boost/thread/lock_factories.hpp>
 #include <grpc++/create_channel.h>
 #include "Raft.grpc.pb.h"
 #include "ExternalServer.hpp"
@@ -22,21 +23,94 @@ namespace Soy
         {
             ServerInfo &info;
             State state;
-            Transformer transformer;
+
+
+            TaskQueue q;
+            boost::mutex mut;
+            boost::condition_variable cond;
+            boost::thread runningThread;
+            void Run()
+            {
+                while (true)
+                {
+                    auto lock = boost::make_unique_lock(mut);
+                    for (; q.tasks.empty();)
+                    {
+                        cond.wait(lock);
+                    }
+                    while (!q.tasks.empty())
+                    {
+                        switch (q.tasks.front())
+                        {
+                        case TaskType::TransForm:
+                            if (th != RoleTh::Dead)
+                                roles[(size_t)th]->Leave();
+                            if (q.qTrans.front().newTh != RoleTh::Dead)
+                            {
+                                th = q.qTrans.front().newTh;
+                                state.currentTerm = q.qTrans.front().newTerm;
+                                roles[(size_t)th]->Init();
+                            }
+                            q.qTrans.pop();
+                            break;
+                        case TaskType::Put:
+                            q.qPut.front().pro.set_value(roles[(size_t)th]->Put(
+                                q.qPut.front().key,
+                                q.qPut.front().value));
+                            q.qPut.pop();
+                            break;
+                        case TaskType::Get:
+                            q.qGet.front().pro.set_value(roles[(size_t)th]->Get(
+                                q.qGet.front().key));
+                            q.qGet.pop();
+                            break;
+                        case TaskType::AppendEntries:
+                            q.qApp.front().pro.set_value(roles[(size_t)th]->RPCAppendEntries(
+                                q.qApp.front().message));
+                            q.qApp.pop();
+                            break;
+                        case TaskType::RequestVote:
+                            q.qVote.front().pro.set_value(roles[(size_t)th]->RPCRequestVote(
+                                q.qVote.front().message));
+                            q.qVote.pop();
+                            break;
+                        }
+                        q.tasks.pop();
+                    }
+                }
+            }
+
 
             array<unique_ptr<RoleBase>, RoleNumber> roles;
-            boost::atomic<int> th{RoleTh::Dead};
+            RoleTh th = RoleTh::Dead;
+            void Transform(RoleTh newTh, Term newTerm)
+            {
+                auto lock = boost::make_unique_lock(mut);
+                q.tasks.push(TaskType::TransForm);
+                q.qTrans.push((TaskTransform){newTh, newTerm});
+                cond.notify_one();
+            }
 
 
             //As a server to Client
             Soy::Rpc::ExternalServer externalServer;
             bool Put(const string &key, const string &value)
             {
-                return roles[th]->Put(key, value);
+                auto lock = boost::make_unique_lock(mut);
+                q.tasks.push(TaskType::Put);
+                boost::promise<bool> pro;
+                q.qPut.push((TaskPut){key, value, pro});
+                cond.notify_one();
+                return pro.get_future().get();
             }
             pair<bool, string> Get(const string &key)
             {
-                return roles[th]->Get(key);
+                auto lock = boost::make_unique_lock(mut);
+                q.tasks.push(TaskType::Get);
+                boost::promise<pair<bool, std::string>> pro;
+                q.qGet.push((TaskGet){key, pro});
+                cond.notify_one();
+                return pro.get_future().get();
             }
 
 
@@ -48,23 +122,34 @@ namespace Soy
             Rpc::RaftRpcServer raftRpcServer;
             RPCReply RPCAppendEntries(const AppendEntriesRPC &message)
             {
-                return roles[th]->RPCAppendEntries(message);
+                auto lock = boost::make_unique_lock(mut);
+                q.tasks.push(TaskType::AppendEntries);
+                boost::promise<RPCReply> pro;
+                q.qApp.push((TaskAppendEntries){message, pro});
+                cond.notify_one();
+                return pro.get_future().get();
             }
             RPCReply RPCRequestVote(const RequestVoteRPC &message)
             {
-                return roles[th]->RPCRequestVote(message);
+                auto lock = boost::make_unique_lock(mut);
+                q.tasks.push(TaskType::RequestVote);
+                boost::promise<RPCReply> pro;
+                q.qVote.push((TaskRequestVote){message, pro});
+                cond.notify_one();
+                return pro.get_future().get();
             }
 
             void Init()
             {
-                roles[RoleTh::Follower] = make_unique<RoleFollower>(state, info, transformer);
-                roles[RoleTh::Candidate] = make_unique<RoleCandidate>(state, info, transformer);
-                roles[RoleTh::Leader] = make_unique<RoleLeader>(state, info, transformer);
-                Transform(RoleTh::Follower);
+                roles[(size_t)RoleTh::Follower] = make_unique<RoleFollower>(state, info,
+                    bind(&God::Impl::Transform, this, placeholders::_1, placeholders::_2));
+                roles[(size_t)RoleTh::Candidate] = make_unique<RoleCandidate>(state, info);
+                roles[(size_t)RoleTh::Leader] = make_unique<RoleLeader>(state, info);
                 externalServer.BindPut(bind(&God::Impl::Put, this, placeholders::_1, placeholders::_2));
                 externalServer.BindGet(bind(&God::Impl::Get, this, placeholders::_1));
                 raftRpcServer.BindAppendEntries(bind(&God::Impl::RPCAppendEntries, this, placeholders::_1));
                 raftRpcServer.BindRequestVote(bind(&God::Impl::RPCRequestVote, this, placeholders::_1));
+                runningThread = boost::thread(bind(&God::Impl::Run, this));
             }
 
             Impl(ServerInfo &i) : info(i)
@@ -73,19 +158,6 @@ namespace Soy
                 {
                     raftRpcClient.Stubs.emplace_back(Rpc::RaftRpc::NewStub(
                         grpc::CreateChannel(srv.ToString(), grpc::InsecureChannelCredentials())));
-                }
-            }
-
-            void Transform(RoleTh target)
-            {
-                if (th != RoleTh::Dead)
-                {
-                    roles[th]->Leave();
-                }
-                if (target != RoleTh::Dead)
-                {
-                    th = target;
-                    roles[th]->Init();
                 }
             }
         };
@@ -100,6 +172,7 @@ namespace Soy
         void God::Start()
         {
             pImpl->Init();
+            pImpl->Transform(RoleTh::Follower, 1);
             pImpl->externalServer.Start(pImpl->info.local.ToString());
             pImpl->raftRpcServer.Start(pImpl->info.local.ToString());
         }
@@ -108,6 +181,8 @@ namespace Soy
         {
             pImpl->externalServer.Shutdown();
             pImpl->raftRpcServer.Shutdown();
+            pImpl->runningThread.interrupt();
+            pImpl->runningThread.join();
         }
     }
 }

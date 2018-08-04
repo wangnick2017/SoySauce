@@ -368,33 +368,6 @@ Raft/Timer.cpp.s:
 	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Timer.cpp.s
 .PHONY : Raft/Timer.cpp.s
 
-Raft/Transformer.o: Raft/Transformer.cpp.o
-
-.PHONY : Raft/Transformer.o
-
-# target to build an object file
-Raft/Transformer.cpp.o:
-	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Transformer.cpp.o
-.PHONY : Raft/Transformer.cpp.o
-
-Raft/Transformer.i: Raft/Transformer.cpp.i
-
-.PHONY : Raft/Transformer.i
-
-# target to preprocess a source file
-Raft/Transformer.cpp.i:
-	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Transformer.cpp.i
-.PHONY : Raft/Transformer.cpp.i
-
-Raft/Transformer.s: Raft/Transformer.cpp.s
-
-.PHONY : Raft/Transformer.s
-
-# target to generate assembly for a file
-Raft/Transformer.cpp.s:
-	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/Raft/Transformer.cpp.s
-.PHONY : Raft/Transformer.cpp.s
-
 Rpc/Soy.grpc.pb.o: Rpc/Soy.grpc.pb.cc.o
 
 .PHONY : Rpc/Soy.grpc.pb.o
@@ -539,9 +512,6 @@ help:
 	@echo "... Raft/Timer.o"
 	@echo "... Raft/Timer.i"
 	@echo "... Raft/Timer.s"
-	@echo "... Raft/Transformer.o"
-	@echo "... Raft/Transformer.i"
-	@echo "... Raft/Transformer.s"
 	@echo "... Rpc/Soy.grpc.pb.o"
 	@echo "... Rpc/Soy.grpc.pb.i"
 	@echo "... Rpc/Soy.grpc.pb.s"

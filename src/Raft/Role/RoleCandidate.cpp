@@ -16,8 +16,8 @@ namespace Soy
             Timer timer;
         };
 
-        RoleCandidate::RoleCandidate(State &s, ServerInfo &i, Transformer &t)
-            : RoleBase(s, i, t), pImpl(make_unique<Impl>())
+        RoleCandidate::RoleCandidate(State &s, ServerInfo &i)
+            : RoleBase(s, i), pImpl(make_unique<Impl>())
         {
         }
 

@@ -9,10 +9,9 @@
 #include <memory>
 #include <map>
 #include <unordered_map>
+#include <queue>
 #include <vector>
 #include <utility>
 #include <algorithm>
-#include <functional>
-#include <utility>
 #include "Exceptions.hpp"
 #include "random.hpp"

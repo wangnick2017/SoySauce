@@ -14,8 +14,8 @@ namespace Soy
         {
         };
 
-        RoleLeader::RoleLeader(State &s, ServerInfo &i, Transformer &t)
-            : RoleBase(s, i, t), pImpl(make_unique<Impl>())
+        RoleLeader::RoleLeader(State &s, ServerInfo &i)
+            : RoleBase(s, i), pImpl(make_unique<Impl>())
         {
         }
 

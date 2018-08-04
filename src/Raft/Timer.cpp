@@ -43,7 +43,6 @@ namespace Soy
                 }
                 catch (boost::thread_interrupted)
                 {
-                    //need to be completed
                     return;
                 }
                 out();
