@@ -22,6 +22,8 @@ namespace Soy
             bool Put(const std::string &key, const std::string &value) override;
             std::pair<bool, std::string> Get(const std::string &key) override;
 
+            void SendHeartbeat();
+
         private:
             struct Impl;
             std::unique_ptr<Impl> pImpl;

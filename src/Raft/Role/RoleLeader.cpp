@@ -4,6 +4,9 @@
 
 #include "RoleLeader.h"
 #include "Timer.h"
+#include "RaftRpcClient.hpp"
+#include <boost/thread.hpp>
+#include <boost/thread/future.hpp>
 
 using namespace std;
 
@@ -21,7 +24,7 @@ namespace Soy
         {
             pImpl->timer.Bind([this]
             {
-                //transformer.Transform(RoleTh::Follower, state.currentTerm + 1);
+                SendHeartbeat();
             });
         }
 
@@ -29,7 +32,8 @@ namespace Soy
 
         void RoleLeader::Init()
         {
-            pImpl->timer.Reset(Random(info.timeout, info.timeout * 2));
+            pImpl->timer.Reset(Random(info.timeout, info.timeout * 2), true);
+            SendHeartbeat();
             pImpl->timer.Start();
         }
 
@@ -40,21 +44,63 @@ namespace Soy
 
         RPCReply RoleLeader::RPCAppendEntries(const AppendEntriesRPC &message)
         {
+            if (message.term > state.currentTerm)
+                transformer.TransformSafe(RoleTh::Follower, message.term);
+            return RPCReply(state.currentTerm, false);
         }
 
         RPCReply RoleLeader::RPCRequestVote(const RequestVoteRPC &message)
         {
             if (message.term > state.currentTerm)
-                transformer.Transform(RoleTh::Follower, message.term);
+                transformer.TransformSafe(RoleTh::Follower, message.term);
             return RPCReply(state.currentTerm, false);
         }
 
         bool RoleLeader::Put(const string &key, const string &value)
         {
+            int size = (int)client.Stubs.size();
+            vector<boost::unique_future<pair<RPCReply, bool>>> f;
+            for (int i = 0; i < size; ++i)
+            {
+                Rpc::AppendEntriesMessage message;
+                message.set_term(state.currentTerm);
+                message.set_leaderid(info.local.ToString());
+                message.clear_entries();
+                f.push_back(boost::async(move(boost::bind(
+                    &Rpc::RaftRpcClient::SendAppendEntries, &client, i, message, true, 11))));
+            }
+            for (int i = 0; i < size; ++i)
+            {
+                const auto &result = f[i].get();
+                if (result.second)
+                {
+                }
+                else
+                {
+                }
+            }
+            //
         }
 
         pair<bool, string> RoleLeader::Get(const string &key)
         {
+            if (state.machine.find(key) == state.machine.end())
+                return make_pair(false, "");
+            return make_pair(true, state.machine[key]);
+        }
+
+        void RoleLeader::SendHeartbeat()
+        {
+            Rpc::AppendEntriesMessage message;
+            message.set_term(state.currentTerm);
+            message.set_leaderid(info.local.ToString());
+            message.clear_entries();
+            int size = (int)client.Stubs.size();
+            for (int i = 0; i < size; ++i)
+            {
+                boost::async(move(boost::bind(
+                    &Rpc::RaftRpcClient::SendAppendEntries, &client, i, message, false, 0)));
+            }
         }
     }
 }

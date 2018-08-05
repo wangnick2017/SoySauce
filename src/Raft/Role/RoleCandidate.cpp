@@ -43,7 +43,7 @@ namespace Soy
             message.set_lastlogindex(state.commitIndex);
             message.set_candidateid(info.local.ToString());
             int size = (int)client.Stubs.size();
-            vector<boost::unique_future<pair<Rpc::RpcVoteStatus, Term>>> f;
+            vector<boost::unique_future<pair<RPCReply, bool>>> f;
             for (int i = 0; i < size; ++i)
             {
                 f.push_back(boost::async(move(boost::bind(
@@ -52,16 +52,12 @@ namespace Soy
             for (int i = 0; i < size; ++i)
             {
                 const auto &result = f[i].get();
-                switch (result.first)
+                if (result.second)
                 {
-                case Rpc::RpcVoteStatus::Voted:
-                    ++pImpl->sum;
-                    break;
-                case Rpc::RpcVoteStatus::ToBeUpdated:
-                    transformer.TransformSafe(RoleTh::Follower, result.second);
-                    break;
-                case Rpc::RpcVoteStatus::Failed:
-                    break;
+                    if (result.first.ans)
+                        ++pImpl->sum;
+                    else if (result.first.term > message.term())
+                        transformer.TransformSafe(RoleTh::Follower, result.first.term);
                 }
             }
             if (pImpl->sum * 2 > size)
@@ -75,12 +71,15 @@ namespace Soy
 
         RPCReply RoleCandidate::RPCAppendEntries(const AppendEntriesRPC &message)
         {
+            if (message.term > state.currentTerm)
+                transformer.TransformSafe(RoleTh::Follower, message.term);
+            return RPCReply(state.currentTerm, false);
         }
 
         RPCReply RoleCandidate::RPCRequestVote(const RequestVoteRPC &message)
         {
             if (message.term > state.currentTerm)
-                transformer.Transform(RoleTh::Follower, message.term);
+                transformer.TransformSafe(RoleTh::Follower, message.term);
             return RPCReply(state.currentTerm, false);
         }
 

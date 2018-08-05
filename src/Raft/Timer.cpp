@@ -16,36 +16,43 @@ namespace Soy
         struct Timer::Impl
         {
             uint64_t period;
+            bool repeat;
             boost::thread runningThread;
             function<void()> out = nullptr;
         };
 
-        Timer::Timer(uint64_t p)
+        Timer::Timer(uint64_t p, bool r)
             : pImpl(make_unique<Impl>())
         {
             pImpl->period = p;
+            pImpl->repeat = r;
         }
 
         Timer::~Timer() = default;
 
-        void Timer::Reset(uint64_t p)
+        void Timer::Reset(uint64_t p, bool r)
         {
             pImpl->period = p;
+            pImpl->repeat = r;
         }
 
         void Timer::Start()
         {
-            pImpl->runningThread = boost::thread([period = pImpl->period, out = pImpl->out]
+            pImpl->runningThread = boost::thread([period = pImpl->period, repeat = pImpl->repeat, out = pImpl->out]
             {
-                try
+                do
                 {
-                    boost::this_thread::sleep_for(milliseconds(period));
+                    try
+                    {
+                        boost::this_thread::sleep_for(milliseconds(period));
+                    }
+                    catch (boost::thread_interrupted)
+                    {
+                        return;
+                    }
+                    out();
                 }
-                catch (boost::thread_interrupted)
-                {
-                    return;
-                }
-                out();
+                while (repeat);
             });
         }
 
