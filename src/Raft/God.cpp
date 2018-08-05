@@ -92,6 +92,11 @@ namespace Soy
                 q.qTrans.push((TaskTransform){newTh, newTerm});
                 cond.notify_one();
             }
+            void TransformSafe(RoleTh newTh, Term newTerm)
+            {
+                q.tasks.push(TaskType::TransForm);
+                q.qTrans.push((TaskTransform){newTh, newTerm});
+            }
 
 
             //As a server to Client
@@ -153,10 +158,11 @@ namespace Soy
                 runningThread = boost::thread(bind(&God::Impl::Run, this));
             }
 
-            Impl(ServerInfo &i)
-                : info(i),
-                  transformer(bind(&God::Impl::Transform, this, placeholders::_1, placeholders::_2))
+            Impl(ServerInfo &i) : info(i)
             {
+                transformer.Bind(
+                    bind(&God::Impl::Transform, this, placeholders::_1, placeholders::_2),
+                    bind(&God::Impl::TransformSafe, this, placeholders::_1, placeholders::_2));
                 for (const auto &srv : info.srvList)
                 {
                     raftRpcClient.Stubs.emplace_back(Rpc::RaftRpc::NewStub(

@@ -5,6 +5,8 @@
 #include "RoleCandidate.h"
 #include "Timer.h"
 #include "RaftRpcClient.hpp"
+#include <boost/thread.hpp>
+#include <boost/thread/future.hpp>
 
 using namespace std;
 
@@ -40,22 +42,30 @@ namespace Soy
             message.set_lastlogterm(state.log[state.commitIndex].term);
             message.set_lastlogindex(state.commitIndex);
             message.set_candidateid(info.local.ToString());
-            for (auto &stub : client.Stubs)
+            int size = (int)client.Stubs.size();
+            vector<boost::unique_future<pair<Rpc::RpcVoteStatus, Term>>> f;
+            for (int i = 0; i < size; ++i)
             {
-                grpc::ClientContext ctx;
-                //ctx...
-                Rpc::Reply reply;
-                auto status = stub->RequestVote(&ctx, message, &reply);
-                if (status.ok())
+                f.push_back(boost::async(move(boost::bind(
+                    &Rpc::RaftRpcClient::SendRequestVote, &client, i, message))));
+            }
+            for (int i = 0; i < size; ++i)
+            {
+                const auto &result = f[i].get();
+                switch (result.first)
                 {
-                    if (reply.ans())
-                        ++pImpl->sum;
-                    else if (reply.term() > state.currentTerm)
-                        transformer.Transform(RoleTh::Follower, reply.term());
+                case Rpc::RpcVoteStatus::Voted:
+                    ++pImpl->sum;
+                    break;
+                case Rpc::RpcVoteStatus::ToBeUpdated:
+                    transformer.TransformSafe(RoleTh::Follower, result.second);
+                    break;
+                case Rpc::RpcVoteStatus::Failed:
+                    break;
                 }
             }
-            if (pImpl->sum * 2 > client.Stubs.size())
-                transformer.Transform(RoleTh::Leader, state.currentTerm);
+            if (pImpl->sum * 2 > size)
+                transformer.TransformSafe(RoleTh::Leader, state.currentTerm);
         }
 
         void RoleCandidate::Leave()
