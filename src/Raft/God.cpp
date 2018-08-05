@@ -167,6 +167,8 @@ namespace Soy
                 {
                     raftRpcClient.Stubs.emplace_back(Rpc::RaftRpc::NewStub(
                         grpc::CreateChannel(srv.ToString(), grpc::InsecureChannelCredentials())));
+                    state.nextIndex.push_back(0);
+                    state.matchIndex.push_back(0);
                 }
             }
         };

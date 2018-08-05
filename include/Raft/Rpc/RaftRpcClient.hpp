@@ -22,6 +22,7 @@ namespace Soy
                 return boost::chrono::duration_cast<boost::chrono::milliseconds>
                     (boost::chrono::system_clock::now() - tp).count();
             }
+
             class RaftRpcClient
             {
             public:
@@ -29,19 +30,24 @@ namespace Soy
 
                 std::pair<RPCReply, bool> SendAppendEntries(
                     int sth,
-                    const Rpc::AppendEntriesMessage &message,
+                    const Rpc::AppendEntriesMessage &m,
                     bool repeat = false,
                     std::uint64_t timeout = 0)
                 {
+                    Rpc::AppendEntriesMessage message{m};
                     auto startTimePoint = boost::chrono::system_clock::now();
                     do
                     {
                         grpc::ClientContext ctx;
                         //ctx...
                         Rpc::Reply reply;
-                        auto status = Stubs[sth]->AppendEntries(&ctx, message, &reply);
-                        if (status.ok())
-                            return std::make_pair(RPCReply(reply.term(), reply.ans()), status.ok());
+                        do
+                        {
+                            auto status = Stubs[sth]->AppendEntries(&ctx, message, &reply);
+                            if (status.ok())
+                                return std::make_pair(RPCReply(reply.term(), reply.ans()), status.ok());
+                        }
+                        while (false);
                     }
                     while (repeat && timeFrom(startTimePoint) <= timeout);
                     return std::make_pair(RPCReply(0, false), false);

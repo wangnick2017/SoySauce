@@ -45,19 +45,26 @@ namespace Soy
             {
                 return RPCReply(state.currentTerm, false);
             }
-            if (message.prevLogIndex > state.log.size() || state.log[message.prevLogIndex].term != message.prevLogTerm)
+            if (message.term > state.currentTerm)
+                state.currentTerm = message.term;
+            if (message.prevLogIndex >= state.log.size() || state.log[message.prevLogIndex].term != message.prevLogTerm)
             {
+                pImpl->timer.Restart();
                 return RPCReply(state.currentTerm, false);
             }
-            //
-            //
-            //
-            if (state.commitIndex > state.lastApplied)
+            while (state.log.size() - 1 > message.prevLogIndex)
+                state.log.pop_back();
+            for (const auto &entry : message.entries)
+                state.log.push_back(entry);
+            if (message.leaderCommit > state.commitIndex)
+                state.commitIndex = min(message.leaderCommit, state.log.size() - 1);
+            while (state.commitIndex > state.lastApplied)
             {
                 state.machine[state.log[state.lastApplied].op] = state.log[state.lastApplied].arg;
                 ++state.lastApplied;
             }
             pImpl->timer.Restart();
+            return RPCReply(state.currentTerm, true);
         }
 
         RPCReply RoleFollower::RPCRequestVote(const RequestVoteRPC &message)
@@ -66,10 +73,13 @@ namespace Soy
             {
                 return RPCReply(state.currentTerm, false);
             }
+            if (message.term > state.currentTerm)
+                state.currentTerm = message.term;
             string v = state.votedFor.ToString();
             if ((v.empty() || v == message.candidateID.ToString()) &&
-                (message.lastLogTerm > state.currentTerm ||
-                 message.lastLogTerm == state.currentTerm && message.lastLogIndex >= state.commitIndex))
+                (message.lastLogTerm > state.log.[state.log.size() - 1].term ||
+                 message.lastLogTerm == state.log.[state.log.size() - 1].term &&
+                 message.lastLogIndex >= state.log.size() - 1))
             {
                 state.votedFor = message.candidateID;
                 pImpl->timer.Restart();

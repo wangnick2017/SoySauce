@@ -39,8 +39,8 @@ namespace Soy
             pImpl->timer.Start();
             Rpc::RequestVoteMessage message;
             message.set_term(state.currentTerm);
-            message.set_lastlogterm(state.log[state.commitIndex].term);
-            message.set_lastlogindex(state.commitIndex);
+            message.set_lastlogterm(state.log.[state.log.size() - 1].term);
+            message.set_lastlogindex(state.log.size() - 1);
             message.set_candidateid(info.local.ToString());
             int size = (int)client.Stubs.size();
             vector<boost::unique_future<pair<RPCReply, bool>>> f;

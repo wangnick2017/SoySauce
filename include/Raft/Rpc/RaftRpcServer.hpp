@@ -43,12 +43,15 @@ namespace Soy
 
                 Status AppendEntries(ServerContext* context, const AppendEntriesMessage* request, Reply* response) override
                 {
-                    RPCReply rpcReply = append(AppendEntriesRPC(
+                    AppendEntriesRPC app(
                         request->term(),
                         request->prevlogterm(),
                         request->prevlogindex(),
                         request->leadercommit(),
-                        request->leaderid()));
+                        request->leaderid());
+                    for (auto &p : request->entries())
+                        app.entries.push_back((Entry){p.key(), p.args(), p.term()});
+                    RPCReply rpcReply = append(std::move(app));
                     response->set_ans(rpcReply.ans);
                     response->set_term(rpcReply.term);
                     return Status::OK;

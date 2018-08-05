@@ -68,7 +68,7 @@ namespace Soy
 
             std::map<std::string, std::string> machine;
 
-            std::unordered_map<int, Index> nextIndex, matchIndex;
+            std::vector<Index> nextIndex, matchIndex;
         };
     }
 }
