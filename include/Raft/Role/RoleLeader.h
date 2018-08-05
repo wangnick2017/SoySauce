@@ -13,7 +13,7 @@ namespace Soy
         class RoleLeader : public RoleBase
         {
         public:
-            RoleLeader(State &s, ServerInfo &i);
+            RoleLeader(State &s, ServerInfo &i, Transformer &t, Rpc::RaftRpcClient &c);
             ~RoleLeader() override;
             void Init() override;
             void Leave() override;

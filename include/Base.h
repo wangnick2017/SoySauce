@@ -11,6 +11,7 @@
 #include <unordered_map>
 #include <queue>
 #include <vector>
+#include <functional>
 #include <utility>
 #include <algorithm>
 #include "Exceptions.hpp"

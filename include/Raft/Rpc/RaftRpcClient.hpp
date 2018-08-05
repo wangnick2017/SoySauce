@@ -21,10 +21,6 @@ namespace Soy
                 std::vector<std::unique_ptr<Rpc::RaftRpc::Stub>> Stubs;
                 void SendAppendEntries()
                 {
-                    for (int i = 0, j = Stubs.size(); i < j; ++i)
-                    {
-                        //std::async(std::launch::async, test, s[i-1]);
-                    }
                 }
                 void SendRequestVote()
                 {

@@ -13,7 +13,7 @@ namespace Soy
         class RoleFollower : public RoleBase
         {
         public:
-            RoleFollower(State &s, ServerInfo &i, std::function<void(RoleTh, Term)> transformer);
+            RoleFollower(State &s, ServerInfo &i, Transformer &t, Rpc::RaftRpcClient &c);
             ~RoleFollower() override;
             void Init() override;
             void Leave() override;

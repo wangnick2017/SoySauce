@@ -13,7 +13,7 @@ namespace Soy
         class RoleCandidate : public RoleBase
         {
         public:
-            RoleCandidate(State &s, ServerInfo &i);
+            RoleCandidate(State &s, ServerInfo &i, Transformer &t, Rpc::RaftRpcClient &c);
             ~RoleCandidate() override;
             void Init() override;
             void Leave() override;

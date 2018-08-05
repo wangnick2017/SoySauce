@@ -5,6 +5,7 @@
 #include "God.h"
 #include "Role.h"
 #include "TaskQueue.h"
+#include "Transformer.hpp"
 #include <boost/thread.hpp>
 #include <boost/thread/lock_factories.hpp>
 #include <grpc++/create_channel.h>
@@ -81,6 +82,7 @@ namespace Soy
             }
 
 
+            Transformer transformer;
             array<unique_ptr<RoleBase>, RoleNumber> roles;
             RoleTh th = RoleTh::Dead;
             void Transform(RoleTh newTh, Term newTerm)
@@ -141,10 +143,9 @@ namespace Soy
 
             void Init()
             {
-                roles[(size_t)RoleTh::Follower] = make_unique<RoleFollower>(state, info,
-                    bind(&God::Impl::Transform, this, placeholders::_1, placeholders::_2));
-                roles[(size_t)RoleTh::Candidate] = make_unique<RoleCandidate>(state, info);
-                roles[(size_t)RoleTh::Leader] = make_unique<RoleLeader>(state, info);
+                roles[(size_t)RoleTh::Follower] = make_unique<RoleFollower>(state, info, transformer, raftRpcClient);
+                roles[(size_t)RoleTh::Candidate] = make_unique<RoleCandidate>(state, info, transformer, raftRpcClient);
+                roles[(size_t)RoleTh::Leader] = make_unique<RoleLeader>(state, info, transformer, raftRpcClient);
                 externalServer.BindPut(bind(&God::Impl::Put, this, placeholders::_1, placeholders::_2));
                 externalServer.BindGet(bind(&God::Impl::Get, this, placeholders::_1));
                 raftRpcServer.BindAppendEntries(bind(&God::Impl::RPCAppendEntries, this, placeholders::_1));
@@ -152,7 +153,9 @@ namespace Soy
                 runningThread = boost::thread(bind(&God::Impl::Run, this));
             }
 
-            Impl(ServerInfo &i) : info(i)
+            Impl(ServerInfo &i)
+                : info(i),
+                  transformer(bind(&God::Impl::Transform, this, placeholders::_1, placeholders::_2))
             {
                 for (const auto &srv : info.srvList)
                 {

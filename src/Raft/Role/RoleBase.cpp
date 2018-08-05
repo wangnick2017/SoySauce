@@ -8,8 +8,8 @@ namespace Soy
 {
     namespace Raft
     {
-        RoleBase::RoleBase(State &s, ServerInfo &i)
-            : state(s), info(i)
+        RoleBase::RoleBase(State &s, ServerInfo &i, Transformer &t, Rpc::RaftRpcClient &c)
+            : state(s), info(i), transformer(t), client(c)
         {
         }
     }

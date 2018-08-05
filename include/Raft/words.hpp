@@ -30,6 +30,7 @@ namespace Soy
             Term term, prevLogTerm;
             ServerID leaderID;
             Index prevLogIndex, leaderCommit;
+            std::vector<Entry> entries;
             AppendEntriesRPC(Term t, Term pt, Index pi, Index lc, ServerID l)
                 : term(t), prevLogTerm(pt), prevLogIndex(pi), leaderCommit(lc), leaderID(l)
             {

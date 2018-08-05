@@ -16,12 +16,12 @@ namespace Soy
             Timer timer;
         };
 
-        RoleFollower::RoleFollower(State &s, ServerInfo &i, std::function<void(RoleTh, Term)> transformer)
-            : RoleBase(s, i), pImpl(make_unique<Impl>())
+        RoleFollower::RoleFollower(State &s, ServerInfo &i, Transformer &t, Rpc::RaftRpcClient &c)
+            : RoleBase(s, i, t, c), pImpl(make_unique<Impl>())
         {
-            pImpl->timer.Bind([this, f = std::move(transformer)]
+            pImpl->timer.Bind([this]
             {
-                f(RoleTh::Candidate, state.currentTerm + 1);
+                transformer.Transform(RoleTh::Candidate, state.currentTerm + 1);
             });
         }
 
@@ -29,6 +29,7 @@ namespace Soy
 
         void RoleFollower::Init()
         {
+            state.votedFor = ServerID();
             pImpl->timer.Reset(Random(info.timeout, info.timeout * 2));
             pImpl->timer.Start();
         }
@@ -66,11 +67,15 @@ namespace Soy
                 return RPCReply(state.currentTerm, false);
             }
             string v = state.votedFor.ToString();
-            if (v.empty() || v == message.candidateID.ToString())
+            if ((v.empty() || v == message.candidateID.ToString()) &&
+                (message.lastLogTerm > state.currentTerm ||
+                 message.lastLogTerm == state.currentTerm && message.lastLogIndex >= state.commitIndex))
             {
                 state.votedFor = message.candidateID;
+                pImpl->timer.Restart();
                 return RPCReply(state.currentTerm, true);
             }
+            pImpl->timer.Restart();
             return RPCReply(state.currentTerm, false);
         }
 

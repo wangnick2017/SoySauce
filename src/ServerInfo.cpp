@@ -25,6 +25,8 @@ namespace Soy
 
     string ServerID::ToString() const
     {
+        if (address.empty())
+            return "";
         return address + ":" + to_string(port);
     }
 

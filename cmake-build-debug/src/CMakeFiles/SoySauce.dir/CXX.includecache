@@ -21,6 +21,8 @@ queue
 -
 vector
 -
+functional
+-
 utility
 -
 algorithm
@@ -63,6 +65,10 @@ Base.h
 ../include/Raft/Role/Base.h
 words.hpp
 ../include/Raft/Role/words.hpp
+Transformer.hpp
+../include/Raft/Role/Transformer.hpp
+RaftRpcClient.hpp
+../include/Raft/Role/RaftRpcClient.hpp
 
 ../include/Raft/Role/RoleCandidate.h
 RoleBase.h
@@ -163,6 +169,12 @@ boost/thread/future.hpp
 ../include/Raft/Timer.h
 Base.h
 ../include/Raft/Base.h
+
+../include/Raft/Transformer.hpp
+Base.h
+../include/Raft/Base.h
+words.hpp
+../include/Raft/words.hpp
 
 ../include/Raft/words.hpp
 Base.h
@@ -275,6 +287,8 @@ Role.h
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role.h
 TaskQueue.h
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/TaskQueue.h
+Transformer.hpp
+/home/wangnick/Desktop/projects/SoySauce/src/Raft/Transformer.hpp
 boost/thread.hpp
 -
 boost/thread/lock_factories.hpp
@@ -299,6 +313,8 @@ RoleCandidate.h
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleCandidate.h
 Timer.h
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/Timer.h
+RaftRpcClient.hpp
+/home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RaftRpcClient.hpp
 
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleFollower.cpp
 RoleFollower.h
