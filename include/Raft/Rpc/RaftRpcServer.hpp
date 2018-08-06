@@ -50,7 +50,7 @@ namespace Soy
                         request->leadercommit(),
                         request->leaderid());
                     for (auto &p : request->entries())
-                        app.entries.push_back((Entry){p.key(), p.args(), p.term()});
+                        app.entries.push_back((Soy::Raft::Entry){p.key(), p.args(), p.term()});
                     RPCReply rpcReply = append(std::move(app));
                     response->set_ans(rpcReply.ans);
                     response->set_term(rpcReply.term);

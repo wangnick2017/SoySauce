@@ -5,15 +5,15 @@
 #include "Client.h"
 
 #include <boost/atomic.hpp>
-#include <boost/chrono.hpp>
+#include <chrono>
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <grpc++/create_channel.h>
 #include "Soy.grpc.pb.h"
 
 using namespace std;
+using namespace std::chrono;
 using namespace boost::property_tree;
-using namespace boost::chrono;
 
 namespace Soy
 {
@@ -44,21 +44,15 @@ namespace Soy
 
     Client::~Client() = default;
 
-    template <class Tp>
-    decltype(auto) timeFrom(const Tp &tp)
-    {
-        return duration_cast<milliseconds>(system_clock::now() - tp).count();
-    }
-
     void Client::Put(const string &key, const string &value, uint64_t timeout)
     {
-        auto startTimePoint = system_clock::now();
+        auto startTime = system_clock::now();
 
-        while (timeFrom(startTimePoint) <= timeout)
+        while (duration_cast<milliseconds>(system_clock::now() - startTime).count() <= timeout)
         {
             auto &stub = pImpl->stubs[pImpl->cur % pImpl->stubs.size()];
             grpc::ClientContext ctx;
-            ctx.set_deadline(startTimePoint + milliseconds(timeout));
+            ctx.set_deadline(startTime + milliseconds(timeout));
             ctx.set_idempotent(true);
 
             Rpc::PutRequest request;
@@ -77,13 +71,13 @@ namespace Soy
 
     string Client::Get(const string &key, uint64_t timeout)
     {
-        auto startTimePoint = system_clock::now();
+        auto startTime = system_clock::now();
 
-        while (timeFrom(startTimePoint) <= timeout)
+        while (duration_cast<milliseconds>(system_clock::now() - startTime).count() <= timeout)
         {
             auto &stub = pImpl->stubs[pImpl->cur % pImpl->stubs.size()];
             grpc::ClientContext ctx;
-            ctx.set_deadline(startTimePoint + milliseconds(timeout));
+            ctx.set_deadline(startTime + milliseconds(timeout));
             ctx.set_idempotent(true);
 
             Rpc::GetRequest request;

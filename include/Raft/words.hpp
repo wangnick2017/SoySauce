@@ -17,7 +17,7 @@ namespace Soy
         };
 
         using Term = std::uint64_t;
-        using Index = std::uint64_t;
+        using Index = std::int64_t;
 
         struct Entry
         {

@@ -23,6 +23,8 @@ namespace Soy
             std::pair<bool, std::string> Get(const std::string &key) override;
 
             void SendHeartbeat();
+            std::pair<RPCReply, bool> SendAppendEntries(
+                int sth, const Rpc::AppendEntriesMessage &m, uint64_t timeout = 0);
 
         private:
             struct Impl;

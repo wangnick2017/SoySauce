@@ -4,6 +4,7 @@
 
 #include "RoleFollower.h"
 #include "Timer.h"
+#include "random.h"
 
 using namespace std;
 
@@ -47,17 +48,18 @@ namespace Soy
             }
             if (message.term > state.currentTerm)
                 state.currentTerm = message.term;
-            if (message.prevLogIndex >= state.log.size() || state.log[message.prevLogIndex].term != message.prevLogTerm)
+            if (message.prevLogIndex >= state.log.size() || message.prevLogIndex >= 0 &&
+                state.log[message.prevLogIndex].term != message.prevLogTerm)
             {
                 pImpl->timer.Restart();
                 return RPCReply(state.currentTerm, false);
             }
             while (state.log.size() - 1 > message.prevLogIndex)
                 state.log.pop_back();
-            for (const auto &entry : message.entries)
-                state.log.push_back(entry);
+            for (int i = message.entries.size() - 1; i >= 0; --i)
+                state.log.push_back(message.entries[i]);
             if (message.leaderCommit > state.commitIndex)
-                state.commitIndex = min(message.leaderCommit, state.log.size() - 1);
+                state.commitIndex = min(message.leaderCommit, (int64_t)state.log.size() - 1);
             while (state.commitIndex > state.lastApplied)
             {
                 state.machine[state.log[state.lastApplied].op] = state.log[state.lastApplied].arg;
@@ -77,8 +79,8 @@ namespace Soy
                 state.currentTerm = message.term;
             string v = state.votedFor.ToString();
             if ((v.empty() || v == message.candidateID.ToString()) &&
-                (message.lastLogTerm > state.log.[state.log.size() - 1].term ||
-                 message.lastLogTerm == state.log.[state.log.size() - 1].term &&
+                (message.lastLogTerm > state.log[state.log.size() - 1].term ||
+                 message.lastLogTerm == state.log[state.log.size() - 1].term &&
                  message.lastLogIndex >= state.log.size() - 1))
             {
                 state.votedFor = message.candidateID;

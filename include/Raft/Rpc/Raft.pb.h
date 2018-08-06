@@ -430,11 +430,11 @@ class AppendEntriesMessage : public ::google::protobuf::Message /* @@protoc_inse
   ::google::protobuf::uint64 term() const;
   void set_term(::google::protobuf::uint64 value);
 
-  // uint64 prevLogIndex = 3;
+  // int64 prevLogIndex = 3;
   void clear_prevlogindex();
   static const int kPrevLogIndexFieldNumber = 3;
-  ::google::protobuf::uint64 prevlogindex() const;
-  void set_prevlogindex(::google::protobuf::uint64 value);
+  ::google::protobuf::int64 prevlogindex() const;
+  void set_prevlogindex(::google::protobuf::int64 value);
 
   // uint64 prevLogTerm = 4;
   void clear_prevlogterm();
@@ -442,11 +442,11 @@ class AppendEntriesMessage : public ::google::protobuf::Message /* @@protoc_inse
   ::google::protobuf::uint64 prevlogterm() const;
   void set_prevlogterm(::google::protobuf::uint64 value);
 
-  // uint64 leaderCommit = 6;
+  // int64 leaderCommit = 6;
   void clear_leadercommit();
   static const int kLeaderCommitFieldNumber = 6;
-  ::google::protobuf::uint64 leadercommit() const;
-  void set_leadercommit(::google::protobuf::uint64 value);
+  ::google::protobuf::int64 leadercommit() const;
+  void set_leadercommit(::google::protobuf::int64 value);
 
   // @@protoc_insertion_point(class_scope:Soy.Raft.Rpc.AppendEntriesMessage)
  private:
@@ -455,9 +455,9 @@ class AppendEntriesMessage : public ::google::protobuf::Message /* @@protoc_inse
   ::google::protobuf::RepeatedPtrField< ::Soy::Raft::Rpc::Entry > entries_;
   ::google::protobuf::internal::ArenaStringPtr leaderid_;
   ::google::protobuf::uint64 term_;
-  ::google::protobuf::uint64 prevlogindex_;
+  ::google::protobuf::int64 prevlogindex_;
   ::google::protobuf::uint64 prevlogterm_;
-  ::google::protobuf::uint64 leadercommit_;
+  ::google::protobuf::int64 leadercommit_;
   mutable int _cached_size_;
   friend struct ::protobuf_Raft_2eproto::TableStruct;
   friend void ::protobuf_Raft_2eproto::InitDefaultsAppendEntriesMessageImpl();
@@ -566,11 +566,11 @@ class RequestVoteMessage : public ::google::protobuf::Message /* @@protoc_insert
   ::google::protobuf::uint64 term() const;
   void set_term(::google::protobuf::uint64 value);
 
-  // uint64 lastLogIndex = 3;
+  // int64 lastLogIndex = 3;
   void clear_lastlogindex();
   static const int kLastLogIndexFieldNumber = 3;
-  ::google::protobuf::uint64 lastlogindex() const;
-  void set_lastlogindex(::google::protobuf::uint64 value);
+  ::google::protobuf::int64 lastlogindex() const;
+  void set_lastlogindex(::google::protobuf::int64 value);
 
   // uint64 lastLogTerm = 4;
   void clear_lastlogterm();
@@ -584,7 +584,7 @@ class RequestVoteMessage : public ::google::protobuf::Message /* @@protoc_insert
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr candidateid_;
   ::google::protobuf::uint64 term_;
-  ::google::protobuf::uint64 lastlogindex_;
+  ::google::protobuf::int64 lastlogindex_;
   ::google::protobuf::uint64 lastlogterm_;
   mutable int _cached_size_;
   friend struct ::protobuf_Raft_2eproto::TableStruct;
@@ -824,15 +824,15 @@ inline void AppendEntriesMessage::set_allocated_leaderid(::std::string* leaderid
   // @@protoc_insertion_point(field_set_allocated:Soy.Raft.Rpc.AppendEntriesMessage.leaderID)
 }
 
-// uint64 prevLogIndex = 3;
+// int64 prevLogIndex = 3;
 inline void AppendEntriesMessage::clear_prevlogindex() {
-  prevlogindex_ = GOOGLE_ULONGLONG(0);
+  prevlogindex_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::uint64 AppendEntriesMessage::prevlogindex() const {
+inline ::google::protobuf::int64 AppendEntriesMessage::prevlogindex() const {
   // @@protoc_insertion_point(field_get:Soy.Raft.Rpc.AppendEntriesMessage.prevLogIndex)
   return prevlogindex_;
 }
-inline void AppendEntriesMessage::set_prevlogindex(::google::protobuf::uint64 value) {
+inline void AppendEntriesMessage::set_prevlogindex(::google::protobuf::int64 value) {
   
   prevlogindex_ = value;
   // @@protoc_insertion_point(field_set:Soy.Raft.Rpc.AppendEntriesMessage.prevLogIndex)
@@ -882,15 +882,15 @@ AppendEntriesMessage::entries() const {
   return entries_;
 }
 
-// uint64 leaderCommit = 6;
+// int64 leaderCommit = 6;
 inline void AppendEntriesMessage::clear_leadercommit() {
-  leadercommit_ = GOOGLE_ULONGLONG(0);
+  leadercommit_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::uint64 AppendEntriesMessage::leadercommit() const {
+inline ::google::protobuf::int64 AppendEntriesMessage::leadercommit() const {
   // @@protoc_insertion_point(field_get:Soy.Raft.Rpc.AppendEntriesMessage.leaderCommit)
   return leadercommit_;
 }
-inline void AppendEntriesMessage::set_leadercommit(::google::protobuf::uint64 value) {
+inline void AppendEntriesMessage::set_leadercommit(::google::protobuf::int64 value) {
   
   leadercommit_ = value;
   // @@protoc_insertion_point(field_set:Soy.Raft.Rpc.AppendEntriesMessage.leaderCommit)
@@ -967,15 +967,15 @@ inline void RequestVoteMessage::set_allocated_candidateid(::std::string* candida
   // @@protoc_insertion_point(field_set_allocated:Soy.Raft.Rpc.RequestVoteMessage.candidateID)
 }
 
-// uint64 lastLogIndex = 3;
+// int64 lastLogIndex = 3;
 inline void RequestVoteMessage::clear_lastlogindex() {
-  lastlogindex_ = GOOGLE_ULONGLONG(0);
+  lastlogindex_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::uint64 RequestVoteMessage::lastlogindex() const {
+inline ::google::protobuf::int64 RequestVoteMessage::lastlogindex() const {
   // @@protoc_insertion_point(field_get:Soy.Raft.Rpc.RequestVoteMessage.lastLogIndex)
   return lastlogindex_;
 }
-inline void RequestVoteMessage::set_lastlogindex(::google::protobuf::uint64 value) {
+inline void RequestVoteMessage::set_lastlogindex(::google::protobuf::int64 value) {
   
   lastlogindex_ = value;
   // @@protoc_insertion_point(field_set:Soy.Raft.Rpc.RequestVoteMessage.lastLogIndex)

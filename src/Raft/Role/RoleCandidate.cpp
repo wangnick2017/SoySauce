@@ -7,6 +7,7 @@
 #include "RaftRpcClient.hpp"
 #include <boost/thread.hpp>
 #include <boost/thread/future.hpp>
+#include "random.h"
 
 using namespace std;
 
@@ -39,7 +40,7 @@ namespace Soy
             pImpl->timer.Start();
             Rpc::RequestVoteMessage message;
             message.set_term(state.currentTerm);
-            message.set_lastlogterm(state.log.[state.log.size() - 1].term);
+            message.set_lastlogterm(state.log[state.log.size() - 1].term);
             message.set_lastlogindex(state.log.size() - 1);
             message.set_candidateid(info.local.ToString());
             int size = (int)client.Stubs.size();

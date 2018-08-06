@@ -476,6 +476,60 @@ ServerInfo.cpp.s:
 	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.s
 .PHONY : ServerInfo.cpp.s
 
+main.o: main.cpp.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/main.cpp.s
+.PHONY : main.cpp.s
+
+random.o: random.cpp.o
+
+.PHONY : random.o
+
+# target to build an object file
+random.cpp.o:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/random.cpp.o
+.PHONY : random.cpp.o
+
+random.i: random.cpp.i
+
+.PHONY : random.i
+
+# target to preprocess a source file
+random.cpp.i:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/random.cpp.i
+.PHONY : random.cpp.i
+
+random.s: random.cpp.s
+
+.PHONY : random.s
+
+# target to generate assembly for a file
+random.cpp.s:
+	cd /home/wangnick/Desktop/projects/SoySauce/cmake-build-debug && $(MAKE) -f src/CMakeFiles/SoySauce.dir/build.make src/CMakeFiles/SoySauce.dir/random.cpp.s
+.PHONY : random.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -524,6 +578,12 @@ help:
 	@echo "... ServerInfo.o"
 	@echo "... ServerInfo.i"
 	@echo "... ServerInfo.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... random.o"
+	@echo "... random.i"
+	@echo "... random.s"
 .PHONY : help
 
 

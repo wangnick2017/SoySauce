@@ -6,7 +6,7 @@ src/CMakeFiles/SoySauce.dir/Client.cpp.o: ../include/Client.h
 src/CMakeFiles/SoySauce.dir/Client.cpp.o: ../include/Exceptions.hpp
 src/CMakeFiles/SoySauce.dir/Client.cpp.o: ../include/Rpc/Soy.grpc.pb.h
 src/CMakeFiles/SoySauce.dir/Client.cpp.o: ../include/Rpc/Soy.pb.h
-src/CMakeFiles/SoySauce.dir/Client.cpp.o: ../include/random.hpp
+src/CMakeFiles/SoySauce.dir/Client.cpp.o: ../include/random.h
 src/CMakeFiles/SoySauce.dir/Client.cpp.o: ../src/Client.cpp
 src/CMakeFiles/SoySauce.dir/Client.cpp.o: /usr/local/include/google/protobuf/arena.h
 src/CMakeFiles/SoySauce.dir/Client.cpp.o: /usr/local/include/google/protobuf/arena_impl.h
@@ -155,7 +155,7 @@ src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Rpc/ExternalServer.hpp
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Rpc/Soy.grpc.pb.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/Rpc/Soy.pb.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/ServerInfo.h
-src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/random.hpp
+src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../include/random.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: ../src/Raft/God.cpp
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/google/protobuf/arena.h
 src/CMakeFiles/SoySauce.dir/Raft/God.cpp.o: /usr/local/include/google/protobuf/arena_impl.h
@@ -307,7 +307,7 @@ src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.o: ../include/Raft/Rpc/RaftRp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.o: ../include/Raft/Transformer.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.o: ../include/Raft/words.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.o: ../include/ServerInfo.h
-src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.o: ../include/random.hpp
+src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.o: ../include/random.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.o: ../src/Raft/Role/RoleBase.cpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.o: /usr/local/include/google/protobuf/arena.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleBase.cpp.o: /usr/local/include/google/protobuf/arena_impl.h
@@ -448,7 +448,7 @@ src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/Raft/Timer
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/Raft/Transformer.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/Raft/words.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/ServerInfo.h
-src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/random.hpp
+src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../include/random.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: ../src/Raft/Role/RoleCandidate.cpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: /usr/local/include/google/protobuf/arena.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleCandidate.cpp.o: /usr/local/include/google/protobuf/arena_impl.h
@@ -589,7 +589,7 @@ src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/Raft/Timer.
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/Raft/Transformer.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/Raft/words.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/ServerInfo.h
-src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/random.hpp
+src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../include/random.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: ../src/Raft/Role/RoleFollower.cpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: /usr/local/include/google/protobuf/arena.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleFollower.cpp.o: /usr/local/include/google/protobuf/arena_impl.h
@@ -730,7 +730,7 @@ src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/Raft/Timer.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/Raft/Transformer.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/Raft/words.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/ServerInfo.h
-src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/random.hpp
+src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../include/random.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: ../src/Raft/Role/RoleLeader.cpp
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: /usr/local/include/google/protobuf/arena.h
 src/CMakeFiles/SoySauce.dir/Raft/Role/RoleLeader.cpp.o: /usr/local/include/google/protobuf/arena_impl.h
@@ -1034,7 +1034,7 @@ src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.o: /usr/local/include/google/pro
 src/CMakeFiles/SoySauce.dir/Raft/Timer.cpp.o: ../include/Base.h
 src/CMakeFiles/SoySauce.dir/Raft/Timer.cpp.o: ../include/Exceptions.hpp
 src/CMakeFiles/SoySauce.dir/Raft/Timer.cpp.o: ../include/Raft/Timer.h
-src/CMakeFiles/SoySauce.dir/Raft/Timer.cpp.o: ../include/random.hpp
+src/CMakeFiles/SoySauce.dir/Raft/Timer.cpp.o: ../include/random.h
 src/CMakeFiles/SoySauce.dir/Raft/Timer.cpp.o: ../src/Raft/Timer.cpp
 
 src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o: ../include/Rpc/Soy.grpc.pb.h
@@ -1223,7 +1223,7 @@ src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/Raft/Transformer.hpp
 src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/Raft/words.hpp
 src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/Server.h
 src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/ServerInfo.h
-src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/random.hpp
+src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../include/random.h
 src/CMakeFiles/SoySauce.dir/Server.cpp.o: ../src/Server.cpp
 src/CMakeFiles/SoySauce.dir/Server.cpp.o: /usr/local/include/google/protobuf/arena.h
 src/CMakeFiles/SoySauce.dir/Server.cpp.o: /usr/local/include/google/protobuf/arena_impl.h
@@ -1356,6 +1356,16 @@ src/CMakeFiles/SoySauce.dir/Server.cpp.o: /usr/local/include/grpcpp/support/stri
 src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o: ../include/Base.h
 src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o: ../include/Exceptions.hpp
 src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o: ../include/ServerInfo.h
-src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o: ../include/random.hpp
+src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o: ../include/random.h
 src/CMakeFiles/SoySauce.dir/ServerInfo.cpp.o: ../src/ServerInfo.cpp
+
+src/CMakeFiles/SoySauce.dir/main.cpp.o: ../include/Base.h
+src/CMakeFiles/SoySauce.dir/main.cpp.o: ../include/Client.h
+src/CMakeFiles/SoySauce.dir/main.cpp.o: ../include/Exceptions.hpp
+src/CMakeFiles/SoySauce.dir/main.cpp.o: ../include/Server.h
+src/CMakeFiles/SoySauce.dir/main.cpp.o: ../include/random.h
+src/CMakeFiles/SoySauce.dir/main.cpp.o: ../src/main.cpp
+
+src/CMakeFiles/SoySauce.dir/random.cpp.o: ../include/random.h
+src/CMakeFiles/SoySauce.dir/random.cpp.o: ../src/random.cpp
 

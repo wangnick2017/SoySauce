@@ -41,13 +41,9 @@ namespace Soy
                         grpc::ClientContext ctx;
                         //ctx...
                         Rpc::Reply reply;
-                        do
-                        {
-                            auto status = Stubs[sth]->AppendEntries(&ctx, message, &reply);
-                            if (status.ok())
-                                return std::make_pair(RPCReply(reply.term(), reply.ans()), status.ok());
-                        }
-                        while (false);
+                        auto status = Stubs[sth]->AppendEntries(&ctx, message, &reply);
+                        if (status.ok())
+                            return std::make_pair(RPCReply(reply.term(), reply.ans()), status.ok());
                     }
                     while (repeat && timeFrom(startTimePoint) <= timeout);
                     return std::make_pair(RPCReply(0, false), false);

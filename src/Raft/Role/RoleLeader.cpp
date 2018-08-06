@@ -5,8 +5,10 @@
 #include "RoleLeader.h"
 #include "Timer.h"
 #include "RaftRpcClient.hpp"
+#include <boost/chrono.hpp>
 #include <boost/thread.hpp>
 #include <boost/thread/future.hpp>
+#include "random.h"
 
 using namespace std;
 
@@ -75,16 +77,18 @@ namespace Soy
                 message.set_prevlogindex(state.nextIndex[i] - 1);
                 message.set_prevlogterm(state.log[state.nextIndex[i] - 1].term);
                 message.set_leadercommit(state.commitIndex);
-                for (int j = (int)state.nextIndex[i]; j < state.log.size(); ++j)
+                for (int j = state.log.size() - 1; j >= (int)state.nextIndex[i]; --j)
                 {
                     Rpc::Entry e;
                     e.set_term(state.currentTerm);
                     e.set_key(state.log[j].op);
                     e.set_args(state.log[j].arg);
-                    message.mutable_entries()->Add(std::move(e));
+                    //message.clear_entries();
+                    *message.add_entries() = move(e);
+                    //*rpcMsg.add_entries() = std::move(rpcEntry);
                 }
                 f.push_back(boost::async(move(boost::bind(
-                    &Rpc::RaftRpcClient::SendAppendEntries, &client, i, message, true, 11))));
+                    &RoleLeader::SendAppendEntries, this, i, message, 11))));
             }
             int may = 0xfffff, cnt = 0;
             for (int i = 0; i < size; ++i)
@@ -95,6 +99,11 @@ namespace Soy
                     may = min(may, (int)state.matchIndex[i]);
                     ++cnt;
                 }
+                else if (result.first.ans)
+                {
+                    transformer.TransformSafe(RoleTh::Follower, result.first.term);
+                    return false;
+                }
             }
             if (may > state.commitIndex && cnt + cnt > size)
                 state.commitIndex = may;
@@ -104,6 +113,53 @@ namespace Soy
                 ++state.lastApplied;
             }
             return state.commitIndex == state.log.size() - 1;
+        }
+        template <class Tp>
+        decltype(auto) timeFrom(const Tp &tp)
+        {
+            return boost::chrono::duration_cast<boost::chrono::milliseconds>
+                (boost::chrono::system_clock::now() - tp).count();
+        }
+        pair<RPCReply, bool> RoleLeader::SendAppendEntries(int sth, const Rpc::AppendEntriesMessage &m, uint64_t timeout)
+        {
+            Rpc::AppendEntriesMessage message{m};
+            auto startTime = boost::chrono::system_clock::now();
+            do
+            {
+                grpc::ClientContext ctx;
+                //ctx...
+                Rpc::Reply reply;
+                auto status = client.Stubs[sth]->AppendEntries(&ctx, message, &reply);
+                if (status.ok())
+                {
+                    if (!reply.ans())
+                    {
+                        if (message.term() < reply.term())
+                        {
+                            return make_pair(RPCReply(reply.term(), true), false);
+                        }
+                        else
+                        {
+                            --state.nextIndex[sth];
+                            message.set_prevlogindex(state.nextIndex[sth] - 1);
+                            if (state.nextIndex[sth] > 0)
+                                message.set_prevlogterm(state.log[state.nextIndex[sth] - 1].term);
+                            Rpc::Entry e;
+                            e.set_term(state.currentTerm);
+                            e.set_key(state.log[state.nextIndex[sth]].op);
+                            e.set_args(state.log[state.nextIndex[sth]].arg);
+                            *message.add_entries() = move(e);
+                        }
+                    }
+                    else
+                    {
+                        state.matchIndex[sth] = state.nextIndex[sth] - 1;
+                        return make_pair(RPCReply(reply.term(), true), true);
+                    }
+                }
+            }
+            while (timeFrom(startTime) <= timeout);
+            return make_pair(RPCReply(0, false), false);
         }
 
         pair<bool, string> RoleLeader::Get(const string &key)

@@ -29,8 +29,8 @@ algorithm
 -
 Exceptions.hpp
 ../include/Exceptions.hpp
-random.hpp
-../include/random.hpp
+random.h
+../include/random.h
 
 ../include/Client.h
 Base.h
@@ -260,7 +260,7 @@ Base.h
 Base.h
 ../include/Base.h
 
-../include/random.hpp
+../include/random.h
 cstdint
 -
 cstdlib
@@ -271,7 +271,7 @@ Client.h
 /home/wangnick/Desktop/projects/SoySauce/src/Client.h
 boost/atomic.hpp
 -
-boost/chrono.hpp
+chrono
 -
 boost/property_tree/json_parser.hpp
 -
@@ -321,12 +321,16 @@ boost/thread.hpp
 -
 boost/thread/future.hpp
 -
+random.h
+/home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/random.h
 
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleFollower.cpp
 RoleFollower.h
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleFollower.h
 Timer.h
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/Timer.h
+random.h
+/home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/random.h
 
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleLeader.cpp
 RoleLeader.h
@@ -335,10 +339,14 @@ Timer.h
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/Timer.h
 RaftRpcClient.hpp
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RaftRpcClient.hpp
+boost/chrono.hpp
+-
 boost/thread.hpp
 -
 boost/thread/future.hpp
 -
+random.h
+/home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/random.h
 
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Rpc/Raft.grpc.pb.cc
 Raft.pb.h
@@ -465,6 +473,16 @@ boost/property_tree/ptree.hpp
 -
 boost/typeof/typeof.hpp
 -
+
+/home/wangnick/Desktop/projects/SoySauce/src/main.cpp
+Client.h
+/home/wangnick/Desktop/projects/SoySauce/src/Client.h
+Server.h
+/home/wangnick/Desktop/projects/SoySauce/src/Server.h
+
+/home/wangnick/Desktop/projects/SoySauce/src/random.cpp
+random.h
+/home/wangnick/Desktop/projects/SoySauce/src/random.h
 
 /usr/local/include/google/protobuf/arena.h
 limits
