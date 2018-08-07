@@ -11,6 +11,8 @@ namespace Soy
 {
     namespace Raft
     {
+        const std::uint64_t broadcastTimeout = 20;
+
         enum class RoleTh
         {
             Follower, Candidate, Leader, Dead

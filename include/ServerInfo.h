@@ -26,6 +26,6 @@ namespace Soy
         void Save(const std::string &fileName);
         ServerID local;
         std::vector<ServerID> srvList;
-        std::uint64_t timeout;
+        std::uint64_t updateTimeout, electionTimeout, heartbeatTimeout;
     };
 }

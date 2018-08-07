@@ -1,0 +1,12 @@
+{
+	"localAddress": "0.0.0.0:3",
+	"updateTimeout": 100,
+	"electionTimeout": 500,
+	"heartbeatTimeout": 100,
+	"serverList":
+	{
+		"": "0.0.0.0:1",
+		"": "0.0.0.0:2",
+		"": "0.0.0.0:3"
+	}
+}

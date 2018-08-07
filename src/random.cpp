@@ -3,6 +3,7 @@
 //
 
 #include "random.h"
+#include <cstdlib>
 
 namespace Soy
 {

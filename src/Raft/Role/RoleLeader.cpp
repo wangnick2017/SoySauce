@@ -2,6 +2,7 @@
 // Created by wangnick on 7/26/18.
 //
 
+#include "words.hpp"
 #include "RoleLeader.h"
 #include "Timer.h"
 #include "RaftRpcClient.hpp"
@@ -40,7 +41,7 @@ namespace Soy
                 state.nextIndex[i] = state.log.size();
                 state.matchIndex[i] = 0;
             }
-            pImpl->timer.Reset(Random(info.timeout, info.timeout * 2), true);
+            pImpl->timer.Reset(Random(info.heartbeatTimeout, info.heartbeatTimeout * 2), true);
             SendHeartbeat();
             pImpl->timer.Start();
         }
@@ -75,7 +76,8 @@ namespace Soy
                 message.set_term(state.currentTerm);
                 message.set_leaderid(info.local.ToString());
                 message.set_prevlogindex(state.nextIndex[i] - 1);
-                message.set_prevlogterm(state.log[state.nextIndex[i] - 1].term);
+                if (state.nextIndex[i] > 0)
+                    message.set_prevlogterm(state.log[state.nextIndex[i] - 1].term);
                 message.set_leadercommit(state.commitIndex);
                 for (int j = state.log.size() - 1; j >= (int)state.nextIndex[i]; --j)
                 {
@@ -83,12 +85,10 @@ namespace Soy
                     e.set_term(state.currentTerm);
                     e.set_key(state.log[j].op);
                     e.set_args(state.log[j].arg);
-                    //message.clear_entries();
                     *message.add_entries() = move(e);
-                    //*rpcMsg.add_entries() = std::move(rpcEntry);
                 }
                 f.push_back(boost::async(move(boost::bind(
-                    &RoleLeader::SendAppendEntries, this, i, message, 11))));
+                    &RoleLeader::SendAppendEntries, this, i, message, broadcastTimeout))));
             }
             int may = 0xfffff, cnt = 0;
             for (int i = 0; i < size; ++i)
@@ -174,10 +174,14 @@ namespace Soy
             Rpc::AppendEntriesMessage message;
             message.set_term(state.currentTerm);
             message.set_leaderid(info.local.ToString());
+            message.set_leadercommit(state.commitIndex);
             message.clear_entries();
             int size = (int)client.Stubs.size();
             for (int i = 0; i < size; ++i)
             {
+                message.set_prevlogindex(state.nextIndex[i] - 1);
+                if (state.nextIndex[i] > 0)
+                    message.set_prevlogterm(state.log[state.nextIndex[i] - 1].term);
                 boost::async(move(boost::bind(
                     &Rpc::RaftRpcClient::SendAppendEntries, &client, i, message, false, 0)));
             }

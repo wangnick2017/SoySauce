@@ -31,7 +31,7 @@ namespace Soy
         void RoleFollower::Init()
         {
             state.votedFor = ServerID();
-            pImpl->timer.Reset(Random(info.timeout, info.timeout * 2));
+            pImpl->timer.Reset(Random(info.updateTimeout, info.updateTimeout * 2));
             pImpl->timer.Start();
         }
 

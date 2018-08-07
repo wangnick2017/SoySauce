@@ -36,12 +36,13 @@ namespace Soy
         {
             state.votedFor = info.local;
             pImpl->sum = 1;
-            pImpl->timer.Reset(Random(info.timeout, info.timeout * 2));
+            pImpl->timer.Reset(Random(info.electionTimeout, info.electionTimeout * 2));
             pImpl->timer.Start();
             Rpc::RequestVoteMessage message;
             message.set_term(state.currentTerm);
-            message.set_lastlogterm(state.log[state.log.size() - 1].term);
             message.set_lastlogindex(state.log.size() - 1);
+            if (state.log.size() > 0)
+                message.set_lastlogterm(state.log[state.log.size() - 1].term);
             message.set_candidateid(info.local.ToString());
             int size = (int)client.Stubs.size();
             vector<boost::unique_future<pair<RPCReply, bool>>> f;

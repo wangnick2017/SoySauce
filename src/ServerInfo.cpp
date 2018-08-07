@@ -35,7 +35,9 @@ namespace Soy
         ptree tree;
         read_json(fileName, tree);
         local = ServerID(tree.get<string>("localAddress"));
-        timeout = tree.get<uint64_t>("timeout");
+        updateTimeout = tree.get<uint64_t>("updateTimeout");
+        electionTimeout = tree.get<uint64_t>("electionTimeout");
+        heartbeatTimeout = tree.get<uint64_t>("heartbeatTimeout");
         for (auto &&server : tree.get_child("serverList"))
             srvList.emplace_back(server.second.get_value<string>());
     }
@@ -44,7 +46,9 @@ namespace Soy
     {
         ptree tree;
         tree.put("localAddress", local.ToString());
-        tree.put("timeout", timeout);
+        tree.put("updateTimeout", updateTimeout);
+        tree.put("electionTimeout", electionTimeout);
+        tree.put("heartbeatTimeout", heartbeatTimeout);
         ptree jsonList;
         for (auto &&srv : srvList)
         {
