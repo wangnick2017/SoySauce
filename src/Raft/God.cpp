@@ -14,6 +14,8 @@
 #include "RaftRpcServer.hpp"
 #include "RaftRpcClient.hpp"
 
+#include <iostream>
+
 using namespace std;
 
 namespace Soy
@@ -41,6 +43,7 @@ namespace Soy
                     }
                     while (!q.tasks.empty())
                     {
+                        BOOST_LOG_TRIVIAL(info) << "pop queue tasks:" + to_string((int)q.tasks.front());
                         switch (q.tasks.front())
                         {
                         case TaskType::TransForm:
@@ -87,14 +90,18 @@ namespace Soy
             RoleTh th = RoleTh::Dead;
             void Transform(RoleTh newTh, Term newTerm)
             {
-                auto lock = boost::make_unique_lock(mut);
-                q.tasks.push(TaskType::TransForm);
-                q.qTrans.push((TaskTransform){newTh, newTerm});
+                {
+                    auto lock = boost::make_unique_lock(mut);
+                    BOOST_LOG_TRIVIAL(info) << "push transform";
+                    q.tasks.push(TaskType::TransForm);
+                    q.qTrans.push((TaskTransform){newTh, newTerm});
+                }
                 cond.notify_one();
             }
             void TransformSafe(RoleTh newTh, Term newTerm)
             {
                 q.tasks.push(TaskType::TransForm);
+                BOOST_LOG_TRIVIAL(info) << "push transformsafe";
                 q.qTrans.push((TaskTransform){newTh, newTerm});
             }
 
@@ -103,19 +110,25 @@ namespace Soy
             Soy::Rpc::ExternalServer externalServer;
             bool Put(const string &key, const string &value)
             {
-                auto lock = boost::make_unique_lock(mut);
-                q.tasks.push(TaskType::Put);
                 boost::promise<bool> pro;
-                q.qPut.push((TaskPut){key, value, pro});
+                {
+                    auto lock = boost::make_unique_lock(mut);
+                    BOOST_LOG_TRIVIAL(info) << "push put";
+                    q.tasks.push(TaskType::Put);
+                    q.qPut.push((TaskPut){key, value, pro});
+                }
                 cond.notify_one();
                 return pro.get_future().get();
             }
             pair<bool, string> Get(const string &key)
             {
-                auto lock = boost::make_unique_lock(mut);
-                q.tasks.push(TaskType::Get);
                 boost::promise<pair<bool, std::string>> pro;
-                q.qGet.push((TaskGet){key, pro});
+                {
+                    auto lock = boost::make_unique_lock(mut);
+                    BOOST_LOG_TRIVIAL(info) << "push get";
+                    q.tasks.push(TaskType::Get);
+                    q.qGet.push((TaskGet){key, pro});
+                }
                 cond.notify_one();
                 return pro.get_future().get();
             }
@@ -129,19 +142,25 @@ namespace Soy
             Rpc::RaftRpcServer raftRpcServer;
             RPCReply RPCAppendEntries(const AppendEntriesRPC &message)
             {
-                auto lock = boost::make_unique_lock(mut);
-                q.tasks.push(TaskType::AppendEntries);
                 boost::promise<RPCReply> pro;
-                q.qApp.push((TaskAppendEntries){message, pro});
+                {
+                    auto lock = boost::make_unique_lock(mut);
+                    BOOST_LOG_TRIVIAL(info) << "push append";
+                    q.tasks.push(TaskType::AppendEntries);
+                    q.qApp.push((TaskAppendEntries){message, pro});
+                }
                 cond.notify_one();
                 return pro.get_future().get();
             }
             RPCReply RPCRequestVote(const RequestVoteRPC &message)
             {
-                auto lock = boost::make_unique_lock(mut);
-                q.tasks.push(TaskType::RequestVote);
                 boost::promise<RPCReply> pro;
-                q.qVote.push((TaskRequestVote){message, pro});
+                {
+                    auto lock = boost::make_unique_lock(mut);
+                    BOOST_LOG_TRIVIAL(info) << "push request";
+                    q.tasks.push(TaskType::RequestVote);
+                    q.qVote.push((TaskRequestVote){message, pro});
+                }
                 cond.notify_one();
                 return pro.get_future().get();
             }

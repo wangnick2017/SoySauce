@@ -34,6 +34,7 @@ namespace Soy
 
         void RoleCandidate::Init()
         {
+            BOOST_LOG_TRIVIAL(info) << "candidate init " + to_string(state.currentTerm);
             state.votedFor = info.local;
             pImpl->sum = 1;
             pImpl->timer.Reset(Random(info.electionTimeout, info.electionTimeout * 2));
@@ -45,7 +46,7 @@ namespace Soy
                 message.set_lastlogterm(state.log[state.log.size() - 1].term);
             message.set_candidateid(info.local.ToString());
             int size = (int)client.Stubs.size();
-            vector<boost::unique_future<pair<RPCReply, bool>>> f;
+            vector<boost::future<pair<RPCReply, bool>>> f;
             for (int i = 0; i < size; ++i)
             {
                 f.push_back(boost::async(move(boost::bind(
@@ -69,10 +70,12 @@ namespace Soy
         void RoleCandidate::Leave()
         {
             pImpl->timer.Stop();
+            BOOST_LOG_TRIVIAL(info) << "candidate leave";
         }
 
         RPCReply RoleCandidate::RPCAppendEntries(const AppendEntriesRPC &message)
         {
+            BOOST_LOG_TRIVIAL(info) << "candidate deal append";
             if (message.term > state.currentTerm)
                 transformer.TransformSafe(RoleTh::Follower, message.term);
             return RPCReply(state.currentTerm, false);
@@ -80,6 +83,7 @@ namespace Soy
 
         RPCReply RoleCandidate::RPCRequestVote(const RequestVoteRPC &message)
         {
+            BOOST_LOG_TRIVIAL(info) << "candidate deal request";
             if (message.term > state.currentTerm)
                 transformer.TransformSafe(RoleTh::Follower, message.term);
             return RPCReply(state.currentTerm, false);
@@ -87,11 +91,13 @@ namespace Soy
 
         bool RoleCandidate::Put(const string &key, const string &value)
         {
+            BOOST_LOG_TRIVIAL(info) << "candidate deal put";
             return false;
         }
 
         pair<bool, string> RoleCandidate::Get(const string &key)
         {
+            BOOST_LOG_TRIVIAL(info) << "candidate deal get";
             return make_pair(false, "");
         }
     }

@@ -30,6 +30,7 @@ namespace Soy
 
         void RoleFollower::Init()
         {
+            BOOST_LOG_TRIVIAL(info) << "follower init " + to_string(state.currentTerm);
             state.votedFor = ServerID();
             pImpl->timer.Reset(Random(info.updateTimeout, info.updateTimeout * 2));
             pImpl->timer.Start();
@@ -38,10 +39,12 @@ namespace Soy
         void RoleFollower::Leave()
         {
             pImpl->timer.Stop();
+            BOOST_LOG_TRIVIAL(info) << "follower leave";
         }
 
         RPCReply RoleFollower::RPCAppendEntries(const AppendEntriesRPC &message)
         {
+            BOOST_LOG_TRIVIAL(info) << "follower deal append";
             if (message.term < state.currentTerm)
             {
                 return RPCReply(state.currentTerm, false);
@@ -71,6 +74,7 @@ namespace Soy
 
         RPCReply RoleFollower::RPCRequestVote(const RequestVoteRPC &message)
         {
+            BOOST_LOG_TRIVIAL(info) << "follower deal request";
             if (message.term < state.currentTerm)
             {
                 return RPCReply(state.currentTerm, false);
@@ -93,11 +97,13 @@ namespace Soy
 
         bool RoleFollower::Put(const string &key, const string &value)
         {
+            BOOST_LOG_TRIVIAL(info) << "follower deal put";
             return false;
         }
 
         pair<bool, string> RoleFollower::Get(const string &key)
         {
+            BOOST_LOG_TRIVIAL(info) << "follower deal get";
             return make_pair(false, "");
         }
     }

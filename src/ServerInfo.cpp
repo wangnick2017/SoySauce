@@ -15,7 +15,11 @@ namespace Soy
     ServerID::ServerID(const string &s)
     {
         if (s.empty())
+        {
+            address = "";
+            port = 0;
             return;
+        }
         size_t c = s.find(':');
         if (c == string::npos)
             throw Exception("Error ID");

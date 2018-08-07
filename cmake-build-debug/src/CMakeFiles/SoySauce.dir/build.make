@@ -454,9 +454,10 @@ src/SoySauce: src/CMakeFiles/SoySauce.dir/Raft/Rpc/Raft.pb.cc.o
 src/SoySauce: src/CMakeFiles/SoySauce.dir/Rpc/Soy.grpc.pb.cc.o
 src/SoySauce: src/CMakeFiles/SoySauce.dir/Rpc/Soy.pb.cc.o
 src/SoySauce: src/CMakeFiles/SoySauce.dir/build.make
-src/SoySauce: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
 src/SoySauce: /usr/lib/x86_64-linux-gnu/libboost_thread.so
 src/SoySauce: /usr/lib/x86_64-linux-gnu/libboost_log.so
+src/SoySauce: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+src/SoySauce: /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so
 src/SoySauce: /usr/lib/x86_64-linux-gnu/libboost_system.so
 src/SoySauce: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
 src/SoySauce: /usr/lib/x86_64-linux-gnu/libboost_atomic.so

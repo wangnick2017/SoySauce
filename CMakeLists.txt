@@ -15,11 +15,13 @@ include_directories(
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake;${CMAKE_MODULE_PATH}")
 
-include_directories(${Boost_INCLUDE_DIRS})
-find_package(Boost REQUIRED COMPONENTS
-        chrono
-        thread
-        log
+set(Boost_USE_STATIC_LIBS FALSE)
+find_package(Boost REQUIRED
+        COMPONENTS thread log chrono unit_test_framework)
+include_directories(${Boost_INCLUDE_DIR})
+add_definitions(
+        -D BOOST_THREAD_VERSION=4
+        -D BOOST_LOG_DYN_LINK
 )
 if(NOT Boost_FOUND)
     message("Not found Boost")

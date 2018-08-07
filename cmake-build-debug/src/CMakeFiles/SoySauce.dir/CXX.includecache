@@ -27,10 +27,14 @@ utility
 -
 algorithm
 -
+iostream
+-
 Exceptions.hpp
 ../include/Exceptions.hpp
 random.h
 ../include/random.h
+boost/log/trivial.hpp
+-
 
 ../include/Client.h
 Base.h
@@ -303,6 +307,8 @@ RaftRpcServer.hpp
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/RaftRpcServer.hpp
 RaftRpcClient.hpp
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/RaftRpcClient.hpp
+iostream
+-
 
 /home/wangnick/Desktop/projects/SoySauce/src/Raft/Role/RoleBase.cpp
 RoleBase.h
@@ -479,8 +485,8 @@ Client.h
 /home/wangnick/Desktop/projects/SoySauce/src/Client.h
 Server.h
 /home/wangnick/Desktop/projects/SoySauce/src/Server.h
-iostream
--
+Base.h
+/home/wangnick/Desktop/projects/SoySauce/src/Base.h
 
 /home/wangnick/Desktop/projects/SoySauce/src/random.cpp
 random.h

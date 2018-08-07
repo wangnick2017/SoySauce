@@ -35,6 +35,7 @@ namespace Soy
 
         void RoleLeader::Init()
         {
+            BOOST_LOG_TRIVIAL(info) << "leader init " + to_string(state.currentTerm);
             int size = state.nextIndex.size();
             for (int i = 0; i < size; ++i)
             {
@@ -49,10 +50,12 @@ namespace Soy
         void RoleLeader::Leave()
         {
             pImpl->timer.Stop();
+            BOOST_LOG_TRIVIAL(info) << "leader leave";
         }
 
         RPCReply RoleLeader::RPCAppendEntries(const AppendEntriesRPC &message)
         {
+            BOOST_LOG_TRIVIAL(info) << "leader deal append";
             if (message.term > state.currentTerm)
                 transformer.TransformSafe(RoleTh::Follower, message.term);
             return RPCReply(state.currentTerm, false);
@@ -60,6 +63,7 @@ namespace Soy
 
         RPCReply RoleLeader::RPCRequestVote(const RequestVoteRPC &message)
         {
+            BOOST_LOG_TRIVIAL(info) << "leader deal request";
             if (message.term > state.currentTerm)
                 transformer.TransformSafe(RoleTh::Follower, message.term);
             return RPCReply(state.currentTerm, false);
@@ -67,9 +71,10 @@ namespace Soy
 
         bool RoleLeader::Put(const string &key, const string &value)
         {
+            BOOST_LOG_TRIVIAL(info) << "leader deal put";
             state.log.push_back((Entry){key, value, state.currentTerm});
             int size = (int)client.Stubs.size();
-            vector<boost::unique_future<pair<RPCReply, bool>>> f;
+            vector<boost::future<pair<RPCReply, bool>>> f;
             for (int i = 0; i < size; ++i)
             {
                 Rpc::AppendEntriesMessage message;
@@ -164,6 +169,7 @@ namespace Soy
 
         pair<bool, string> RoleLeader::Get(const string &key)
         {
+            BOOST_LOG_TRIVIAL(info) << "leader deal get";
             if (state.machine.find(key) == state.machine.end())
                 return make_pair(false, "");
             return make_pair(true, state.machine[key]);

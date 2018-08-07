@@ -14,5 +14,7 @@
 #include <functional>
 #include <utility>
 #include <algorithm>
+#include <iostream>
 #include "Exceptions.hpp"
 #include "random.h"
+#include <boost/log/trivial.hpp>
