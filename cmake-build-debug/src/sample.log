@@ -1,0 +1,1162 @@
+push transform
+externalserver started
+pop queue tasks:0
+follower init 1
+timer timeset=552
+rpcserver started
+push transform
+externalserver started
+pop queue tasks:0
+follower init 1
+timer timeset=552
+rpcserver started
+push transform
+externalserver started
+rpcserver started
+pop queue tasks:0
+follower init 1
+timer timeset=552
+follower is to update
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+follower leave
+candidate init 2
+timer timeset=666
+follower is to update
+push transform
+timer no interrupted, go on-ed
+follower is to update
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+follower leave
+candidate init 2
+timer timeset=991
+pop queue tasks:0
+follower leave
+candidate init 2
+timer timeset=669
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+aaaaaaaaaaaaaaaaaaaaaaa?
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+bbbbbbbbbbbbbbbbbbbbbbb.
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 3
+timer timeset=720
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 3
+timer timeset=844
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 3
+timer timeset=590
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 4
+timer timeset=561
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 4
+timer timeset=792
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 4
+timer timeset=850
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 5
+timer timeset=677
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 5
+timer timeset=933
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 5
+timer timeset=906
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 6
+timer timeset=863
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 6
+timer timeset=702
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 6
+timer timeset=726
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 7
+timer timeset=776
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 7
+timer timeset=656
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 7
+timer timeset=685
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 8
+timer timeset=780
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 8
+timer timeset=801
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 8
+timer timeset=762
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 9
+timer timeset=731
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 9
+timer timeset=729
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 9
+timer timeset=914
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 10
+timer timeset=591
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 10
+timer timeset=957
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 11
+timer timeset=863
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 10
+timer timeset=879
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 11
+timer timeset=933
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 12
+timer timeset=975
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 11
+timer timeset=911
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 12
+timer timeset=539
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 13
+timer timeset=724
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 12
+timer timeset=977
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 13
+timer timeset=504
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 14
+timer timeset=778
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 14
+timer timeset=586
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 13
+timer timeset=522
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 15
+timer timeset=754
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 15
+timer timeset=901
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 14
+timer timeset=551
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 15
+timer timeset=864
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 16
+timer timeset=833
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 16
+timer timeset=878
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 16
+timer timeset=519
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 17
+timer timeset=757
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 17
+timer timeset=725
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 17
+timer timeset=701
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 18
+timer timeset=786
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 18
+timer timeset=612
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 18
+timer timeset=966
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 19
+timer timeset=806
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 19
+timer timeset=680
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 19
+timer timeset=690
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 20
+timer timeset=783
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 20
+timer timeset=914
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 20
+timer timeset=717
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 21
+timer timeset=936
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 21
+timer timeset=542
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 21
+timer timeset=607
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 22
+timer timeset=758
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 22
+timer timeset=940
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 22
+timer timeset=901
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 23
+timer timeset=931
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 23
+timer timeset=818
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 23
+timer timeset=920
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 24
+timer timeset=819
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 24
+timer timeset=821
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 24
+timer timeset=699
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 25
+timer timeset=861
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 25
+timer timeset=608
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 25
+timer timeset=914
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 26
+timer timeset=518
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 26
+timer timeset=550
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 26
+timer timeset=939
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 27
+timer timeset=565
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 27
+timer timeset=964
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 28
+timer timeset=768
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 27
+timer timeset=634
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 28
+timer timeset=752
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 29
+timer timeset=795
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 28
+timer timeset=581
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 29
+timer timeset=553
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 29
+timer timeset=873
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 30
+timer timeset=500
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 30
+timer timeset=543
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 31
+timer timeset=772
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 31
+timer timeset=970
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 30
+timer timeset=590
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 32
+timer timeset=643
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 31
+timer timeset=821
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 32
+timer timeset=804
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 33
+timer timeset=751
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 32
+timer timeset=985
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 33
+timer timeset=984
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 34
+timer timeset=502
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 33
+timer timeset=568
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 35
+timer timeset=919
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 34
+timer timeset=884
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 34
+timer timeset=740
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 36
+timer timeset=636
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 35
+timer timeset=714
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 35
+timer timeset=931
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+candidate to next
+push transform
+timer no interrupted, go on-ed
+pop queue tasks:0
+candidate leave
+candidate init 37
+timer timeset=994
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.
+aaaaaaaaaaaaaaaaaaaaaaa?
+bbbbbbbbbbbbbbbbbbbbbbb.

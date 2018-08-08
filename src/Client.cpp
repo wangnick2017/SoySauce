@@ -60,6 +60,8 @@ namespace Soy
             request.set_value(value);
             Rpc::PutReply reply;
             auto status = stub->Put(&ctx, request, &reply);
+            if (!status.ok())
+                BOOST_LOG_TRIVIAL(info) << status.error_message() + " " + to_string((int)status.error_code());
 
             if (status.ok() && reply.status())
                 return;
@@ -84,6 +86,9 @@ namespace Soy
             request.set_key(key);
             Rpc::GetReply reply;
             auto status = stub->Get(&ctx, request, &reply);
+            if (!status.ok())
+                BOOST_LOG_TRIVIAL(info) << status.error_message() + " " + to_string((int)status.error_code());
+
 
             if (status.ok() && reply.status())
                 return reply.value();

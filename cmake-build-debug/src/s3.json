@@ -1,12 +1,19 @@
 {
-	"localAddress": "0.0.0.0:50003",
-	"updateTimeout": 150,
-	"electionTimeout": 1000,
-	"heartbeatTimeout": 200,
-	"serverList":
+	"localExternalAddress": "0.0.0.0:50003",
+	"localRaftAddress": "0.0.0.0:80003",
+	"updateTimeout": 500,
+	"electionTimeout": 500,
+	"heartbeatTimeout": 50,
+	"ExternalServerList":
 	{
 		"": "0.0.0.0:50001",
 		"": "0.0.0.0:50002",
 		"": "0.0.0.0:50003"
+	},
+	"RaftServerList":
+	{
+		"": "0.0.0.0:80001",
+		"": "0.0.0.0:80002",
+		"": "0.0.0.0:80003"
 	}
 }

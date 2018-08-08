@@ -37,26 +37,36 @@ namespace Soy
                 while (true)
                 {
                     auto lock = boost::make_unique_lock(mut);
-                    for (; q.tasks.empty();)
+                    //BOOST_LOG_TRIVIAL(info) << "run lock here";
+                    cond.wait(lock, [this]
                     {
-                        cond.wait(lock);
-                    }
+                        return !q.tasks.empty();
+                    });
+                    //BOOST_LOG_TRIVIAL(info) << "run unlock";
                     while (!q.tasks.empty())
                     {
-                        BOOST_LOG_TRIVIAL(info) << "pop queue tasks:" + to_string((int)q.tasks.front());
+                        //BOOST_LOG_TRIVIAL(info) << "pop queue tasks:" + to_string((int)q.tasks.front());
                         switch (q.tasks.front())
                         {
                         case TaskType::TransForm:
+                        {
+                            const auto t = q.qTrans.front();
+                            q.qTrans.pop();
+                            lock.unlock();
                             if (th != RoleTh::Dead)
                                 roles[(size_t)th]->Leave();
-                            if (q.qTrans.front().newTh != RoleTh::Dead)
+                            if (t.newTh != RoleTh::Dead)
                             {
-                                th = q.qTrans.front().newTh;
-                                state.currentTerm = q.qTrans.front().newTerm;
+                                if (th != t.newTh)
+                                    state.currentTerm = t.newTerm;
+                                else
+                                    ++state.currentTerm;
+                                th = t.newTh;
                                 roles[(size_t)th]->Init();
                             }
-                            q.qTrans.pop();
+                            lock.lock();
                             break;
+                        }
                         case TaskType::Put:
                             q.qPut.front().pro.set_value(roles[(size_t)th]->Put(
                                 q.qPut.front().key,
@@ -78,6 +88,12 @@ namespace Soy
                                 q.qVote.front().message));
                             q.qVote.pop();
                             break;
+                        case TaskType::SendHeartbeat:
+                            if (th == RoleTh::Leader)
+                            {
+                                roles[(size_t)th]->SendHeartbeat();
+                            }
+                            break;
                         }
                         q.tasks.pop();
                     }
@@ -92,17 +108,28 @@ namespace Soy
             {
                 {
                     auto lock = boost::make_unique_lock(mut);
-                    BOOST_LOG_TRIVIAL(info) << "push transform";
+                    //BOOST_LOG_TRIVIAL(info) << "push transform";
                     q.tasks.push(TaskType::TransForm);
                     q.qTrans.push((TaskTransform){newTh, newTerm});
                 }
+                //BOOST_LOG_TRIVIAL(info) << "push transform unlock";
                 cond.notify_one();
             }
             void TransformSafe(RoleTh newTh, Term newTerm)
             {
                 q.tasks.push(TaskType::TransForm);
-                BOOST_LOG_TRIVIAL(info) << "push transformsafe";
+                //BOOST_LOG_TRIVIAL(info) << "push transformsafe";
                 q.qTrans.push((TaskTransform){newTh, newTerm});
+            }
+            void Sender()
+            {
+                {
+                    auto lock = boost::make_unique_lock(mut);
+                    //BOOST_LOG_TRIVIAL(info) << "push sender";
+                    q.tasks.push(TaskType::SendHeartbeat);
+                }
+                //BOOST_LOG_TRIVIAL(info) << "push sender unlock";
+                cond.notify_one();
             }
 
 
@@ -117,6 +144,7 @@ namespace Soy
                     q.tasks.push(TaskType::Put);
                     q.qPut.push((TaskPut){key, value, pro});
                 }
+                //BOOST_LOG_TRIVIAL(info) << "push put unlock";
                 cond.notify_one();
                 return pro.get_future().get();
             }
@@ -129,6 +157,7 @@ namespace Soy
                     q.tasks.push(TaskType::Get);
                     q.qGet.push((TaskGet){key, pro});
                 }
+                //BOOST_LOG_TRIVIAL(info) << "push get unlock";
                 cond.notify_one();
                 return pro.get_future().get();
             }
@@ -145,10 +174,11 @@ namespace Soy
                 boost::promise<RPCReply> pro;
                 {
                     auto lock = boost::make_unique_lock(mut);
-                    BOOST_LOG_TRIVIAL(info) << "push append";
+                    //BOOST_LOG_TRIVIAL(info) << "push append";
                     q.tasks.push(TaskType::AppendEntries);
                     q.qApp.push((TaskAppendEntries){message, pro});
                 }
+                //BOOST_LOG_TRIVIAL(info) << "push append unlock";
                 cond.notify_one();
                 return pro.get_future().get();
             }
@@ -157,10 +187,11 @@ namespace Soy
                 boost::promise<RPCReply> pro;
                 {
                     auto lock = boost::make_unique_lock(mut);
-                    BOOST_LOG_TRIVIAL(info) << "push request";
+                    //BOOST_LOG_TRIVIAL(info) << "push request";
                     q.tasks.push(TaskType::RequestVote);
                     q.qVote.push((TaskRequestVote){message, pro});
                 }
+                //BOOST_LOG_TRIVIAL(info) << "push request unlock";
                 cond.notify_one();
                 return pro.get_future().get();
             }
@@ -181,13 +212,17 @@ namespace Soy
             {
                 transformer.Bind(
                     bind(&God::Impl::Transform, this, placeholders::_1, placeholders::_2),
-                    bind(&God::Impl::TransformSafe, this, placeholders::_1, placeholders::_2));
-                for (const auto &srv : info.srvList)
+                    bind(&God::Impl::TransformSafe, this, placeholders::_1, placeholders::_2),
+                    bind(&God::Impl::Sender, this));
+                for (int i = 0, j = info.raftServers.size(); i < j; ++i)
                 {
+                    string s = info.raftServers[i].ToString();
+                    if (s == info.localRaft.ToString())
+                        raftRpcClient.LocalNumber = i;
                     raftRpcClient.Stubs.emplace_back(Rpc::RaftRpc::NewStub(
-                        grpc::CreateChannel(srv.ToString(), grpc::InsecureChannelCredentials())));
+                        grpc::CreateChannel(s, grpc::InsecureChannelCredentials())));
                     state.nextIndex.push_back(0);
-                    state.matchIndex.push_back(0);
+                    state.matchIndex.push_back(-1);
                 }
             }
         };
@@ -203,14 +238,18 @@ namespace Soy
         {
             pImpl->Init();
             pImpl->Transform(RoleTh::Follower, 1);
-            pImpl->externalServer.Start(pImpl->info.local.ToString());
-            pImpl->raftRpcServer.Start(pImpl->info.local.ToString());
+            pImpl->externalServer.Start(pImpl->info.localExternal.ToString());
+            pImpl->raftRpcServer.Start(pImpl->info.localRaft.ToString());
         }
 
         void God::Shutdown()
         {
+            //if (th != RoleTh::Dead)
+             //   roles[(size_t)th]->Leave();
             pImpl->externalServer.Shutdown();
             pImpl->raftRpcServer.Shutdown();
+            if (pImpl->th != RoleTh::Dead)
+                pImpl->roles[(size_t)pImpl->th]->Leave();
             pImpl->runningThread.interrupt();
             pImpl->runningThread.join();
         }

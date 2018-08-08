@@ -18,7 +18,8 @@ namespace Soy
             Put,
             Get,
             AppendEntries,
-            RequestVote
+            RequestVote,
+            SendHeartbeat
         };
         struct TaskTransform
         {

@@ -24,8 +24,8 @@ namespace Soy
     {
         ServerInfo(const std::string &fileName);
         void Save(const std::string &fileName);
-        ServerID local;
-        std::vector<ServerID> srvList;
+        ServerID localExternal, localRaft;
+        std::vector<ServerID> externalServers, raftServers;
         std::uint64_t updateTimeout, electionTimeout, heartbeatTimeout;
     };
 }

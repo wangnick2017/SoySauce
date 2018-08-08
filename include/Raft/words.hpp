@@ -11,7 +11,7 @@ namespace Soy
 {
     namespace Raft
     {
-        const std::uint64_t broadcastTimeout = 20;
+        const std::uint64_t broadcastTimeout = 50;
 
         enum class RoleTh
         {
@@ -66,7 +66,7 @@ namespace Soy
             ServerID votedFor;
             std::vector<Entry> log;
 
-            Index commitIndex, lastApplied;
+            Index commitIndex = -1, lastApplied = -1;
 
             std::map<std::string, std::string> machine;
 

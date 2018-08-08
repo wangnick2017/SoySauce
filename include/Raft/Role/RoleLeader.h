@@ -22,7 +22,7 @@ namespace Soy
             bool Put(const std::string &key, const std::string &value) override;
             std::pair<bool, std::string> Get(const std::string &key) override;
 
-            void SendHeartbeat();
+            void SendHeartbeat() override;
             std::pair<RPCReply, bool> SendAppendEntries(
                 int sth, const Rpc::AppendEntriesMessage &m, uint64_t timeout = 0);
 

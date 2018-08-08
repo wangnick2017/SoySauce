@@ -26,6 +26,7 @@ namespace Soy
             virtual RPCReply RPCRequestVote(const RequestVoteRPC &message) = 0;
             virtual bool Put(const std::string &key, const std::string &value) = 0;
             virtual std::pair<bool, std::string> Get(const std::string &key) = 0;
+            virtual void SendHeartbeat();
 
         protected:
             State &state;

@@ -12,5 +12,9 @@ namespace Soy
             : state(s), info(i), transformer(t), client(c)
         {
         }
+
+        void RoleBase::SendHeartbeat()
+        {
+        }
     }
 }
