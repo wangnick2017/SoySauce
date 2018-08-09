@@ -1,7 +1,7 @@
 //
 // Created by wangnick on 8/6/18.
 //
-
+/*
 #include <thread>
 
 #include "Client.h"
@@ -56,7 +56,7 @@ int main()
     t3.join();
 */
     //test();
-
+/*
     std::string fileName;
     std::cin >> fileName;
     Server s(fileName);
@@ -95,11 +95,11 @@ int main()
         };
     }
 */
-
+/*
     return 0;
 }
+*/
 
-/*
 #include <algorithm>
 #include <iostream>
 #include <boost/chrono/duration.hpp>
@@ -147,7 +147,7 @@ int main() {
             std::this_thread::sleep_for(std::chrono::milliseconds(intRand(30, 50)));
             std::string key = {ch};
             std::string val = {(char)std::toupper(ch)};
-            client.Put(key, val, 50);
+            client.Put(key, val, 250);
         }));
     }
     for (auto &t : ts)
@@ -166,7 +166,7 @@ int main() {
             std::string key = {ch};
             std::string ans = {(char)std::toupper(ch)};
             try {
-                auto val = client.Get(key, 50);
+                auto val = client.Get(key, 250);
                 if (val != ans)
                     throw ;
             } catch (...) {
@@ -197,7 +197,6 @@ int main() {
     boost::this_thread::sleep_for(boost::chrono::seconds(2));
     server3.restart();
     boost::this_thread::sleep_for(boost::chrono::seconds(2));*/
-/*
+
     return 0;
 }
-*/

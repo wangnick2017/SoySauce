@@ -14,7 +14,7 @@
 #include "RaftRpcServer.hpp"
 #include "RaftRpcClient.hpp"
 
-#include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -26,6 +26,38 @@ namespace Soy
         {
             ServerInfo &info;
             State state;
+
+            void ReadConfig()
+            {
+                ifstream fin("config-" + info.localRaft.ToString());
+                if (fin.is_open())
+                {
+                    fin >> state.currentTerm;
+                    string sa, sb;
+                    fin >> sa;
+                    state.votedFor =  ServerID(sa);//
+                    Term et;
+                    while (fin >> et)
+                    {
+                        fin >> sa >> sb;
+                        state.log.emplace_back((Entry){sa, sb, et});
+                    }
+                }
+                else
+                    state.currentTerm = 1;
+                fin.close();
+            }
+            void SaveConfig()
+            {
+                ofstream fout("config-" + info.localRaft.ToString());
+                if (fout.is_open())
+                {
+                    fout << state.currentTerm << endl << state.votedFor.ToString() << endl;
+                    for (int i = 0, j = state.log.size(); i < j; ++i)
+                        fout << state.log[i].term << " " << state.log[i].op << " " << state.log[i].arg << endl;
+                }
+                fout.close();
+            }
 
 
             TaskQueue q;
@@ -76,6 +108,7 @@ namespace Soy
                                 q.qPut.front().value));
                             //lock.lock();
                             q.qPut.pop();
+                            SaveConfig();
                             break;
                         }
                         case TaskType::Get:
@@ -94,6 +127,7 @@ namespace Soy
                             t.pro.set_value(roles[(size_t)th]->RPCAppendEntries(t.message));
                             //lock.lock();
                             q.qApp.pop();
+                            SaveConfig();
                             break;
                         }
                         case TaskType::RequestVote:
@@ -103,6 +137,7 @@ namespace Soy
                             t.pro.set_value(roles[(size_t)th]->RPCRequestVote(t.message));
                             //lock.lock();
                             q.qVote.pop();
+                            SaveConfig();
                             break;
                         }
                         case TaskType::SendHeartbeat:
@@ -225,6 +260,7 @@ namespace Soy
                 raftRpcServer.BindAppendEntries(bind(&God::Impl::RPCAppendEntries, this, placeholders::_1));
                 raftRpcServer.BindRequestVote(bind(&God::Impl::RPCRequestVote, this, placeholders::_1));
                 runningThread = boost::thread(bind(&God::Impl::Run, this));
+                Transform(RoleTh::Follower, state.currentTerm);
             }
 
             Impl(ServerInfo &i) : info(i)
@@ -243,6 +279,7 @@ namespace Soy
                     state.nextIndex.push_back(0);
                     state.matchIndex.push_back(-1);
                 }
+                state.currentTerm = 1;
             }
         };
 
@@ -256,15 +293,20 @@ namespace Soy
         void God::Start()
         {
             pImpl->Init();
-            pImpl->Transform(RoleTh::Follower, 1);
+            pImpl->externalServer.Start(pImpl->info.localExternal.ToString());
+            pImpl->raftRpcServer.Start(pImpl->info.localRaft.ToString());
+        }
+
+        void God::Restart()
+        {
+            pImpl->ReadConfig();
+            pImpl->Init();
             pImpl->externalServer.Start(pImpl->info.localExternal.ToString());
             pImpl->raftRpcServer.Start(pImpl->info.localRaft.ToString());
         }
 
         void God::Shutdown()
         {
-            //if (th != RoleTh::Dead)
-             //   roles[(size_t)th]->Leave();
             pImpl->externalServer.Shutdown();
             pImpl->raftRpcServer.Shutdown();
             if (pImpl->th != RoleTh::Dead)

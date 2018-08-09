@@ -98,7 +98,7 @@ namespace Soy
                     *message.add_entries() = move(e);
                 }
                 f[i] = (boost::async(move(boost::bind(
-                    &RoleLeader::SendAppendEntries, this, i, message, broadcastTimeout * 3))));
+                    &RoleLeader::SendAppendEntries, this, i, message, broadcastTimeout * 4))));
             }
             //BOOST_LOG_TRIVIAL(info) << "put sent";
             int may = 0xfffff, cnt = 1;
@@ -126,6 +126,8 @@ namespace Soy
                 ++state.lastApplied;
                 state.machine[state.log[state.lastApplied].op] = state.log[state.lastApplied].arg;
             }
+            BOOST_LOG_TRIVIAL(info) << "tell" + to_string(state.nextIndex[0]) + to_string(state.nextIndex[1]) + to_string(state.nextIndex[2]);
+            BOOST_LOG_TRIVIAL(info) << "tell" + to_string(state.matchIndex[0]) + to_string(state.matchIndex[1]) + to_string(state.matchIndex[2]);
             return state.commitIndex == state.log.size() - 1;
         }
         template <class Tp>
@@ -154,6 +156,7 @@ namespace Soy
                         }
                         else
                         {
+                            BOOST_LOG_TRIVIAL(info) << "dog" + to_string(state.nextIndex[sth]);
                             if (state.nextIndex[sth] == 0)
                             {
                                 continue;

@@ -53,17 +53,21 @@ namespace Soy
             }
             if (message.term > state.currentTerm)
                 state.currentTerm = message.term;
-            if (message.prevLogIndex >= (int64_t)state.log.size() || message.prevLogIndex >= 0 &&
-                state.log[message.prevLogIndex].term != message.prevLogTerm)
+            if (message.entries.size() > 0)
             {
-                pImpl->timer.Restart();
-                BOOST_LOG_TRIVIAL(info) << "Godddddd!";
-                return RPCReply(state.currentTerm, false);
+                if (message.prevLogIndex >= (int64_t)state.log.size() || message.prevLogIndex >= 0 &&
+                    state.log[message.prevLogIndex].term != message.prevLogTerm)
+                {
+                    pImpl->timer.Restart();
+                    BOOST_LOG_TRIVIAL(info)
+                        << "Godddddd! " + to_string(message.prevLogIndex) + to_string(state.log.size());
+                    return RPCReply(state.currentTerm, false);
+                }
+                while ((int64_t)state.log.size() - 1 > message.prevLogIndex)
+                    state.log.pop_back();
+                for (int i = (int)message.entries.size() - 1; i >= 0; --i)
+                    state.log.push_back(message.entries[i]);
             }
-            while ((int64_t)state.log.size() - 1 > message.prevLogIndex)
-                state.log.pop_back();
-            for (int i = (int)message.entries.size() - 1; i >= 0; --i)
-                state.log.push_back(message.entries[i]);
             if (message.leaderCommit > state.commitIndex)
                 state.commitIndex = min(message.leaderCommit, (int64_t)state.log.size() - 1);
             while (state.commitIndex > state.lastApplied)

@@ -68,9 +68,9 @@ namespace Soy
 
             Index commitIndex = -1, lastApplied = -1;
 
-            std::map<std::string, std::string> machine;
-
             std::vector<Index> nextIndex, matchIndex;
+
+            std::map<std::string, std::string> machine;
         };
     }
 }

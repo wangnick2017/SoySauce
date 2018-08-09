@@ -36,6 +36,12 @@ namespace Soy
         pImpl->god.Start();
     }
 
+    void Server::Restart()
+    {
+        srand(time(NULL));
+        pImpl->god.Restart();
+    }
+
     void Server::Shutdown()
     {
         pImpl->god.Shutdown();
