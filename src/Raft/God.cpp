@@ -50,8 +50,7 @@ namespace Soy
                         {
                         case TaskType::TransForm:
                         {
-                            const auto t = q.qTrans.front();
-                            q.qTrans.pop();
+                            const auto &t = q.qTrans.front();
                             lock.unlock();
                             if (th != RoleTh::Dead)
                                 roles[(size_t)th]->Leave();
@@ -65,34 +64,54 @@ namespace Soy
                                 roles[(size_t)th]->Init();
                             }
                             lock.lock();
+                            q.qTrans.pop();
                             break;
                         }
                         case TaskType::Put:
+                        {
+                            const auto &t = q.qPut.front();
+                            //lock.unlock();
                             q.qPut.front().pro.set_value(roles[(size_t)th]->Put(
                                 q.qPut.front().key,
                                 q.qPut.front().value));
+                            //lock.lock();
                             q.qPut.pop();
                             break;
+                        }
                         case TaskType::Get:
-                            q.qGet.front().pro.set_value(roles[(size_t)th]->Get(
-                                q.qGet.front().key));
+                        {
+                            const auto &t = q.qGet.front();
+                            //lock.unlock();
+                            t.pro.set_value(roles[(size_t)th]->Get(t.key));
+                            //lock.lock();
                             q.qGet.pop();
                             break;
+                        }
                         case TaskType::AppendEntries:
-                            q.qApp.front().pro.set_value(roles[(size_t)th]->RPCAppendEntries(
-                                q.qApp.front().message));
+                        {
+                            const auto &t = q.qApp.front();
+                            //lock.unlock();
+                            t.pro.set_value(roles[(size_t)th]->RPCAppendEntries(t.message));
+                            //lock.lock();
                             q.qApp.pop();
                             break;
+                        }
                         case TaskType::RequestVote:
-                            q.qVote.front().pro.set_value(roles[(size_t)th]->RPCRequestVote(
-                                q.qVote.front().message));
+                        {
+                            const auto &t = q.qVote.front();
+                            //lock.unlock();
+                            t.pro.set_value(roles[(size_t)th]->RPCRequestVote(t.message));
+                            //lock.lock();
                             q.qVote.pop();
                             break;
+                        }
                         case TaskType::SendHeartbeat:
+                            //lock.unlock();
                             if (th == RoleTh::Leader)
                             {
                                 roles[(size_t)th]->SendHeartbeat();
                             }
+                            //lock.lock();
                             break;
                         }
                         q.tasks.pop();

@@ -123,9 +123,8 @@ namespace Soy
                 state.commitIndex = may;
             while (state.commitIndex > state.lastApplied)
             {
-                if (state.lastApplied >= 0)
-                    state.machine[state.log[state.lastApplied].op] = state.log[state.lastApplied].arg;
                 ++state.lastApplied;
+                state.machine[state.log[state.lastApplied].op] = state.log[state.lastApplied].arg;
             }
             return state.commitIndex == state.log.size() - 1;
         }
@@ -155,9 +154,11 @@ namespace Soy
                         }
                         else
                         {
+                            if (state.nextIndex[sth] == 0)
+                            {
+                                continue;
+                            }
                             --state.nextIndex[sth];
-                            if (state.nextIndex[sth] < 0)
-                                BOOST_LOG_TRIVIAL(info) << "Goddddddd!";
                             message.set_prevlogindex(state.nextIndex[sth] - 1);
                             if (state.nextIndex[sth] > 0)
                                 message.set_prevlogterm(state.log[state.nextIndex[sth] - 1].term);
@@ -170,7 +171,8 @@ namespace Soy
                     }
                     else
                     {
-                        state.matchIndex[sth] = state.nextIndex[sth] - 1;
+                        state.matchIndex[sth] = state.log.size() - 1;
+                        state.nextIndex[sth] = state.matchIndex[sth] + 1;
                         return make_pair(RPCReply(reply.term(), true), true);
                     }
                 }

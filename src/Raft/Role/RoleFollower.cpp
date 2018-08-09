@@ -48,6 +48,7 @@ namespace Soy
             //BOOST_LOG_TRIVIAL(info) << "follower deal append";
             if (message.term < state.currentTerm)
             {
+                BOOST_LOG_TRIVIAL(info) << "God!";
                 return RPCReply(state.currentTerm, false);
             }
             if (message.term > state.currentTerm)
@@ -56,6 +57,7 @@ namespace Soy
                 state.log[message.prevLogIndex].term != message.prevLogTerm)
             {
                 pImpl->timer.Restart();
+                BOOST_LOG_TRIVIAL(info) << "Godddddd!";
                 return RPCReply(state.currentTerm, false);
             }
             while ((int64_t)state.log.size() - 1 > message.prevLogIndex)
@@ -66,9 +68,8 @@ namespace Soy
                 state.commitIndex = min(message.leaderCommit, (int64_t)state.log.size() - 1);
             while (state.commitIndex > state.lastApplied)
             {
-                if (state.lastApplied >= 0)
-                    state.machine[state.log[state.lastApplied].op] = state.log[state.lastApplied].arg;
                 ++state.lastApplied;
+                state.machine[state.log[state.lastApplied].op] = state.log[state.lastApplied].arg;
             }
             pImpl->timer.Restart();
             return RPCReply(state.currentTerm, true);

@@ -68,11 +68,11 @@ namespace Soy
                     if (result.first.ans)
                         ++pImpl->sum;
                     else if (result.first.term > message.term())
-                        transformer.TransformSafe(RoleTh::Follower, result.first.term);
+                        transformer.Transform(RoleTh::Follower, result.first.term);
                 }
             }
             if (pImpl->sum * 2 > size)
-                transformer.TransformSafe(RoleTh::Leader, state.currentTerm);
+                transformer.Transform(RoleTh::Leader, state.currentTerm);
             //BOOST_LOG_TRIVIAL(info) << "init end";
         }
 
