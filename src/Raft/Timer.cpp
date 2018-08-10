@@ -32,7 +32,6 @@ namespace Soy
 
         void Timer::Reset(uint64_t p, bool r)
         {
-            //BOOST_LOG_TRIVIAL(info) << "timer timeset=" + to_string(p);
             pImpl->period = p;
             pImpl->repeat = r;
         }
@@ -48,14 +47,12 @@ namespace Soy
                     {
                         boost::this_thread::restore_interruption ri(di);
                         boost::this_thread::sleep_for(milliseconds(period));
+                        out();
                     }
                     catch (boost::thread_interrupted)
                     {
-                        //BOOST_LOG_TRIVIAL(info) << "timer interrupted";
                         return;
                     }
-                    out();
-                    //BOOST_LOG_TRIVIAL(info) << "timer no interrupted, go on-ed";
                 }
                 while (repeat);
             });

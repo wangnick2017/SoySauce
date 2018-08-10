@@ -27,8 +27,6 @@ namespace Soy
         {
             pImpl->timer.Bind([this]
             {
-                //BOOST_LOG_TRIVIAL(info) << "heartbeat is sending now";
-                //SendHeartbeat();
                 transformer.Sender();
             });
         }
@@ -37,7 +35,6 @@ namespace Soy
 
         void RoleLeader::Init()
         {
-            BOOST_LOG_TRIVIAL(info) << "leader init " + to_string(state.currentTerm);
             int size = state.nextIndex.size();
             for (int i = 0; i < size; ++i)
             {
@@ -49,15 +46,20 @@ namespace Soy
             pImpl->timer.Start();
         }
 
+        void RoleLeader::ReInit(Term t, const string &s)
+        {
+            state.currentTerm = t;
+            state.votedFor = ServerID(s);
+            Init();
+        }
+
         void RoleLeader::Leave()
         {
             pImpl->timer.Stop();
-            BOOST_LOG_TRIVIAL(info) << "leader leave";
         }
 
         RPCReply RoleLeader::RPCAppendEntries(const AppendEntriesRPC &message)
         {
-            //BOOST_LOG_TRIVIAL(info) << "leader deal append";
             if (message.term > state.currentTerm)
                 transformer.TransformSafe(RoleTh::Follower, message.term);
             return RPCReply(state.currentTerm, false);
@@ -65,7 +67,6 @@ namespace Soy
 
         RPCReply RoleLeader::RPCRequestVote(const RequestVoteRPC &message)
         {
-            //BOOST_LOG_TRIVIAL(info) << "leader deal request";
             if (message.term > state.currentTerm)
                 transformer.TransformSafe(RoleTh::Follower, message.term);
             return RPCReply(state.currentTerm, false);
@@ -73,15 +74,13 @@ namespace Soy
 
         bool RoleLeader::Put(const string &key, const string &value)
         {
-            BOOST_LOG_TRIVIAL(info) << "leader deal put";
             state.log.push_back((Entry){key, value, state.currentTerm});
             int size = (int)client.Stubs.size();
-            boost::future<pair<RPCReply, bool>> f[10];
+            boost::future<pair<RPCReply, bool>> f[ServerNumber];
             for (int i = 0; i < size; ++i)
             {
                 if (i == client.LocalNumber)
                     continue;
-                BOOST_LOG_TRIVIAL(info) << "put senting - " + to_string(i);
                 Rpc::AppendEntriesMessage message;
                 message.set_term(state.currentTerm);
                 message.set_leaderid(info.localRaft.ToString());
@@ -100,14 +99,12 @@ namespace Soy
                 f[i] = (boost::async(move(boost::bind(
                     &RoleLeader::SendAppendEntries, this, i, message, broadcastTimeout * 4))));
             }
-            //BOOST_LOG_TRIVIAL(info) << "put sent";
             int may = 0xfffff, cnt = 1;
             for (int i = 0; i < size; ++i)
             {
                 if (i == client.LocalNumber)
                     continue;
                 const auto result = f[i].get();
-                //BOOST_LOG_TRIVIAL(info) << "put sent and get++";
                 if (result.second)
                 {
                     may = min(may, (int)state.matchIndex[i]);
@@ -126,8 +123,6 @@ namespace Soy
                 ++state.lastApplied;
                 state.machine[state.log[state.lastApplied].op] = state.log[state.lastApplied].arg;
             }
-            BOOST_LOG_TRIVIAL(info) << "tell" + to_string(state.nextIndex[0]) + to_string(state.nextIndex[1]) + to_string(state.nextIndex[2]);
-            BOOST_LOG_TRIVIAL(info) << "tell" + to_string(state.matchIndex[0]) + to_string(state.matchIndex[1]) + to_string(state.matchIndex[2]);
             return state.commitIndex == state.log.size() - 1;
         }
         template <class Tp>
@@ -156,19 +151,16 @@ namespace Soy
                         }
                         else
                         {
-                            BOOST_LOG_TRIVIAL(info) << "dog" + to_string(state.nextIndex[sth]);
                             if (state.nextIndex[sth] == 0)
-                            {
                                 continue;
-                            }
                             --state.nextIndex[sth];
                             message.set_prevlogindex(state.nextIndex[sth] - 1);
                             if (state.nextIndex[sth] > 0)
                                 message.set_prevlogterm(state.log[state.nextIndex[sth] - 1].term);
                             Rpc::Entry e;
                             e.set_term(state.currentTerm);
-                            e.set_key(state.log.at(state.nextIndex.at(sth)).op);
-                            e.set_args(state.log.at(state.nextIndex.at(sth)).arg);
+                            e.set_key(state.log[state.nextIndex[sth]].op);
+                            e.set_args(state.log[state.nextIndex[sth]].arg);
                             *message.add_entries() = move(e);
                         }
                     }
@@ -186,7 +178,6 @@ namespace Soy
 
         pair<bool, string> RoleLeader::Get(const string &key)
         {
-            BOOST_LOG_TRIVIAL(info) << "leader deal get";
             if (state.machine.find(key) == state.machine.end())
                 return make_pair(false, "");
             return make_pair(true, state.machine[key]);
@@ -200,7 +191,7 @@ namespace Soy
             message.set_leadercommit(state.commitIndex);
             message.clear_entries();
             int size = (int)client.Stubs.size();
-            boost::future<pair<RPCReply, bool>> f[10];
+            boost::future<pair<RPCReply, bool>> f[ServerNumber];
             for (int i = 0; i < size; ++i)
             {
                 if (i == client.LocalNumber)
@@ -216,7 +207,6 @@ namespace Soy
                 if (i == client.LocalNumber)
                     continue;
                 const auto &result = f[i].get();
-                //BOOST_LOG_TRIVIAL(info) << "put sent and get++";
                 if (result.first.term > state.currentTerm)
                 {
                     transformer.TransformSafe(RoleTh::Follower, result.first.term);

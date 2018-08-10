@@ -21,6 +21,7 @@ namespace Soy
             RoleBase(State &s, ServerInfo &i, Transformer &t, Rpc::RaftRpcClient &c);
             virtual ~RoleBase() = default;
             virtual void Init() = 0;
+            virtual void ReInit(Term t, const std::string &s) = 0;
             virtual void Leave() = 0;
             virtual RPCReply RPCAppendEntries(const AppendEntriesRPC &message) = 0;
             virtual RPCReply RPCRequestVote(const RequestVoteRPC &message) = 0;

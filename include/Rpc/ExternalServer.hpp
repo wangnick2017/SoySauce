@@ -75,7 +75,6 @@ namespace Soy
 
             void Start(std::string address)
             {
-                BOOST_LOG_TRIVIAL(info) << "externalserver started";
                 ServerBuilder builder;
                 builder.AddListeningPort(address, grpc::InsecureServerCredentials());
                 builder.RegisterService(&impl);
@@ -91,7 +90,6 @@ namespace Soy
                 if (server)
                     server->Shutdown();
                 runningThread.join();
-                BOOST_LOG_TRIVIAL(info) << "external server shutdown";
             }
 
         private:

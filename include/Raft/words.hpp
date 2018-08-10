@@ -12,6 +12,7 @@ namespace Soy
     namespace Raft
     {
         const std::uint64_t broadcastTimeout = 50;
+        const int ServerNumber = 3;
 
         enum class RoleTh
         {

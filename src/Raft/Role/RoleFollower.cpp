@@ -22,7 +22,6 @@ namespace Soy
         {
             pImpl->timer.Bind([this]
             {
-                //BOOST_LOG_TRIVIAL(info) << "follower is to update";
                 transformer.Transform(RoleTh::Candidate, state.currentTerm + 1);
             });
         }
@@ -31,8 +30,15 @@ namespace Soy
 
         void RoleFollower::Init()
         {
-            BOOST_LOG_TRIVIAL(info) << "follower init " + to_string(state.currentTerm);
             state.votedFor = ServerID();
+            pImpl->timer.Reset(Random(info.updateTimeout, info.updateTimeout * 2));
+            pImpl->timer.Start();
+        }
+
+        void RoleFollower::ReInit(Term t, const string &s)
+        {
+            state.currentTerm = t;
+            state.votedFor = ServerID(s);
             pImpl->timer.Reset(Random(info.updateTimeout, info.updateTimeout * 2));
             pImpl->timer.Start();
         }
@@ -40,15 +46,12 @@ namespace Soy
         void RoleFollower::Leave()
         {
             pImpl->timer.Stop();
-            BOOST_LOG_TRIVIAL(info) << "follower leave";
         }
 
         RPCReply RoleFollower::RPCAppendEntries(const AppendEntriesRPC &message)
         {
-            //BOOST_LOG_TRIVIAL(info) << "follower deal append";
             if (message.term < state.currentTerm)
             {
-                BOOST_LOG_TRIVIAL(info) << "God!";
                 return RPCReply(state.currentTerm, false);
             }
             if (message.term > state.currentTerm)
@@ -59,8 +62,6 @@ namespace Soy
                     state.log[message.prevLogIndex].term != message.prevLogTerm)
                 {
                     pImpl->timer.Restart();
-                    BOOST_LOG_TRIVIAL(info)
-                        << "Godddddd! " + to_string(message.prevLogIndex) + to_string(state.log.size());
                     return RPCReply(state.currentTerm, false);
                 }
                 while ((int64_t)state.log.size() - 1 > message.prevLogIndex)
@@ -81,7 +82,6 @@ namespace Soy
 
         RPCReply RoleFollower::RPCRequestVote(const RequestVoteRPC &message)
         {
-            //BOOST_LOG_TRIVIAL(info) << "follower deal request";
             if (message.term < state.currentTerm)
             {
                 return RPCReply(state.currentTerm, false);
@@ -95,7 +95,8 @@ namespace Soy
             if ((v.empty() || v == message.candidateID.ToString()) &&
                 (message.lastLogIndex == -1 && state.log.size() == 0 ||
                  !state.log.empty() && message.lastLogTerm > state.log[state.log.size() - 1].term ||
-                 !state.log.empty() && message.lastLogTerm == state.log[state.log.size() - 1].term && message.lastLogIndex >= state.log.size() - 1))
+                 !state.log.empty() && message.lastLogTerm == state.log[state.log.size() - 1].term &&
+                 message.lastLogIndex >= state.log.size() - 1))
             {
                 state.votedFor = message.candidateID;
                 pImpl->timer.Restart();
@@ -107,13 +108,11 @@ namespace Soy
 
         bool RoleFollower::Put(const string &key, const string &value)
         {
-            //BOOST_LOG_TRIVIAL(info) << "follower deal put";
             return false;
         }
 
         pair<bool, string> RoleFollower::Get(const string &key)
         {
-            //BOOST_LOG_TRIVIAL(info) << "follower deal get";
             return make_pair(false, "");
         }
     }

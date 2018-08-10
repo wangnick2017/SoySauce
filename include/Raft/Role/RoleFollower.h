@@ -16,6 +16,7 @@ namespace Soy
             RoleFollower(State &s, ServerInfo &i, Transformer &t, Rpc::RaftRpcClient &c);
             ~RoleFollower() override;
             void Init() override;
+            void ReInit(Term t, const std::string &s) override;
             void Leave() override;
             RPCReply RPCAppendEntries(const AppendEntriesRPC &message) override;
             RPCReply RPCRequestVote(const RequestVoteRPC &message) override;

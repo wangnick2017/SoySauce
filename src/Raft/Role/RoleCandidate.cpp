@@ -26,7 +26,6 @@ namespace Soy
         {
             pImpl->timer.Bind([this]
             {
-                //BOOST_LOG_TRIVIAL(info) << "candidate to next";
                 transformer.Transform(RoleTh::Candidate, state.currentTerm + 1);
             });
         }
@@ -35,7 +34,6 @@ namespace Soy
 
         void RoleCandidate::Init()
         {
-            BOOST_LOG_TRIVIAL(info) << "candidate init " + to_string(state.currentTerm);
             state.votedFor = info.localRaft;
             pImpl->sum = 1;
             pImpl->timer.Reset(Random(info.electionTimeout, info.electionTimeout * 2));
@@ -47,7 +45,7 @@ namespace Soy
                 message.set_lastlogterm(state.log[state.log.size() - 1].term);
             message.set_candidateid(info.localRaft.ToString());
             int size = (int)client.Stubs.size();
-            boost::future<pair<RPCReply, bool>> f[10];
+            boost::future<pair<RPCReply, bool>> f[ServerNumber];
             for (int i = 0; i < size; ++i)
             {
                 if (i == client.LocalNumber)
@@ -55,36 +53,35 @@ namespace Soy
                 f[i] = (boost::async(move(boost::bind(
                     &Rpc::RaftRpcClient::SendRequestVote, &client, i, message))));
             }
-            //BOOST_LOG_TRIVIAL(info) << "sent";
             for (int i = 0; i < size; ++i)
             {
                 if (i == client.LocalNumber)
                     continue;
-                //BOOST_LOG_TRIVIAL(info) << "before get";
                 const auto &result = f[i].get();
-                //BOOST_LOG_TRIVIAL(info) << "get++" + to_string(result.second);
                 if (result.second)
                 {
                     if (result.first.ans)
                         ++pImpl->sum;
                     else if (result.first.term > message.term())
-                        transformer.Transform(RoleTh::Follower, result.first.term);
+                        transformer.TransformSafe(RoleTh::Follower, result.first.term);
                 }
             }
             if (pImpl->sum * 2 > size)
-                transformer.Transform(RoleTh::Leader, state.currentTerm);
-            //BOOST_LOG_TRIVIAL(info) << "init end";
+                transformer.TransformSafe(RoleTh::Leader, state.currentTerm);
+        }
+
+        void RoleCandidate::ReInit(Term t, const string &s)
+        {
+            Init();
         }
 
         void RoleCandidate::Leave()
         {
             pImpl->timer.Stop();
-            BOOST_LOG_TRIVIAL(info) << "candidate leave";
         }
 
         RPCReply RoleCandidate::RPCAppendEntries(const AppendEntriesRPC &message)
         {
-            //BOOST_LOG_TRIVIAL(info) << "candidate deal append";
             if (message.term > state.currentTerm)
                 transformer.TransformSafe(RoleTh::Follower, message.term);
             return RPCReply(state.currentTerm, false);
@@ -92,7 +89,6 @@ namespace Soy
 
         RPCReply RoleCandidate::RPCRequestVote(const RequestVoteRPC &message)
         {
-            //BOOST_LOG_TRIVIAL(info) << "candidate deal request";
             if (message.term > state.currentTerm)
                 transformer.TransformSafe(RoleTh::Follower, message.term);
             return RPCReply(state.currentTerm, false);
@@ -100,13 +96,11 @@ namespace Soy
 
         bool RoleCandidate::Put(const string &key, const string &value)
         {
-            //BOOST_LOG_TRIVIAL(info) << "candidate deal put";
             return false;
         }
 
         pair<bool, string> RoleCandidate::Get(const string &key)
         {
-            //BOOST_LOG_TRIVIAL(info) << "candidate deal get";
             return make_pair(false, "");
         }
     }

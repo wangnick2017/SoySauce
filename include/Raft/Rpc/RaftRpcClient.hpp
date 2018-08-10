@@ -40,15 +40,12 @@ namespace Soy
                     do
                     {
                         grpc::ClientContext ctx;
-                        ctx.set_deadline(std::chrono::system_clock::now()+std::chrono::milliseconds(broadcastTimeout));
+                        ctx.set_deadline(
+                            std::chrono::system_clock::now() + std::chrono::milliseconds(broadcastTimeout));
                         Rpc::Reply reply;
-                        //BOOST_LOG_TRIVIAL(info) << "hahaha";
                         auto status = Stubs[sth]->AppendEntries(&ctx, message, &reply);
                         if (status.ok())
                             return std::make_pair(RPCReply(reply.term(), reply.ans()), status.ok());
-                        else
-                            BOOST_LOG_TRIVIAL(info) << status.error_message();
-                        //BOOST_LOG_TRIVIAL(info) << "hehehe";
                     }
                     while (repeat && timeFrom(startTimePoint) <= timeout);
                     return std::make_pair(RPCReply(0, false), false);
@@ -57,13 +54,9 @@ namespace Soy
                 std::pair<RPCReply, bool> SendRequestVote(int sth, const Rpc::RequestVoteMessage &message)
                 {
                     grpc::ClientContext ctx;
-                    ctx.set_deadline(std::chrono::system_clock::now()+std::chrono::milliseconds(broadcastTimeout));
+                    ctx.set_deadline(std::chrono::system_clock::now() + std::chrono::milliseconds(broadcastTimeout));
                     Rpc::Reply reply;
-                    //BOOST_LOG_TRIVIAL(info) << "aaaaaaaaaaaaaaaaaaaaaaa?";
                     auto status = Stubs[sth]->RequestVote(&ctx, message, &reply);
-                    //BOOST_LOG_TRIVIAL(info) << "bbbbbbbbbbbbbbbbbbbbbbb.";
-                    if (!status.ok())
-                        BOOST_LOG_TRIVIAL(info) << (int)status.error_code();
                     return std::make_pair(RPCReply(reply.term(), reply.ans()), status.ok());
                 }
             };
